@@ -11,7 +11,7 @@ type: "lecture"
 <br>
 <br>
 
-### Sasquatch
+### Cohort
 
 
 ![thecustomer](https://i.imgur.com/hi5YlU7.png)

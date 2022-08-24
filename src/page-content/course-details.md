@@ -4,36 +4,33 @@ title: "Course Details"
 
 # Course Details
 
+### Cohort YETI
 <br>
 <br>
 
 ## Schedule and Holidays
 
-- Start date: 02/22/2022
-- End date: 08/17/2022
+- Start date: 08/30/2022
+- End date: 03/14/2022
 - Tuesday & Wednesday 6:30pm - 10:45pm PST
 - (Every other) Thursday 6:30pm - 8:30pm PST
 - Saturday 10:00am - 6:00pm PST
-- Holidays: 
-  * May 28th
-  * June 18th
-  * July 2nd
+- Holidays: TBD
 
 <br>
 <br>
 
 ## Instructors
 
-| Name           | Role                    | Office Hours       |
+| Name           | Role                    | Office Hours       | 
 | -------------- | ----------------------- | -------------------|
-| Lauren Perez (she/her)  | Lead Instructor         | Mondays 8:00pm - 9:00pm PST & Teaching Saturdays 5:00pm - 6:00pm PST
-| Shaw Kitajima (he/him)  | Lead Instructor         | Thursdays 6:30pm - 7:30pm / 8:30pm - 9:30pm (if Outcomes) & Teaching Saturdays 5:00pm - 6:00pm PST
-| Alex Merced (he/him)   | Lead Instructor         | Teaching Saturdays 5:00pm - 6:00pm PST
-| Yanny Castrillon (he/him)  | Instructional Associate | Mondays 10:00am - 11:00am PST
-| Katie Pestotnik (she/her)   | Instructional Associate | Sundays 4:00pm - 6:00pm PST
-| Denton Josey (he/him)   | Outcomes Coach          | Message as needed
-| Danielle Zarachowicz (she/her)| Student Success Specialist | Message as needed
-| Em Gordon (she/her)| Student Success Specialist | Message as needed
+| Lauren Perez (she/her)       | Lead Instructor             | TBD
+| Nathaniel Stack (he/him)     | Lead Instructor             | TBD
+| TBD                          | Lead Instructor             | TBD
+| Katie Pestotnik (she/her)    | Instructional Associate     | Sundays 4:00pm - 6:00pm PST
+| Tanise Williams (she/her)    | Instructional Associate     | TBD
+| John Bacolores (he/him)      | Outcomes Coach              | Message as needed
+| Dominique Garcia (she/they)  | Student Success Specialist  | Message as needed
 
 <br>
 <br>
@@ -42,26 +39,28 @@ title: "Course Details"
 
 Class slack channels:
 
-- **`seirflex-222-classroom`**
-- **`seirflex-222-outcomes`**
-- **`seirflex-222-partytime`**
-- **`seirflex-222-resources`**
-- **`seirflex-222-help`**
+- **`seirflex-830-classroom`**
+- **`seirflex-830-help`**
+- **`seirflex-830-homework`**
+- **`seirflex-830-outcomes`**
+- **`seirflex-830-partytime`**
+- **`seirflex-830-resources`**
 
 <br>
 <br>
 
-##### Send us a message if:
+##### Required Communication: 
 
 - You know in advance that you will be missing a class or multiple classes
 - You're sick, overloaded at work, or something comes up and you can't make it to class last minute
-- You will be 10 or more minutes late to class
+- You will be 10 or more minutes late
 - You need to leave early
 - You will be submitting your homework late
-- We will get back to you within 24 hrs on weekdays! On weekends, expect responses by Monday morning!
-- You are having trouble completing your assignments
 - You're struggling with the material
 - You'd like some bonus tasks
+
+
+Expected response time for all communication is 24hrs during the week. Monday morning for all weekend messages. 
 
 **Remember we are here to help you! Please reach out with any questions**
 
@@ -85,21 +84,12 @@ Class slack channels:
 <br>
 <br>
 
-## Course Overview
-
-Learn to code in JavaScript, the native language of the web used by developers the world over.
-
-Build a single-page web app that persists user data and connects to services like Twitter and Facebook via APIs.
-
-Learn the fundamentals of object-oriented programming while receiving support from industry experts and a community of peers.
-
-<br>
-<br>
-<br>
-
 ## Graduation Requirements
 
-You will be required to meet 80% completion of homework assignments at the end of each unit, and complete all project requirements. As this is an intense, fast-paced course, only 3 absences will be allowed.
+- You are required to meet 80% completion of all homework deliverables by the end of each unit
+- You cannot miss more than 24 hours of class and outcomes during the cohort
+- All Projects must recieve a passing score
+- You are allowed 1 late submit OR resubmission of a non passing project
 
 <br>
 <br>
@@ -120,24 +110,6 @@ You will be required to meet 80% completion of homework assignments at the end o
 
 <br>
 <br>
-<br>
-
-## Managing your Projects
-
-- At the end of each unit, you will create a repo in your personal github for your project i.e. -
-  Unit One - Project One 
-  Unit Two - Project Two  ...etc
-- Pushing your labs/homework to your personal github is not recommended
-
-<br>
-<br>
-
-## What We Expect From You
-
-<br>
-
-### Minimum to Graduate
-
 <br>
 
 #### HOMEWORK
@@ -165,9 +137,9 @@ For an assignment to be marked complete, students must complete 100% of the mini
 
 #### ATTENDANCE
 
-- Have at least an 80% attendance record (you’ve missed 24 hours total or less of class)
+- Have at least an **80% attendance** record ( you’ve missed **24 hours** total or less of class )
 - Attendance is taken at the start of every class meeting
-- 3 late arrivals &/or early departures will constitute one absence
+- 3 late arrivals and/or early departures will constitute one absence ( 4 hours )
 - Unexcused absences are not permitted unless it’s an exceptional circumstance
 - Students who have been excessively absent may be withdrawn
 
@@ -178,15 +150,6 @@ Unexcused absences are not allowed. If you will have to miss a class, notify the
 Students who have fulfilled all of the above requirements will receive a digital certificate of completion via email 1 week after to the course’s end.
 
 Please feel free to contact your instructional team, or a member from student experience if you have questions regarding this policy.
-
-<br>
-<br>
-
-## Additional Expectations
-
-- Take initiative.
-- Ask for help.
-- Practice, practice, practice.
 
 <br>
 <br>
@@ -215,6 +178,3 @@ Let's all agree to:
 <br>
 <br>
 
-## Group Work Formats
-
-We will be using breakout rooms to get more personalized learning environments. Make sure to get to know your classmates and use each other as teachers!

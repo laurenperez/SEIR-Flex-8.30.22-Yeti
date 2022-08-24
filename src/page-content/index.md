@@ -2,11 +2,11 @@
 title: "Home"
 ---
 
-# Welcome to SEIR - "Sasquatch"  2/22/2022 - 8/17/2022
+# Welcome to SEIR - "YETI"  8/30/2022 - 3/14/2023
 
 This website contains assignments and materials for General Assembly's Software Engineering Immersive Flex Program.
 
-![Sasquatch](https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80)
+[Yeti](https://metro.co.uk/wp-content/uploads/2014/03/wpid-yetipicture_450x300.jpg?quality=90&strip=all&zoom=1&resize=450%2C300)
 
 <br>
 
@@ -16,7 +16,7 @@ Curriculum schedule and content is subject to change at the instructor's discret
 <br>
 <br>
 
-### [Class Recordings](https://docs.google.com/spreadsheets/d/1imTR2N232tKbfGeQvPmtRcP_wK2OJqNO6aa4MRUdEO0/edit?usp=sharing)
+### [Class Recordings](#) - Need Classroom Zoom Created
 
 <br>
 <br>
@@ -25,9 +25,9 @@ Curriculum schedule and content is subject to change at the instructor's discret
 
 Here you'll find
 
-  - Video on your day to day tools (Git, VSCode, Bash)
+  - Videos on your day to day tools (Git, VSCode, Bash)
   - Bonus Lessons on Different Languages, Frameworks and more
-  - Cheatsheets for quick reference on course content
+  - Cheatsheets for quick references on course content
   - Student Handbook
   - Much more!
 
@@ -35,13 +35,18 @@ Here you'll find
 <br>
 
 ### Unit Project Requirements:
-| Unit | Rubric                                                                      |
+| Unit | Link to Rubric                                                                      |
 | ---- | --------------------------------------------------------------------------- |
-| 1    | Project 1 - [Frontend Fundamentals: Your First Web Application](/unit-projects/unit-one-project-requirements/)           |
-| 2    | Project 2 - [Backend Fundamentals: Your First Full Stack Application](/unit-projects/unit-two-project-requirements)     |
-| 3    | Project 3 - [React: A MERN Stack Application](/unit-projects/unit-three-project-requirements) - Group Project  |
-| 4    | Project 4 - [Python: Build a Full-stack Django App](/unit-projects/unit-four-project-requirements-1) - Individual or Group        |
-| 5    | Capstone - [Capstone Project: Choose a New Technology](/unit-projects/capstone-project-requirements)     |
+| 1    | Project 1 - Frontend Fundamentals: Your First Web Application      |
+<!-- | 1    | Project 1 - [Frontend Fundamentals: Your First Web Application](/unit-projects/unit-one-project-requirements/)           | -->
+| 2    |Project 2 - Backend Fundamentals: Your First Full Stack Application |
+<!-- | 2    | Project 2 - [Backend Fundamentals: Your First Full Stack Application](/unit-projects/unit-two-project-requirements)     | -->
+| 3    |Project 3 - React: A MERN Stack Application |
+<!-- | 3    | Project 3 - [React: A MERN Stack Application](/unit-projects/unit-three-project-requirements) - Group Project  | -->
+| 4    |Project 4 - Python: Build a Full-stack Django App |
+<!-- | 4    | Project 4 - [Python: Build a Full-stack Django App](/unit-projects/unit-four-project-requirements-1) - Individual or Group        | -->
+| 5    |Capstone - Capstone Project: Choose a New Technology |
+<!-- | 5    | Capstone - [Capstone Project: Choose a New Technology](/unit-projects/capstone-project-requirements)     | -->
 
 
 <br>
