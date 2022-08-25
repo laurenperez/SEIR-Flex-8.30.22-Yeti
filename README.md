@@ -3,9 +3,12 @@
 ![Yeti](https://metro.co.uk/wp-content/uploads/2014/03/wpid-yetipicture_450x300.jpg?quality=90&strip=all&zoom=1&resize=450%2C300)
 
 
-## Live course Site ->  
+### Live course Site
 
 https://seir-830-yeti.netlify.app
+
+<br>
+<br>
 
 ### Deployed Status
 
@@ -13,7 +16,7 @@ https://seir-830-yeti.netlify.app
 
 <br>
 <br>
-<br>
+=
 
 ## Technologies Used
 
