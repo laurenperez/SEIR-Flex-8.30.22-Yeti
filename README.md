@@ -2,10 +2,13 @@
 
 ![Yeti](https://metro.co.uk/wp-content/uploads/2014/03/wpid-yetipicture_450x300.jpg?quality=90&strip=all&zoom=1&resize=450%2C300)
 
+
+Live course Site ->  https://seir-830-yeti.netlify.app
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4c44fe88-6ae6-483b-9cf7-d9c0886d1b54/deploy-status)](https://app.netlify.com/sites/seir-830-yeti/deploys)
 
-- **Adapted for 2022 Cohorts:** [Lauren Perez](https://github.com/laurenperez)
 
+- **Adapted for 2022 Cohorts:** [Lauren Perez](https://github.com/laurenperez)
 
 - **Original Author:** [DanielJS](https://github.com/myDeveloperJourney)
 - **Version:** 2.3.0
