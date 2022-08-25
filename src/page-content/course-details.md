@@ -4,7 +4,7 @@ title: "Course Details"
 
 # Course Details
 
-### Cohort YETI
+##  YETI
 <br>
 <br>
 
@@ -13,7 +13,7 @@ title: "Course Details"
 - Start date: 08/30/2022
 - End date: 03/14/2022
 - Tuesday & Wednesday 6:30pm - 10:45pm PST
-- (Every other) Thursday 6:30pm - 8:30pm PST
+- Thursday 6:30pm - 8:30pm PST ( every other ) 
 - Saturday 10:00am - 6:00pm PST
 - Holidays: TBD
 
@@ -37,10 +37,10 @@ title: "Course Details"
 
 ## Communication
 
-Class slack channels:
+Cohort Slack Channels:
 
 - **`seirflex-830-classroom`**
-- **`seirflex-830-help`**
+- **`seirflex-830-debugging`**
 - **`seirflex-830-homework`**
 - **`seirflex-830-outcomes`**
 - **`seirflex-830-partytime`**
@@ -49,18 +49,20 @@ Class slack channels:
 <br>
 <br>
 
-##### Required Communication: 
+### Required Communication: 
 
-- You know in advance that you will be missing a class or multiple classes
-- You're sick, overloaded at work, or something comes up and you can't make it to class last minute
-- You will be 10 or more minutes late
-- You need to leave early
-- You will be submitting your homework late
-- You're struggling with the material
-- You'd like some bonus tasks
+Contact an IA if:
+
+- You know in advance that you will be **missing a class or multiple classes**
+- You're **sick**, overloaded at work, or something comes up and you can't make it to class last minute
+- You will be **10 or more minutes late**
+- You need to **leave class early**
+- You will be **submitting your homework late**
+- You're **struggling with the material**
+- You'd like some **bonus** tasks
 
 
-Expected response time for all communication is 24hrs during the week. Monday morning for all weekend messages. 
+Expected response time for all communication is **24 hrs** during the week. Monday morning for all weekend messages. 
 
 **Remember we are here to help you! Please reach out with any questions**
 
@@ -70,76 +72,65 @@ Expected response time for all communication is 24hrs during the week. Monday mo
 ## Class Flow
 
 - Before class:
-  - Find the classroom zoom link pinned to the top of the main class slack channel
-  - Let IA's know if you are running late!
-- In class:
+  - Find the classroom zoom link pinned in the classroom slack channel
+  - Let IA's know if you are running late
+- During class:
+  - Cameras on! This is required for attendance.
   - Be attentive and participate whenever possible
-  - Work through lesson modules
-  - Preview upcoming lessons/projects/homework
   - Fill out exit ticket
 - After class:
   - Complete assigned deliverables
   - Ask additional questions on Slack
+  - Preview upcoming lessons/projects/homework
 
 <br>
 <br>
 
-## Graduation Requirements
-
-- You are required to meet 80% completion of all homework deliverables by the end of each unit
-- You cannot miss more than 24 hours of class and outcomes during the cohort
-- All Projects must recieve a passing score
-- You are allowed 1 late submit OR resubmission of a non passing project
-
-<br>
-<br>
-<br>
-
-## Lab/Homework Submission Procedures
+## Deliverable Submission Procedures
 
 <br>
 <br>
 
-### We will walk through this together the first time!
+- Depending on the assignment, your homework may be completed on [repl.it](https://repl.it/), [CodeSandbox](https://codesandbox.io/), or [GitHub](https://github.com/)
+- All homework deliverables are submitted throught the link at the top of our course site.
+- Homework is due **one week** from the day it was assigned
+- If homework is marked `incomplete`, you may be asked to revise your code and re-submit it
 
-- Depending on the assignment, your homework will be completed on [repl.it](https://repl.it/), [CodeSandbox](https://codesandbox.io/), or [GitHub](https://github.com/)
-- **Fill out this [Google Form](https://forms.gle/Hzzc53H3Ya8SsGvf6) with a link for that specific homework.** It will be the same Google Form for each homework
-- **Homework is due one week from the day it was assigned**
-- If homework is marked `incomplete`, you may be asked to re-submit it; a new timeline will be discussed how long you have to re-submit the homework
-- **Homework Feedback is generally administered within one week from the due date**
-
-<br>
-<br>
-<br>
-
-#### HOMEWORK
-
-Students must complete at least 80% on all homework assignments
-For an assignment to be marked complete, students must complete 100% of the minimum tasks specified in that assignment.
+ **We will walk through this together the first time!**
 
 <br>
 <br>
 
-#### PROJECTS
+### Homework
 
-- Students must complete all of the minimum technical requirements for each unit project
+For an assignment to be marked complete, students must complete **100% of the minimum tasks** specified per that assignment
+Students must complete at least **80%** of all homework assignments to graduate
+
+<br>
+<br>
+
+### Projects
+
+- Students must complete all of the **minimum technical requirements** for each unit project
 - Parameters for minimum requirements will be explained when the project is assigned
 
 <br>
 <br>
 
-#### ZERO ACCOUNT BALANCE
+## Graduation Requirements:
 
-- Students must have no outstanding balances due on their account
+- Atleast 80% completion of all homework deliverables by the end of each unit
+- No more than 24 missed hours of class and outcomes during the cohort
+- All unit projects must recieve a passing score ( 1 late submit or resubmission allowed )
 
 <br>
 <br>
 
-#### ATTENDANCE
+### Attendance Policy
 
 - Have at least an **80% attendance** record ( you’ve missed **24 hours** total or less of class )
 - Attendance is taken at the start of every class meeting
-- 3 late arrivals and/or early departures will constitute one absence ( 4 hours )
+- 3 late arrivals and/or early departures will constitute one absence **( 4 hours )**
 - Unexcused absences are not permitted unless it’s an exceptional circumstance
 - Students who have been excessively absent may be withdrawn
 
@@ -149,7 +140,14 @@ Unexcused absences are not allowed. If you will have to miss a class, notify the
 
 Students who have fulfilled all of the above requirements will receive a digital certificate of completion via email 1 week after to the course’s end.
 
-Please feel free to contact your instructional team, or a member from student experience if you have questions regarding this policy.
+Please contact your instructional team, or a member from student experience if you have questions regarding this policy.
+
+<br>
+<br>
+
+#### Zero Account Balance
+
+- Students must have no outstanding balances due on their account
 
 <br>
 <br>
@@ -168,10 +166,10 @@ Let's all agree to:
 
 ### How To Succeed in a Remote Environment
 
-- Communication is key! Please respond in a "reasonable" timely manner if we contact you via slack or email.
+- Communication is key! Please respond in atleast 24 hours to any slack message or email. 
 - No distractions during class. This means no cell phones (talking/texting), television, or children around.
 - Make sure to speak up and speak out about any problems you are having! Don't be afraid to ask questions during class! Someone else is probably having this same issue!
-- Carve out at least 10 hours outside a class a week for review and homework. Expect the next 6 months to be out of the norm for you. If you have to carve out a personal hour during a family vacation, you will have to do this!
+- Expect the next 6 months to be out of the norm for you. If you have to carve out a personal hour during a family vacation, you will have to do this!
 - Make use of office hours! Find a time that works for you and don't cancel on your instructors :)
 - Hold yourself accountable. Don't let yourself fall behind!
 

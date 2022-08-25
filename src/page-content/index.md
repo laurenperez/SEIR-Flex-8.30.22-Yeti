@@ -2,55 +2,55 @@
 title: "Home"
 ---
 
-# Welcome to SEIR - "YETI"  8/30/2022 - 3/14/2023
+# Welcome to SEIR 830 - YETI  
+## 8/30/2022 - 3/14/2023
 
 This website contains assignments and materials for General Assembly's Software Engineering Immersive Flex Program.
 
-[Yeti](https://metro.co.uk/wp-content/uploads/2014/03/wpid-yetipicture_450x300.jpg?quality=90&strip=all&zoom=1&resize=450%2C300)
-
-<br>
-
-## Curriculum Overview
-Curriculum schedule and content is subject to change at the instructor's discretion.
+![Yeti](https://metro.co.uk/wp-content/uploads/2014/03/wpid-yetipicture_450x300.jpg?quality=90&strip=all&zoom=1&resize=450%2C300)
 
 <br>
 <br>
 
-### [Class Recordings](#) - Need Classroom Zoom Created
+### Classroom Resources
 
 <br>
 <br>
 
-### [Orientation Repo](https://git.generalassemb.ly/AlexMerced/orientation)
+#### [Class Recordings](#) - Need Classroom Zoom Created
 
-Here you'll find
+#### [Homework Tracker](#) - Needs to be created
 
-  - Videos on your day to day tools (Git, VSCode, Bash)
-  - Bonus Lessons on Different Languages, Frameworks and more
-  - Cheatsheets for quick references on course content
-  - Student Handbook
-  - Much more!
+#### [Attendance Tracker](#) - Needs to be created
 
 <br>
 <br>
 
-### Unit Project Requirements:
-| Unit | Link to Rubric                                                                      |
-| ---- | --------------------------------------------------------------------------- |
-| 1    | Project 1 - Frontend Fundamentals: Your First Web Application      |
-<!-- | 1    | Project 1 - [Frontend Fundamentals: Your First Web Application](/unit-projects/unit-one-project-requirements/)           | -->
-| 2    |Project 2 - Backend Fundamentals: Your First Full Stack Application |
-<!-- | 2    | Project 2 - [Backend Fundamentals: Your First Full Stack Application](/unit-projects/unit-two-project-requirements)     | -->
-| 3    |Project 3 - React: A MERN Stack Application |
-<!-- | 3    | Project 3 - [React: A MERN Stack Application](/unit-projects/unit-three-project-requirements) - Group Project  | -->
-| 4    |Project 4 - Python: Build a Full-stack Django App |
-<!-- | 4    | Project 4 - [Python: Build a Full-stack Django App](/unit-projects/unit-four-project-requirements-1) - Individual or Group        | -->
-| 5    |Capstone - Capstone Project: Choose a New Technology |
-<!-- | 5    | Capstone - [Capstone Project: Choose a New Technology](/unit-projects/capstone-project-requirements)     | -->
+### [Orientation](https://git.generalassemb.ly/AlexMerced/orientation)
 
+Getting started...
+
+We strongly recommend you spend some time reading the materials linked below. Not only are these resources helpful, they will get you one step ahead of the curriculum, so you start the course feeling confident and familiar. 
+
+Here you'll find:
+
+  - [Videos on how to set up and use your da to day tools (VSCode, Bash, Git)](https://gist.github.com/AlexMercedCoder/a5450f70426294a994660d4d0b5c3936#intro)
+  - [Cheatsheets for core concepts](https://git.generalassemb.ly/AlexMerced/orientation/blob/master/cheatsheet/readme.md#cheatsheets)
+  - [Bonus Video Lessons on different frameworks, tools, languages...](https://git.generalassemb.ly/AlexMerced/orientation/blob/master/cheatsheet/readme.md#cheatsheets)
+
+  Please take a moment to read the following: 
+  - [Student Handbook ](https://git.generalassemb.ly/AlexMerced/orientation/blob/master/handbook.md)
+  - [Classroom Norms](https://git.generalassemb.ly/AlexMerced/orientation/blob/master/norms.md)
+  - [Plagarism Policy](https://git.generalassemb.ly/AlexMerced/orientation/blob/master/handbook.md#plagiarism-policy)
+ 
 
 <br>
 <br>
+
+
+## Curriculum
+Curriculum schedule and content is subject to change at the instructional team's discretion.
+
 <br>
 <br>
 
@@ -117,4 +117,18 @@ Here you'll find
 | 25   | Capstone Project Week                                                               |
 | 26   | Capstone Project Presentations & Graduation 🎉                                      |
 
-<div style="color: grey;"></div>
+<br>
+<br>
+
+### Unit Project Requirements:
+| Unit | Link to Rubric                                                              |
+| ---- | --------------------------------------------------------------------------- |
+| 1    | Project 1 - [Frontend Fundamentals: Your First Web Application](/unit-projects/unit-one-project-requirements/) |
+| 2    | Project 2 - [Backend Fundamentals: Your First Full Stack Application](/unit-projects/unit-two-project-requirements) |
+| 3    | Project 3 - [React: A MERN Stack Application ](/unit-projects/unit-three-project-requirements)  |
+| 4    | Project 4 - [Python: Build a Full-stack Django App](/unit-projects/unit-four-project-requirements-1) |
+| 5    | Capstone - [Capstone Project: Choose a New Technology](/unit-projects/capstone-project-requirements)     |
+
+
+<br>
+<br>
