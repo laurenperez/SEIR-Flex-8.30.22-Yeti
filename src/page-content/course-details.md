@@ -103,8 +103,8 @@ Expected response time for all communication is **24 hrs** during the week. Mond
 
 ### Homework
 
-For an assignment to be marked complete, students must complete **100% of the minimum tasks** specified per that assignment
-Students must complete at least **80%** of all homework assignments to graduate
+- To be marked complete, each HW deliverable must have **100% of the minimum tasks** specified per that assignment
+- Students must complete at least **80%** of all homework assignments to graduate
 
 <br>
 <br>
