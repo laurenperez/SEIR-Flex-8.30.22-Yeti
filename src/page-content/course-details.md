@@ -17,22 +17,22 @@ title: "Course Details"
 - Saturday 10:00am - 6:00pm PST
 - Holidays: 
 
-	•	9/5/2022 
-	•	11/11/2022 
-	•	**11/12/2022 Sat ( No class )**
-	•	**11/23/2022 Wed ( No class )**
-	•	**11/24/2022 Thu ( No Outcomes )**
-	•	11/25/2022 
-	•	**11/26/2022 Sat ( No class )**
-	•	**12/24/2022 Sat ( No class )**
-	•	12/25/2022 
-	•	12/26/2022 
-	•	**12/27/2022 Tue ( No class )**
-	•	**12/28/2022 Wed ( No class )**
-	•	**12/29/2022 Thu ( No Outcomes )**
-	•	12/30/2022 
-	•	**12/31/2022 Sat ( No class )**
-	•	01/02/2023  
+    - 9/5/2022 
+    - 11/11/2022 
+    - **11/12/2022 Sat ( No class )**
+    - **11/23/2022 Wed ( No class )**
+    - **11/24/2022 Thu ( No Outcomes )**
+    - 11/25/2022 
+    - **11/26/2022 Sat ( No class )**
+    - **12/24/2022 Sat ( No class )**
+    - 12/25/2022 
+    - 12/26/2022 
+    - **12/27/2022 Tue ( No class )**
+    - **12/28/2022 Wed ( No class )**
+    - **12/29/2022 Thu ( No Outcomes )**
+    - 12/30/2022 
+    - **12/31/2022 Sat ( No class )**
+    - 01/02/2023  
 
 <br>
 <br>
