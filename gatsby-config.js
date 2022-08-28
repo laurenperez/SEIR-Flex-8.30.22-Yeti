@@ -19,8 +19,8 @@ module.exports = {
       // {title: 'Coding Challenges', slug: '/coding-challenges'},
     ],
     homeworkSubmissionLink: {
-      title: "Submit Homework",
-      href: "https://forms.gle/Hzzc53H3Ya8SsGvf6",
+      title: "Submit Deliverables",
+      href: "https://forms.gle/NagUE6GGp3Qs6Suh8",
     },
   },
   plugins: [
