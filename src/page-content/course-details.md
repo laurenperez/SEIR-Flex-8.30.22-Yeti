@@ -15,7 +15,24 @@ title: "Course Details"
 - Tuesday & Wednesday 6:30pm - 10:45pm PST
 - Thursday 6:30pm - 8:30pm PST ( every other ) 
 - Saturday 10:00am - 6:00pm PST
-- Holidays: TBD
+- Holidays: 
+
+	•	9/5/2022 
+	•	11/11/2022 
+	•	**11/12/2022 Sat ( No class )**
+	•	**11/23/2022 Wed ( No class )**
+	•	**11/24/2022 Thu ( No Outcomes )**
+	•	11/25/2022 
+	•	**11/26/2022 Sat ( No class )**
+	•	**12/24/2022 Sat ( No class )**
+	•	12/25/2022 
+	•	12/26/2022 
+	•	**12/27/2022 Tue ( No class )**
+	•	**12/28/2022 Wed ( No class )**
+	•	**12/29/2022 Thu ( No Outcomes )**
+	•	12/30/2022 
+	•	**12/31/2022 Sat ( No class )**
+	•	01/02/2023  
 
 <br>
 <br>
@@ -39,12 +56,12 @@ title: "Course Details"
 
 Cohort Slack Channels:
 
-- **`seirflex-830-classroom`**
-- **`seirflex-830-debugging`**
-- **`seirflex-830-homework`**
-- **`seirflex-830-outcomes`**
-- **`seirflex-830-partytime`**
-- **`seirflex-830-resources`**
+- **`seirfx-830-classroom`**
+- **`seirfx-830-debugging`**
+- **`seirfx-830-homework`**
+- **`seirfx-830-outcomes`**
+- **`seirfx-830-partytime`**
+- **`seirfx-830-resources`**
 
 <br>
 <br>
