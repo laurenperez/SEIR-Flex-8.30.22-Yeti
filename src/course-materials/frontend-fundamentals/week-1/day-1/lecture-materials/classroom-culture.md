@@ -73,12 +73,12 @@ type: "lecture"
 
 #### 5 channels
 
-- **`seirflex-830-classroom`**
-- **`seirflex-830-debugging`**
-- **`seirflex-830-homework`**
-- **`seirflex-830-outcomes`**
-- **`seirflex-830-partytime`**
-- **`seirflex-830-resources`**
+- **`seirfx-830-classroom`**
+- **`seirfx-830-debugging`**
+- **`seirfx-830-homework`**
+- **`seirfx-830-outcomes`**
+- **`seirfx-830-partytime`**
+- **`seirfx-830-resources`**
 
 <br>
 <br>
