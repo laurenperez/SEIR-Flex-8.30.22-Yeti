@@ -24,9 +24,9 @@ type: "lecture"
 ## Instructors
 
 - Lauren Perez - Instructor Lead (IL)
-- Alex Merced - Instructor Lead (IL)
-- Yanny Castrillon  - Instructional Associate (IA)
+- Nathaniel Stack - Instructor Lead (IL)
 - Katie Pestotnik - Instructional Associate (IA)
+- Tanise Williams  - Instructional Associate (IA)
 
 <br>
 <br>
@@ -35,17 +35,18 @@ type: "lecture"
 
 - Instructor Lead (IL)
 
-  - Lesson Blocks
+  - Lesson Blocks ( Lecture )
   - Code-alongs
-  - Labs
+  - Introduce Labs
   - In-Class Code Reviews
   - In-Class Interview Prep
   - Creating Homework
 
 - Instructor Associate (IA)
 
-  - Labs
-  - Answer questions after class
+  - Answer questions during Lecture
+  - Assist during labs
+  - Record Attendance
   - Gives feedback on homework and mark as complete or incomplete
 
 - Outcomes
@@ -72,11 +73,12 @@ type: "lecture"
 
 #### 5 channels
 
-- **`seirflex-222-classroom`**
-- **`seirflex-222-outcomes`**
-- **`seirflex-222-partytime`**
-- **`seirflex-222-resources`**
-- **`seirflex-222-help`**
+- **`seirflex-830-classroom`**
+- **`seirflex-830-debugging`**
+- **`seirflex-830-homework`**
+- **`seirflex-830-outcomes`**
+- **`seirflex-830-partytime`**
+- **`seirflex-830-resources`**
 
 <br>
 <br>
@@ -86,7 +88,7 @@ type: "lecture"
 
 <br>
 
-##### Communicate in one of the outrun channels:
+##### Communicate in one of the slack channels:
 
 **`@username`**
 
@@ -95,7 +97,7 @@ type: "lecture"
 **`@channel / @here`**
 
 - sends a notification to everyone / everyone currently online
-- DO NOT use these unless absolutely necessary (usually only instructors/TAs use this)
+- **DO NOT** use these unless absolutely necessary (usually only instructors/TAs use this)
 
 <br>
 <br>

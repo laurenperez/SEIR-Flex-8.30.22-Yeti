@@ -13,7 +13,7 @@ type: "lecture"
 <br>
 <br>
 
-### [Click here](https://generalassembly.zoom.us/rec/share/DyllEgQeyvNoguKc0O-MzJjh_hecAxGD4GruuopH2ywLCBOJ07eqoWRkwoVXLOZd.fYZ9-MUXeu1eA7OB?startTime=1613503392000) to access walkthrough recording
+#### [Click here](https://generalassembly.zoom.us/rec/share/DyllEgQeyvNoguKc0O-MzJjh_hecAxGD4GruuopH2ywLCBOJ07eqoWRkwoVXLOZd.fYZ9-MUXeu1eA7OB?startTime=1613503392000) to access a walkthrough recording
 
 <br>
 <br>
