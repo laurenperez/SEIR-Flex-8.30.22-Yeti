@@ -12,5 +12,5 @@ topics: "Official Start of Project 1"
 
 #### Official Start of Project 1
 
-- **Activity:** *Final Approvals of All Projects Are Due This Evening*
+- **DUE:** **Final Approvals for Project Proposals due EOD**
 - **Activity:** Students Start Project 1

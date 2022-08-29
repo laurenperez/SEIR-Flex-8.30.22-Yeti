@@ -13,6 +13,8 @@ topics: "DOM & Dom Events"
 - [**Lecture:** Intro to the DOM](/frontend-fundamentals/week-3/day-3/lecture-materials/intro-to-the-dom/)
 - [**Lab:** DOM Menu Lab - Part 1 of 2](/frontend-fundamentals/week-3/day-3/labs/dom-menu-lab-part-1/) - **Only Part 1 is Deliverable**
 
+#### Lunch
+
 #### Intro to DOM Events
 
 - [**Lecture:** Intro to DOM Events](/frontend-fundamentals/week-3/day-3/lecture-materials/intro-to-dom-events/)

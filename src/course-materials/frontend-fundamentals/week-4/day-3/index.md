@@ -17,6 +17,9 @@ topics: "JQuery & APIs with AJAX"
 #### API's with AJAX
 
 - [**Lecture:** AJAX and JavaScript Promises with jQuery](/frontend-fundamentals/week-4/day-3/lecture-materials/intro-to-ajax-and-javascript-promises/)
+
+#### Lunch
+
 - [**Lab:** Build a Weather App With AJAX](/frontend-fundamentals/week-4/day-3/labs/build-a-weather-app-with-ajax/) - **Deliverable**
 
 

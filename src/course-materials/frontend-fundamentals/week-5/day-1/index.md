@@ -12,5 +12,8 @@ topics: "Build Another Project That Uses AJAX"
 #### Build Another Project That Uses AJAX
 
 - **Activity:** Build Another Project That Uses AJAX
-- **Activity:** _Project 1 Approvals Begin_ - _**(All Approvals Are Due Tomorrow)**_
-- [**Activity:** Review Project One Requirements](/unit-projects/unit-one-project-requirements/)
+
+#### Project 1 Kickoff 
+
+- [**Lecture:** Review Project One Requirements](/unit-projects/unit-one-project-requirements/)
+- **Activity:** Plan Your Project: Create Project Proposal - **(All Approvals Are Due Tomorrow)**
