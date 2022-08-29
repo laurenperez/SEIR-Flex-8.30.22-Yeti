@@ -17,7 +17,7 @@ This website contains assignments and materials for General Assembly's Software 
 <br>
 <br>
 
-#### [Class Recordings](#) - Need Classroom Zoom Created
+#### [Class Recordings](https://docs.google.com/spreadsheets/d/1TPJZVFidiyuOw9K4jwnamBWgItsZrE8oqaGQhm61dlU/edit?usp=sharing)
 
 #### [Homework Tracker](#) - Needs to be created
 
