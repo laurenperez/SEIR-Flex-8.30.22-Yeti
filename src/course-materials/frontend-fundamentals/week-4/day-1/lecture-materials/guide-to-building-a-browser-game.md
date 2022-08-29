@@ -14,17 +14,6 @@ type: "lecture"
 <br>
 <br>
 
-<!-- 
-
-### [Click here]() to access recording
-
-<br>
-<br>
-<br>
-<br> -->
-
-
-
 ## Intro
 
 Getting started and knowing how to structure the code in an application is one of the most difficult things for students to figure out.

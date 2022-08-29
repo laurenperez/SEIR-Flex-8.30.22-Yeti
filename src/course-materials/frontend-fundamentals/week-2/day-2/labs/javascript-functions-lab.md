@@ -13,7 +13,7 @@ type: "lab"
 <br>
 <br>
 
-### [Click here](https://generalassembly.zoom.us/rec/share/zpgG4dRZhZywXzBOoGhonXzifM7E9zDhOEkHMvr3nXn50p9H9PPuxy2rEUXHiDnw.J039KsWMt0wBMpZu?startTime=1613671039000) to access walkthrough recording
+### [DanielJS Recording](https://generalassembly.zoom.us/rec/share/zpgG4dRZhZywXzBOoGhonXzifM7E9zDhOEkHMvr3nXn50p9H9PPuxy2rEUXHiDnw.J039KsWMt0wBMpZu?startTime=1613671039000)
 
 <br>
 <br>

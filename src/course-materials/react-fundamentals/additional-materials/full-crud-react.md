@@ -8,29 +8,20 @@ type: "lecture"
 
 # Full CRUD React
 
-
-| Students Will Be Able To: |
-|---|
+| Students Will Be Able To:                                  |
+| ---------------------------------------------------------- |
 | Continue from where our Full-Stack React Lesson Leaves Off |
-| Perform Full CRUD with the MERN stack using AJAX |
-
-
-
+| Perform Full CRUD with the MERN stack using AJAX           |
 
 <br>
 <br>
 <br>
 
-
-
-### [Click Here](https://generalassembly.zoom.us/rec/share/p30_ZIXgL-9k5MDZH1niacPDFPIjE5Y9vuo3VbfGYEwpm-_Hig9X7koTtYsep6Az.xrXxu80Vu1NVAEpO?startTime=1621384726000) to access recording
-
+### [DanielJS Recording](https://generalassembly.zoom.us/rec/share/p30_ZIXgL-9k5MDZH1niacPDFPIjE5Y9vuo3VbfGYEwpm-_Hig9X7koTtYsep6Az.xrXxu80Vu1NVAEpO?startTime=1621384726000)
 
 <br>
 <br>
 <br>
-
-
 
 ## Road Map
 
@@ -40,30 +31,24 @@ type: "lecture"
 - Adding Update to React Dev Skills
 - Adding Delete to React Dev Skills
 
-
 <br>
 <br>
 <br>
-
-
-
 
 ## Set Up
 
-The starter code for this lesson will pick up from the finished version of React Dev Skills from the Full-Stack React Lesson. 
+The starter code for this lesson will pick up from the finished version of React Dev Skills from the Full-Stack React Lesson.
 
-This includes the code base for our React Frontend and our Express Backend. 
+This includes the code base for our React Frontend and our Express Backend.
 
 If for some reason you need a fresh copy of the code, you can clone the following repos:
 
 - [Frontend Code (React)](https://git.generalassemb.ly/Instructional-Materials/STARTER-CODE-FULL-CRUD-REACT-FRONTEND)
 - [Backend Code (Express)](https://git.generalassemb.ly/Instructional-Materials/STARTER-CODE-FULL-CRUD-EXPRESS-BACKEND.git)
 
-
 For the next part of the set up, since we need to manage two seperate VS Code Windows, let's checkout the [`"Peacock"` extension for VS Code](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)!
 
 Once enabled, Peacock will "color code" our environment so we can more easily distinguish between our front and backend in VS Code.
-
 
 **Here's an example:**
 
@@ -81,20 +66,13 @@ Once enabled, Peacock will "color code" our environment so we can more easily di
 
 ![screenshot](https://i.imgur.com/1ABRgno.png)
 
-
-
 <br>
 
 The last thing we need is to go to [MongoDB Atlas](https://cloud.mongodb.com/) to grab a connection URI to a fresh database.
 
-
-
-
 <br>
 <br>
 <br>
-
-
 
 ## Adding Create to React Dev Skills
 
@@ -111,29 +89,26 @@ We'll start with the backend first, which is a great opportunity to review most 
 <br>
 <br>
 
+### Connect to MongoDB
 
-
-### Connect to MongoDB 
-
-First we need to connect to MongoDB from within a config file. 
+First we need to connect to MongoDB from within a config file.
 
 We also need `mongoose` so `npm i mongoose`, `mkdir config && touch config/database.js` and add this code to it:
 
-
 ```js
-const mongoose = require('mongoose');
-const db = mongoose.connection;
+const mongoose = require("mongoose")
+const db = mongoose.connection
 
 mongoose.connect(process.env.DATABASE_URI, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true
-});
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+})
 
-db.on('connected', () => {
-    console.log(`Connected to MongoDB on ${db.host}:${db.port}`);
-});
+db.on("connected", () => {
+  console.log(`Connected to MongoDB on ${db.host}:${db.port}`)
+})
 ```
 
 <br>
@@ -145,7 +120,6 @@ This also means we need to install the [`dotenv` npm package](https://www.npmjs.
 
 So let's `touch` `.env`, `npm i dotenv` and add our connection string as an environment variable to our `.env` file:
 
-
 ```shell
 DATABASE_URI=mongodb+srv://someuser:testpassword@cluster0.test.mongodb.net/react-dev-skills?retryWrites=true&w=majority
 ```
@@ -156,7 +130,6 @@ DATABASE_URI=mongodb+srv://someuser:testpassword@cluster0.test.mongodb.net/react
 
 **NOTE:** We named our database `react-dev-skills`☝️
 
-
 <br>
 <br>
 
@@ -165,18 +138,19 @@ Now we just need to run some code in `app.js` so that our `dotenv` package and `
 Let's add these two lines of code to `app.js`:
 
 ```js
-var express = require('express');
-var logger = require('morgan');
-var cors = require('cors');
-var skillsRouter = require('./routes/skills');
+var express = require("express")
+var logger = require("morgan")
+var cors = require("cors")
+var skillsRouter = require("./routes/skills")
 
-// Add these two lines of code below: 
+// Add these two lines of code below:
 
-require('dotenv').config();
-require('./config/database');
+require("dotenv").config()
+require("./config/database")
 
-// ... more code below ... 
+// ... more code below ...
 ```
+
 <br>
 <br>
 
@@ -186,24 +160,25 @@ Great, we should be connected now 😎
 <br>
 <br>
 
-
 ### Create the Mongoose Model
 
 Creating the model for this project is simple, all we need is to `mkdir models && touch models/skill.js`, define a schema, compile that schema into `mongoose.model()` and export that model so we can perform CRUD from a controller ... etc.
 
-
 Once you've created your `models/skill.js` file, let's add this code to it (we'll keep it simple):
 
 ```js
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require("mongoose")
+const Schema = mongoose.Schema
 
-const skillSchema = new Schema({
+const skillSchema = new Schema(
+  {
     skill: String,
-    level: String
-}, { timestamps: true });
+    level: String,
+  },
+  { timestamps: true }
+)
 
-module.exports = mongoose.model('Skill', skillSchema);
+module.exports = mongoose.model("Skill", skillSchema)
 ```
 
 <br>
@@ -219,7 +194,6 @@ Take a moment to refresh your memory on what this code does; once we're ready we
 
 Now that we're connected to MongoDB and we have a model to perform CRUD with, we can add route definitions and controller functions.
 
-
 <br>
 <br>
 
@@ -233,31 +207,27 @@ However, let's get our bearings on what we need to do first.
 Let's go into `routes/skills.js` and add a new route definition with the appropriate in-line controller logic; here's an example following this change:
 
 ```js
-var express = require('express');
-var router = express.Router();
+var express = require("express")
+var router = express.Router()
 // Require our Skill Model.
-var Skill = require('../models/skill');
+var Skill = require("../models/skill")
 
-
-router.get('/', function(req, res) {
+router.get("/", function (req, res) {
   res.status(200).json([
-    {skill: 'JavaScript', level: "5"},
-    {skill: 'HTML', level: "5"},
-    {skill: 'CSS', level: "5"},
-  ]);
-});
-
+    { skill: "JavaScript", level: "5" },
+    { skill: "HTML", level: "5" },
+    { skill: "CSS", level: "5" },
+  ])
+})
 
 // Our new "create" Route with controller logic combined.
-router.post('/', function(req, res) {
-  Skill.create(req.body, function(err, skill) {
-    res.status(201).json(skill);
-  });
-});
+router.post("/", function (req, res) {
+  Skill.create(req.body, function (err, skill) {
+    res.status(201).json(skill)
+  })
+})
 
-module.exports = router;
-
-
+module.exports = router
 ```
 
 <br>
@@ -271,19 +241,17 @@ Now that our backend is ready to go, it's time to update our `addSkill` function
 First things first, the name `addSkill` isn't the most appropriate name for a function that runs on form submission; let's change it to `handleSubmit`:
 
 ```jsx
-  function handleSubmit(e) {
+function handleSubmit(e) {
+  e.preventDefault()
 
-    e.preventDefault();
-
-    setState({
-      skills: [...state.skills, state.newSkill],
-      newSkill: {
-        skill: "",
-        level: "3"
-      }
-    });
-
-  }
+  setState({
+    skills: [...state.skills, state.newSkill],
+    newSkill: {
+      skill: "",
+      level: "3",
+    },
+  })
+}
 ```
 
 <br>
@@ -294,46 +262,42 @@ First things first, the name `addSkill` isn't the most appropriate name for a fu
 ```jsx
 <form onSubmit={handleSubmit}>
 ```
+
 <br>
 <br>
 
 It's time to refactor our `handleSubmit` function to perform AJAX, we can do this very easily using the [`fetch()` Web API/function](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) and configuring it to send a `POST` request.
 
-We also need to handle converting the outgoing data into JSON with JavaScript's [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). 
+We also need to handle converting the outgoing data into JSON with JavaScript's [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
 
 On that note, we also need to set a `Content-type` header to `Application/json`.
 
 This header informs express to parse the incoming `json` data with [`express.json()`](http://expressjs.com/en/4x/api.html#express.json).
 
-
 Great! Once we get the response back, we'll update state:
 
-
 ```js
-  function handleSubmit(e) {
+function handleSubmit(e) {
+  e.preventDefault()
 
-    e.preventDefault();
-
-    fetch('http://localhost:3001/api/skills', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'Application/json'
-      },
-      body: JSON.stringify(state.newSkill)
-    })
-    .then(res => res.json())
-    .then(skill => 
+  fetch("http://localhost:3001/api/skills", {
+    method: "POST",
+    headers: {
+      "Content-type": "Application/json",
+    },
+    body: JSON.stringify(state.newSkill),
+  })
+    .then((res) => res.json())
+    .then((skill) =>
       setState({
         skills: [...state.skills, skill],
         newSkill: {
           skill: "",
-          level: "3"
-        }
+          level: "3",
+        },
       })
-    );
-
-  }
-
+    )
+}
 ```
 
 <br>
@@ -345,27 +309,26 @@ This is because we're currently not reading from the database, but we'll handle 
 
 Before we move on, let's refactor our code to use the newer [`async/await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) syntax:
 
-
 ```js
-  async function handleSubmit(e) {
-      e.preventDefault();
+async function handleSubmit(e) {
+  e.preventDefault()
 
-      const skill = await fetch('http://localhost:3001/api/skills', {
-          method: 'POST',
-          headers: {
-              'Content-type': 'Application/json'
-          },
-          body: JSON.stringify(state.newSkill)
-      }).then(res => res.json());
+  const skill = await fetch("http://localhost:3001/api/skills", {
+    method: "POST",
+    headers: {
+      "Content-type": "Application/json",
+    },
+    body: JSON.stringify(state.newSkill),
+  }).then((res) => res.json())
 
-      setState({
-          skills: [...state.skills, skill],
-          newSkill: {
-              skill: "",
-              level: "3"
-          }
-      });
-  }
+  setState({
+    skills: [...state.skills, skill],
+    newSkill: {
+      skill: "",
+      level: "3",
+    },
+  })
+}
 ```
 
 <br>
@@ -375,35 +338,32 @@ We can also optimize this code for error handling by using a [`try/catch`](https
 
 `try/catch` works well with `async/await` and gives us a bullet proof way to run other code if an error occurs:
 
-
 ```js
-  async function handleSubmit(e) {
-    
-    e.preventDefault();
+async function handleSubmit(e) {
+  e.preventDefault()
 
-    // try/catch is like saying "hey js, try this, but if an error get's thrown, 'catch it' "
-    try {
-      const skill = await fetch('http://localhost:3001/api/skills', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'Application/json'
-        },
-        body: JSON.stringify(state.newSkill)
-      }).then(res => res.json());
-  
-      setState({
-        skills: [...state.skills, skill],
-        newSkill: {
-          skill: "",
-          level: "3"
-        }
-      });
-    } catch (error) {
-      console.log(error);
-      // we can perform other actions here if an error is caught
-    }
-    
+  // try/catch is like saying "hey js, try this, but if an error get's thrown, 'catch it' "
+  try {
+    const skill = await fetch("http://localhost:3001/api/skills", {
+      method: "POST",
+      headers: {
+        "Content-type": "Application/json",
+      },
+      body: JSON.stringify(state.newSkill),
+    }).then((res) => res.json())
+
+    setState({
+      skills: [...state.skills, skill],
+      newSkill: {
+        skill: "",
+        level: "3",
+      },
+    })
+  } catch (error) {
+    console.log(error)
+    // we can perform other actions here if an error is caught
   }
+}
 ```
 
 <br>
@@ -426,34 +386,30 @@ However, with the addition of a `Skill` model with mongoose, we need to refactor
 Let's take care of that; here's what our updated code inside of `routes/skills.js` should look like:
 
 ```js
+var express = require("express")
+var router = express.Router()
+var Skill = require("../models/skill")
 
-var express = require('express');
-var router = express.Router();
-var Skill = require('../models/skill');
+router.get("/", function (req, res) {
+  Skill.find({}, function (err, skills) {
+    // Now we can request data from MongoDB.
+    res.status(200).json(skills)
+  })
+})
 
+router.post("/", function (req, res) {
+  Skill.create(req.body, function (err, skill) {
+    res.status(201).json(skill)
+  })
+})
 
-router.get('/', function(req, res) {
-  Skill.find({}, function(err, skills) { // Now we can request data from MongoDB.
-    res.status(200).json(skills);
-  });
-});
-
-
-router.post('/', function(req, res) {
-  Skill.create(req.body, function(err, skill) {
-    res.status(201).json(skill);
-  });
-});
-
-module.exports = router;
-
+module.exports = router
 ```
 
 <br>
 <br>
 
-As you can see from the code above, for our first route definition, (*our* **GET** *route*), we're using the mongoose `.find()` method. This method retrieves a list of skill objects from the database instead of sending the hard-coded array of objects we had previously.
-
+As you can see from the code above, for our first route definition, (_our_ **GET** _route_), we're using the mongoose `.find()` method. This method retrieves a list of skill objects from the database instead of sending the hard-coded array of objects we had previously.
 
 Once you go back to the browser and refresh the screen, you should seen the changes reflected!
 
@@ -461,9 +417,8 @@ Once you go back to the browser and refresh the screen, you should seen the chan
 <br>
 <br>
 
-
 ## Adding Update to React Dev Skills
- 
+
 It's time to add update functionality to React Dev Skills!
 
 We'll start with the easy part first ... the backend logic.
@@ -476,7 +431,6 @@ We'll start with the easy part first ... the backend logic.
 
 We've reached a point where we should refactor and seperate the controller logic into a dedicated controller module so we can enjoy the benefits of the MVC pattern.
 
-
 Let's create a controller for our skills resource:
 
 ```shell
@@ -488,40 +442,38 @@ mkdir controllers && touch controllers/skills.js
 Then we'll add our controller logic to the new module and include the update controller action:
 
 ```js
-
-var Skill = require('../models/skill');
+var Skill = require("../models/skill")
 
 module.exports = {
-    index,
-    create,
-    update
-};
-
+  index,
+  create,
+  update,
+}
 
 function index(req, res) {
-    Skill.find({}, function (err, skills) {
-        res.status(200).json(skills);
-    });
+  Skill.find({}, function (err, skills) {
+    res.status(200).json(skills)
+  })
 }
 
 function create(req, res) {
-    Skill.create(req.body, function (err, skill) {
-        res.status(201).json(skill);
-    });
+  Skill.create(req.body, function (err, skill) {
+    res.status(201).json(skill)
+  })
 }
 
 // Here's our latest controller action
 function update(req, res) {
-    Skill.findByIdAndUpdate(req.params.id, req.body, function () {
-        index(req, res); // we're calling index? 🤔
-        /*  
+  Skill.findByIdAndUpdate(req.params.id, req.body, function () {
+    index(req, res) // we're calling index? 🤔
+    /*  
             ☝️ We've never done this before.
 
             This is another way we can forward the request to our
             index action so we can send a brand new list of
             skills as a response to updating a skill.
         */
-    });
+  })
 }
 ```
 
@@ -529,7 +481,7 @@ function update(req, res) {
 
 You'll notice most of this controller code looks identical to our work in Unit 2 with the exception of calling `res.status(...).json(...)` instead of `res.render(...)`.
 
-You'll also notice that for our latest controller action, (*our* `update` *action*), we're actually calling our `index(...)` action instead of `res.status(...).json(...)` ... interesting 🤔
+You'll also notice that for our latest controller action, (_our_ `update` _action_), we're actually calling our `index(...)` action instead of `res.status(...).json(...)` ... interesting 🤔
 
 This is because instead of just sending a copy of a single updated skill object, we'll send a brand new copy of the entire collection instead, which makes updating our state/UI much easier.
 
@@ -543,17 +495,17 @@ When we make changes to some or all of our data, it's easier to replace the list
 🚨 **NOTE:** By the way, in case you accidentally forget, we need to refactor our router module; this should look familiar now:
 
 ```js
-var express = require('express');
-var router = express.Router();
-var skillsCtrl = require('../controllers/skills');
+var express = require("express")
+var router = express.Router()
+var skillsCtrl = require("../controllers/skills")
 
-router.get('/', skillsCtrl.index);
-router.post('/', skillsCtrl.create);
-router.put('/:id', skillsCtrl.update); // 👈 don't forget the :id param
+router.get("/", skillsCtrl.index)
+router.post("/", skillsCtrl.create)
+router.put("/:id", skillsCtrl.update) // 👈 don't forget the :id param
 
-module.exports = router;
-
+module.exports = router
 ```
+
 <br>
 <br>
 
@@ -579,23 +531,23 @@ Before getting started, we need to think of the steps required to update our dat
 Awesome! Let's add something for the user to click on so they can edit a skill:
 
 ```jsx
-{state.skills.map(s => (
+{
+  state.skills.map((s) => (
     <article key={s._id}>
-        <div>{s.skill}</div>
-        <div>{s.level}</div>
-        <div 
-            className="controls" 
-            onClick={() => handleEdit(s._id)}>
-        {'✏️'}
-        </div>
+      <div>{s.skill}</div>
+      <div>{s.level}</div>
+      <div className="controls" onClick={() => handleEdit(s._id)}>
+        {"✏️"}
+      </div>
     </article>
-))}
+  ))
+}
 ```
 
 <br>
 <br>
 
-You'll notice we made some refactors here as well. 
+You'll notice we made some refactors here as well.
 
 For example, for our key prop we're using the skill `_id` property as a unique value instead of the index position.
 
@@ -608,7 +560,6 @@ This function will find the skill we're editing and set it's data to form state.
 Before we move on, we'll add some additional CSS to `App.css` to fix our UI, because right now it will look a little funky with the additional content 😆
 
 ```css
-
 /* this will cause the skill desc text to take all available space */
 article > div:nth-child(1) {
   flex-grow: 1;
@@ -619,23 +570,22 @@ article > div:nth-child(1) {
   cursor: pointer; /* make the widget appear clickable on curson hover */
   background-color: #f96247; /* diffent color for aesthetics */
 }
-  
 ```
-<br>
-<br>
 
+<br>
+<br>
 
 Here's what we'll need to write for that `handleEdit` helper function we referenced earlier:
 
 ```js
-  function handleEdit(id) {
-    const skillToEdit = state.skills.find(skill => skill._id === id);
-    setState(prevState => ({
-      ...prevState,
-      newSkill: skillToEdit,
-      editMode: true
-    }));
-  }
+function handleEdit(id) {
+  const skillToEdit = state.skills.find((skill) => skill._id === id)
+  setState((prevState) => ({
+    ...prevState,
+    newSkill: skillToEdit,
+    editMode: true,
+  }))
+}
 ```
 
 <br>
@@ -662,6 +612,7 @@ export default function App() {
     editMode: false // initialized to false
   });
 ```
+
 <br>
 <br>
 
@@ -672,23 +623,24 @@ We can also conditionally render our UI based on this `editMode` value too!
 For example, for our form's button, let's conditonally render the button text based on whether or not we're in edit mode:
 
 ```jsx
-<button>{state.editMode ? 'EDIT SKILL' : 'ADD SKILL'}</button>
+<button>{state.editMode ? "EDIT SKILL" : "ADD SKILL"}</button>
 ```
+
 <br>
 <br>
 
 Now, there is one small caveat to consider when changing state and that's making sure our `handleChange` helper function doesn't override `editMode`:
 
 ```js
-  function handleChange(e) {
-    setState(prevState => ({
-        ...prevState, // 👈 make sure we're spreading/merging prevState into new state
-        newSkill: {
-          ...prevState.newSkill,
-          [e.target.name]: e.target.value
-        },
-    }));
-  }
+function handleChange(e) {
+  setState((prevState) => ({
+    ...prevState, // 👈 make sure we're spreading/merging prevState into new state
+    newSkill: {
+      ...prevState.newSkill,
+      [e.target.name]: e.target.value,
+    },
+  }))
+}
 ```
 
 <br>
@@ -696,63 +648,60 @@ Now, there is one small caveat to consider when changing state and that's making
 
 We might have changed how this function merges previous state during our Full Stack React lesson to see other examples, but let's make sure we merge `prevState` into new state with the spread operator to prevent overriding `editMode` state.
 
-
 Great! Let's refactor `handleSubmit` so that it can create and update a skill!
 
 We'll use an `if/else` statement simply check if we're in `editMode` first:
 
-
 ```js
-  async function handleSubmit(e) {
-    
-    e.preventDefault();
+async function handleSubmit(e) {
+  e.preventDefault()
 
-    if(state.editMode) { // check if we're in editMode
-      const {_id, skill, level } = state.newSkill; // destructuring values from state.newSkill
-      try {
-        // include _id as url param - note that we're receiving a new skill list as a response
-        const skills = await fetch(`http://localhost:3001/api/skills/${_id}`, { 
-          method: 'PUT',
-          headers: {
-            'Content-type': 'Application/json'
-          },
-          body: JSON.stringify({ skill, level }) // send the values to update
-        }).then(res => res.json());
-    
-        setState({
-          skills, // replacing old skill list with new one
-          newSkill: {
-            skill: "",
-            level: "3"
-          },
-          editMode: false // set edit mode back to false as we're no longer editing
-        });
-      } catch (error) {
-        console.log(error);
-      }
-      
-    } else {
-      try {
-        const skill = await fetch('http://localhost:3001/api/skills', {
-          method: 'POST',
-          headers: {
-            'Content-type': 'Application/json'
-          },
-          body: JSON.stringify(state.newSkill)
-        }).then(res => res.json());
-    
-        setState({
-          skills: [...state.skills, skill],
-          newSkill: {
-            skill: "",
-            level: "3"
-          }
-        });
-      } catch (error) {
-        console.log(error);
-      }
+  if (state.editMode) {
+    // check if we're in editMode
+    const { _id, skill, level } = state.newSkill // destructuring values from state.newSkill
+    try {
+      // include _id as url param - note that we're receiving a new skill list as a response
+      const skills = await fetch(`http://localhost:3001/api/skills/${_id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "Application/json",
+        },
+        body: JSON.stringify({ skill, level }), // send the values to update
+      }).then((res) => res.json())
+
+      setState({
+        skills, // replacing old skill list with new one
+        newSkill: {
+          skill: "",
+          level: "3",
+        },
+        editMode: false, // set edit mode back to false as we're no longer editing
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  } else {
+    try {
+      const skill = await fetch("http://localhost:3001/api/skills", {
+        method: "POST",
+        headers: {
+          "Content-type": "Application/json",
+        },
+        body: JSON.stringify(state.newSkill),
+      }).then((res) => res.json())
+
+      setState({
+        skills: [...state.skills, skill],
+        newSkill: {
+          skill: "",
+          level: "3",
+        },
+      })
+    } catch (error) {
+      console.log(error)
     }
   }
+}
 ```
 
 <br>
@@ -768,7 +717,7 @@ We had to do some other things such as configuring `fetch` to issue a `PUT` requ
 
 This way we can include the `_id` value as a URL param, and the `skill` & `level` values in the request body.
 
-We're also receiving an updated list of skills from express (*we discussed this already*) and replacing the existing list in state as well as setting `editMode` to false.
+We're also receiving an updated list of skills from express (_we discussed this already_) and replacing the existing list in state as well as setting `editMode` to false.
 
 Awesome! 🎉 Let's try out our update feature!
 
@@ -795,20 +744,20 @@ These first steps will be relatively easy:
 <br>
 
 #### `routes/skills.js`
+
 ```js
-// inside of routes/skills.js again 
+// inside of routes/skills.js again
 
-var express = require('express');
-var router = express.Router();
-var skillsCtrl = require('../controllers/skills');
+var express = require("express")
+var router = express.Router()
+var skillsCtrl = require("../controllers/skills")
 
-router.get('/', skillsCtrl.index);
-router.post('/', skillsCtrl.create);
-router.put('/:id', skillsCtrl.update);
-router.delete('/:id', skillsCtrl.delete); // 👈 here's our delete route
+router.get("/", skillsCtrl.index)
+router.post("/", skillsCtrl.create)
+router.put("/:id", skillsCtrl.update)
+router.delete("/:id", skillsCtrl.delete) // 👈 here's our delete route
 
-module.exports = router;
-
+module.exports = router
 ```
 
 <br>
@@ -818,39 +767,38 @@ module.exports = router;
 #### `controllers/skills.js`
 
 ```js
-var Skill = require('../models/skill');
+var Skill = require("../models/skill")
 
 module.exports = {
-    index,
-    create,
-    update,
-    delete: deleteSkill, // 👈 exporting our shiny new delete controller function
-};
-
+  index,
+  create,
+  update,
+  delete: deleteSkill, // 👈 exporting our shiny new delete controller function
+}
 
 function index(req, res) {
-    Skill.find({}, function (err, skills) {
-        res.status(200).json(skills);
-    });
+  Skill.find({}, function (err, skills) {
+    res.status(200).json(skills)
+  })
 }
 
 function create(req, res) {
-    Skill.create(req.body, function (err, skill) {
-        res.status(201).json(skill);
-    });
+  Skill.create(req.body, function (err, skill) {
+    res.status(201).json(skill)
+  })
 }
 
 function update(req, res) {
-    Skill.findByIdAndUpdate(req.params.id, req.body, function () {
-        index(req, res);
-    });
+  Skill.findByIdAndUpdate(req.params.id, req.body, function () {
+    index(req, res)
+  })
 }
 
 // here's our new controller function for deleting a skill
 function deleteSkill(req, res) {
-    Skill.findByIdAndDelete(req.params.id, function () {
-        index(req, res); // 👈 replace our list with a new one like we did with our update action
-    });
+  Skill.findByIdAndDelete(req.params.id, function () {
+    index(req, res) // 👈 replace our list with a new one like we did with our update action
+  })
 }
 ```
 
@@ -869,7 +817,6 @@ Once again, we'll do this so we can send an updated copy of our skills collectio
 
 Now for the final step, adding a delete button/widget for each skill in the list; here's our next set of user stories:
 
-
 **As a user - (AAU) ...**
 
 1. When looking at a list of skills, I should see a button to delete a particular skill.
@@ -878,23 +825,22 @@ Now for the final step, adding a delete button/widget for each skill in the list
 Awesome! Let's add that delete button!
 
 ```jsx
-      {state.skills.map(s => (
-        <article key={s._id}>
-            <div>{s.skill}</div>
-            <div>{s.level}</div>
-            <div 
-                className="controls" 
-                onClick={() => handleEdit(s._id)}>
-            {'✏️'}
-            </div>
-            <div 
-                className="controls" 
-                onClick={() => handleDelete(s._id)}>
-            {'🗑'}
-            </div>
-        </article>
-      ))}
+{
+  state.skills.map((s) => (
+    <article key={s._id}>
+      <div>{s.skill}</div>
+      <div>{s.level}</div>
+      <div className="controls" onClick={() => handleEdit(s._id)}>
+        {"✏️"}
+      </div>
+      <div className="controls" onClick={() => handleDelete(s._id)}>
+        {"🗑"}
+      </div>
+    </article>
+  ))
+}
 ```
+
 <br>
 <br>
 
@@ -903,19 +849,19 @@ The "delete" button is nearly identical to "edit" with the exception of using a 
 Let's define that function now:
 
 ```js
-  async function handleDelete(id) {
-    try {
-      const skills = await fetch(`http://localhost:3001/api/skills/${id}`, {
-        method: 'DELETE'
-      }).then(res => res.json());
-      setState(prevState => ({
-        ...prevState,
-        skills,
-      }));
-    } catch (error) {
-      console.log(error);
-    }
+async function handleDelete(id) {
+  try {
+    const skills = await fetch(`http://localhost:3001/api/skills/${id}`, {
+      method: "DELETE",
+    }).then((res) => res.json())
+    setState((prevState) => ({
+      ...prevState,
+      skills,
+    }))
+  } catch (error) {
+    console.log(error)
   }
+}
 ```
 
 <br>
@@ -937,12 +883,11 @@ Success, we did it, we have full CRUD now! 🎉
 
 ## Bonus Challenge!
 
-As a final challenge, it would be a great idea to consider refactoring our AJAX logic into a seperate service module. 
+As a final challenge, it would be a great idea to consider refactoring our AJAX logic into a seperate service module.
 
 The first steps are creating a seperate file inside our `src` directory in React and exporting our AJAX logic as named functions to be imported and called from within `App.js`.
 
 This will make our code more organized and easier to maintain.
-
 
 <br>
 <br>
@@ -960,6 +905,3 @@ This will make our code more organized and easier to maintain.
 - [`async/await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 - [`try/catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
 - [`Array.find()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
-
-
-

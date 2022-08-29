@@ -14,21 +14,6 @@ type: "lab"
 <br>
 <br>
 
-<!-- 
-
-
-### [Click here]() to access walkthrough recording 
-
-
-<br>
-<br>
-<br>
-<br> 
--->
-
-
-
-
 ## Introduction
 
 This lab provides an opportunity to practice working with jQuery.

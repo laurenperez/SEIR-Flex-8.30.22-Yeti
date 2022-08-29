@@ -12,7 +12,7 @@ type: "lecture"
 <br>
 <br>
 
-### [Click Here](https://generalassembly.zoom.us/rec/share/Eh7pNUuEFtUaVGE-pa8rCs_B1MLZ7Qv-fZm2r8ZUSWypq0FqXCx5w175LWd6FQt7.Ddji5ZAd1YT1XKLR?startTime=1618680723000) to access recording
+### [DanielJS Recording](https://generalassembly.zoom.us/rec/share/Eh7pNUuEFtUaVGE-pa8rCs_B1MLZ7Qv-fZm2r8ZUSWypq0FqXCx5w175LWd6FQt7.Ddji5ZAd1YT1XKLR?startTime=1618680723000)
 
 <br>
 <br>

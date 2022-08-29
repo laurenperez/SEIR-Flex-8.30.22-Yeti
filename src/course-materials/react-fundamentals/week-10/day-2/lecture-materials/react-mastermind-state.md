@@ -6,37 +6,29 @@ day: 2
 type: "lecture"
 ---
 
-
 # Introducing State with Hooks and Props
 
-
 <br>
 <br>
 <br>
 
-
-
-### [Click Here](https://generalassembly.zoom.us/rec/share/1H-MwxANqHqmudZetwaLgVI3FEIVp3od18vYun5K3_4eOJOWVEGupMC3Q9XXcplf.06nzi6jqsX2gaKkI?startTime=1620779396000) to access recording
-
+### [DanielJS Recording](https://generalassembly.zoom.us/rec/share/1H-MwxANqHqmudZetwaLgVI3FEIVp3od18vYun5K3_4eOJOWVEGupMC3Q9XXcplf.06nzi6jqsX2gaKkI?startTime=1620779396000)
 
 <br>
 <br>
 <br>
-
-
 
 ## Learning Objectives
 
-| Students Will Be Able To: |
-|---|
+| Students Will Be Able To:                       |
+| ----------------------------------------------- |
 | Describe the difference between props and state |
-| Use the `useState` hook |
-| Pass props to a child component |
-| Render props passed to a component |
+| Use the `useState` hook                         |
+| Pass props to a child component                 |
+| Render props passed to a component              |
 
 <br>
 <br>
-
 
 ## Road Map
 
@@ -61,8 +53,6 @@ The starter code is the code from the last lesson/lab with:
 - The addition of a `<ScoreButton>` component defined, but not yet being rendered
 
 To be ready for this lesson, please:
-
-
 
 - Download the <a href="/downloads/react_fundamentals/state-and-props/react-mastermind.zip" download>Starter Code</a>
 - Extract the folder from the `.zip` file and `cd` into it
@@ -101,11 +91,11 @@ Examples of state includes:
 State in a React App can be held in two ways:
 
 1.  A class component's `state` property.
-2.  In a function component using the `useState` hook - ***(As of React v16.8)***
+2.  In a function component using the `useState` hook - **_(As of React v16.8)_**
 
 We'll use the latter as it's the more recent and widely-adopted approach to using state.
 
-Since data/information can only be passed **down** the component hierarchy, not up, it's a good idea to keep state as high up in the hierarchy as possible, at least initially. 
+Since data/information can only be passed **down** the component hierarchy, not up, it's a good idea to keep state as high up in the hierarchy as possible, at least initially.
 
 For most app's, the top of the hierarchy is the `<App>` component.
 
@@ -122,20 +112,20 @@ When we analyze the state for the game of mastermind, we will find that we're go
 - An array of guess objects, where the last object in the array will be the current guess
 - The secret code
 
-When working with data pertaining to the colors, we will find it far  more efficient to work with numbers (integers) instead of strings to represent which color has been chosen, selected, etc.
+When working with data pertaining to the colors, we will find it far more efficient to work with numbers (integers) instead of strings to represent which color has been chosen, selected, etc.
 
 For example, we can use integers in an array to represent the secret code and the player's guesses like this:
 
 ```javascript
 // Array of color "indexes" can be used for the code & player's guesses
-[3, 0, 2, 2]
+;[3, 0, 2, 2]
 ```
 
 Those numbers would then be used to represent a corresponding color in a colors array:
 
 ```javascript
 // Array of "colors"
-['#7CCCE5', '#FDE47F', '#E04644', '#B576AD']
+;["#7CCCE5", "#FDE47F", "#E04644", "#B576AD"]
 ```
 
 This way, the state "remembering" the selected color would be a simple integer, again, corresponding to the index of the selected color within the colors array.
@@ -156,7 +146,7 @@ With that out of the way, let's think about what has to be "remembered" about ea
 The `code` represents the player's "guess".
 The `score` object tracks the number of "perfect" pegs, that is, correct color in the correct position; and the number of "almost" which is a correct color, but in the wrong position.
 
-The above "guess" objects can be remembered by an array in the state. The array would hold one guess object for each guess that's been made, plus the current guess (the last object in the array). 
+The above "guess" objects can be remembered by an array in the state. The array would hold one guess object for each guess that's been made, plus the current guess (the last object in the array).
 
 If evaluating an application's state and data structures seems difficult, that's okay, it takes a bit of experience. Soon enough, you'll be able to recognize scenarios that you've seen before and apply those previous data structures and patterns previously used.
 
@@ -183,21 +173,19 @@ Specifically, a hook:
 <br>
 <br>
 
-
 ### Built-in Hooks and their use cases:
 
-| Hook | Use Case |
-|---|---|
-|[`useState()`](https://reactjs.org/docs/hooks-reference.html#usestate)|Used to implement class components' `this.state` and `setState()`.|
-|[`useEffect()`](https://reactjs.org/docs/hooks-reference.html#useeffect)|Used to implement "side effects", e.g., fetching data, using timers, subscriptions, etc.<br>`useEffect()` implements the functionality of class component lifecycle methods such as `componentDidMount`, `componentDidUpdate` & `componentWillUnmount` with a single hook!|
-|[`useRef()`](https://reactjs.org/docs/hooks-reference.html#useref)| Used to access DOM elements, and can be also used more generally to "remember" any non-state data that needs to be persisted between renders similar to how instance properties are used in class components. |
-|[`useReducer()`](https://reactjs.org/docs/hooks-reference.html#usereducer)|An alternative to `useState()` for when the state is more complex.  It uses a reducer function and "actions" to update state - similar to how Redux does (but not as comprehensive).|
-| Other built-in hooks|[`useContext()`](https://reactjs.org/docs/hooks-reference.html#usecontext)<br>[`useMemo()`](https://reactjs.org/docs/hooks-reference.html#usememo)<br>[and other less common hooks here...](https://reactjs.org/docs/hooks-reference.html#useimperativehandle)|
+| Hook                                                                       | Use Case                                                                                                                                                                                                                                                                   |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`useState()`](https://reactjs.org/docs/hooks-reference.html#usestate)     | Used to implement class components' `this.state` and `setState()`.                                                                                                                                                                                                         |
+| [`useEffect()`](https://reactjs.org/docs/hooks-reference.html#useeffect)   | Used to implement "side effects", e.g., fetching data, using timers, subscriptions, etc.<br>`useEffect()` implements the functionality of class component lifecycle methods such as `componentDidMount`, `componentDidUpdate` & `componentWillUnmount` with a single hook! |
+| [`useRef()`](https://reactjs.org/docs/hooks-reference.html#useref)         | Used to access DOM elements, and can be also used more generally to "remember" any non-state data that needs to be persisted between renders similar to how instance properties are used in class components.                                                              |
+| [`useReducer()`](https://reactjs.org/docs/hooks-reference.html#usereducer) | An alternative to `useState()` for when the state is more complex. It uses a reducer function and "actions" to update state - similar to how Redux does (but not as comprehensive).                                                                                        |
+| Other built-in hooks                                                       | [`useContext()`](https://reactjs.org/docs/hooks-reference.html#usecontext)<br>[`useMemo()`](https://reactjs.org/docs/hooks-reference.html#usememo)<br>[and other less common hooks here...](https://reactjs.org/docs/hooks-reference.html#useimperativehandle)             |
 
 <br>
 <br>
 <br>
-
 
 ## Rules of Using Hooks
 
@@ -206,14 +194,12 @@ Using hooks requires that we always follow these two rules:
 - Only call hooks at the top-level of a function component. Calling hooks inside loops, conditions, or nested functions is not allowed.
 
 - Only call hooks from within:
-	- React function components (they don't work with class components)
-	- Or, your own custom Hooks
+  - React function components (they don't work with class components)
+  - Or, your own custom Hooks
 
 <br>
 <br>
 <br>
-
-
 
 ### Adding State Using `useState()`
 
@@ -230,37 +216,37 @@ We know we want to track which color is selected, so let's start with that.
 
 ```javascript
 // Add an import statement for the useState hook using the "named import" syntax
-import { useState } from "react";
+import { useState } from "react"
 
-import './App.css';
-import GameBoard from './components/GameBoard/GameBoard';
-import ColorPicker from './components/ColorPicker/ColorPicker';
-import GameTimer from './components/GameTimer/GameTimer';
-import NewGameButton from './components/NewGameButton/NewGameButton';
+import "./App.css"
+import GameBoard from "./components/GameBoard/GameBoard"
+import ColorPicker from "./components/ColorPicker/ColorPicker"
+import GameTimer from "./components/GameTimer/GameTimer"
+import NewGameButton from "./components/NewGameButton/NewGameButton"
 
-function App (){
-    // first we initialize state inside the body of our function component
-    const selectedColorState = useState(0);
-    
-    // then let's see what that gives us with a console log
-    console.log(selectedColorState)
-    return (
-      <div className="App">
-        <header className="App-header">React Mastermind</header>
-        <div className="flex-h">
-          <GameBoard />
-          <div>
-            <ColorPicker />
-            <GameTimer />
-            <NewGameButton />
-          </div>
+function App() {
+  // first we initialize state inside the body of our function component
+  const selectedColorState = useState(0)
+
+  // then let's see what that gives us with a console log
+  console.log(selectedColorState)
+  return (
+    <div className="App">
+      <header className="App-header">React Mastermind</header>
+      <div className="flex-h">
+        <GameBoard />
+        <div>
+          <ColorPicker />
+          <GameTimer />
+          <NewGameButton />
         </div>
-        <footer>footer</footer>
       </div>
-    );
+      <footer>footer</footer>
+    </div>
+  )
 }
 
-export default App;
+export default App
 ```
 
 <br>
@@ -277,23 +263,19 @@ Awesome! Now, once we go to the browser and open the JavaScript console, we shou
 
 **`useState` returns a JavaScript Array with two elements:**
 
-1. The initial value of state *(it's what we pass to `useState` as an argument)*.
+1. The initial value of state _(it's what we pass to `useState` as an argument)_.
 2. A function for setting/updating state.
-
-
 
 A better way to extract these two elements is with a concept known as [Array Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment):
 
 ```javascript
-
-const [selColorIdx, setColorIdx] = useState(0);
+const [selColorIdx, setColorIdx] = useState(0)
 
 // let's see the difference in access array destructuring provides
-console.log(selColorIdx, selColorIdx);
+console.log(selColorIdx, selColorIdx)
 ```
 
 > Key Point: The names of the variables that hold the state value and setter function are up to us. However, it's convention to name the setter function by prepending `set` to the name of the state variable as we did with `selColorIdx` & `selColorIdx`.
-
 
 <br>
 <br>
@@ -302,7 +284,6 @@ console.log(selColorIdx, selColorIdx);
 **let's demonstrate how to use the setter function**
 
 1. First, let's update our `App.js` component like so:
-
 
 ```javascript
 import { useState } from "react";
@@ -316,7 +297,7 @@ import NewGameButton from './components/NewGameButton/NewGameButton';
 function App (){
 
     const [selColorIdx, setColorIdx] = useState(0);
-    
+
     return (
       <div className="App">
         {/* add this just above the header element */}
@@ -331,7 +312,6 @@ function App (){
 
 2. Then we'll add a button we can use to invoke the setter function:
 
-
 ```javascript
 // Add an import statement for the useState hook using the "named import" syntax
 import { useState } from "react";
@@ -343,9 +323,9 @@ import GameTimer from './components/GameTimer/GameTimer';
 import NewGameButton from './components/NewGameButton/NewGameButton';
 
 function App (){
-    
+
     const [selColorIdx, setColorIdx] = useState(0);
-    
+
     return (
       <div className="App">
         {/* add this button above where we display state */}
@@ -364,7 +344,7 @@ function App (){
 
 Cool it works!
 
-Also note how easily we can use the current value of `selColorIdx` in the `selColorIdx + 1` expression... 
+Also note how easily we can use the current value of `selColorIdx` in the `selColorIdx + 1` expression...
 
 > NOTE: Calling the setter function **replaces** the current state value with the argument provided.
 
@@ -373,19 +353,19 @@ Also note how easily we can use the current value of `selColorIdx` in the `selCo
 
 **SUMMARY: To add state to a function component:**
 
-1. We import the `useState` hook from `react`. 
-2. We invoke the `useState` hook inside the body of our function component passing our initial state. 
+1. We import the `useState` hook from `react`.
+2. We invoke the `useState` hook inside the body of our function component passing our initial state.
 3. Using Array destructuring, we assign the returned Array elements to variables representing our state and setter function.
-4. We update state *(when needed)* by invoking the setter function passing in new state as an argument.
+4. We update state _(when needed)_ by invoking the setter function passing in new state as an argument.
 5. The setter function, when invoked, replaces previous state with the new state passed as an argument.
 6. React will then re-render the component, providing the new state to it.
 
 <br>
 <br>
 
-**Final Note: It is very common and in some cases, even suggested to use mulitple calls to setState for managing different pieces of state, *(especially if they are unrelated)*.** 
+**Final Note: It is very common and in some cases, even suggested to use mulitple calls to setState for managing different pieces of state, _(especially if they are unrelated)_.**
 
-**However, it's not required as we can simply pass a collection of values *(... a JS Object)* to `useState` instead of a single value**
+**However, it's not required as we can simply pass a collection of values _(... a JS Object)_ to `useState` instead of a single value**
 
 Here's an example of this explaination straight from the [React Documentation](https://reactjs.org/docs/hooks-state.html#tip-using-multiple-state-variables):
 
@@ -396,6 +376,7 @@ function ExampleWithManyStates() {
   const [fruit, setFruit] = useState('banana');
   const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
 ```
+
 <br>
 <br>
 <br>
@@ -414,7 +395,6 @@ function ExampleWithRelatedState() {
 
 ```
 
-
 <br>
 <br>
 <br>
@@ -427,7 +407,7 @@ So the answer to the question: _Does All Information Belong in State?_ is "no", 
 
 When you have data that doesn't change, or don't want to re-render if it changes, we can define that data:
 
-1. In a variable outside or inside of the component definition 
+1. In a variable outside or inside of the component definition
 2. Exported from a seperate utility module
 
 As discussed, we intend to use the `selColorIdx` state to hold the index of the selected within a `colors` array.
@@ -451,7 +431,7 @@ function App (){
     // add this array just inside the app component
     const colors = ['#7CCCE5', '#FDE47F', '#E04644', '#B576AD'];
     const [selColorIdx, setColorIdx] = useState(0);
-    
+
     return (
       <div className="App">
         {/* change what we pass to the setter function to properly cycle the color indexes 😄 */}
@@ -461,7 +441,6 @@ function App (){
 
         <header className="App-header">React Mastermind</header>
 ```
-
 
 <br>
 <br>
@@ -477,25 +456,24 @@ So, for example
 ```javascript
 const [gameState, setGameState] = useState(...
 ```
+
 <br>
 <br>
 
-
-**NOTE: While invoking `useState`, we'll pass in an object with two properties:** 
-
+**NOTE: While invoking `useState`, we'll pass in an object with two properties:**
 
 1. `guesses`: An array that will hold the player's "guess" objects. Initialize it to an empty array.<br>**Important:** If a piece of state will be an array, always initialize it to be an array, empty or not! This is because the components it gets passed to are going to expect to be able to `map`, `filter`, `forEach`, etc. over it!
 
-2. `code`: An array that will hold four integers (ranging from `0` to `colors.length - 1`). To obtain the value for `code`, define a helper function named `genCode` inside your `App` function component that will return the array of four randomly generated numbers when invoked. 
+2. `code`: An array that will hold four integers (ranging from `0` to `colors.length - 1`). To obtain the value for `code`, define a helper function named `genCode` inside your `App` function component that will return the array of four randomly generated numbers when invoked.
 
 **Here's what your `genCode` helper function should return:**
 
 ```javascript
-return new Array(4).fill().map(() => Math.floor(Math.random() * colors.length));
+return new Array(4).fill().map(() => Math.floor(Math.random() * colors.length))
 ```
-<br>
-<br>
 
+<br>
+<br>
 
 We're going to be adding more state in a bit, but now let's turn our attention to **props**.
 
@@ -521,14 +499,14 @@ However, as discussed in the JSX lesson, you must use camelCasing to name your p
 The first prop we'll pass in react-mastermind will be the `colors` array to the `<ColorPicker>` component within the `render` method in **App.js**:
 
 ```javascript
-<ColorPicker colors={colors}/>
+<ColorPicker colors={colors} />
 ```
 
 <br>
 
-**NOTE: You must use curly braces to pass any value other than a simple string *(template literals need to be surrounded by curly braces as well)*.**
+**NOTE: You must use curly braces to pass any value other than a simple string _(template literals need to be surrounded by curly braces as well)_.**
 
-We can now go to  `<ColorPicker>` and work with the colors array, but there's a better way to check things like props and state - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+We can now go to `<ColorPicker>` and work with the colors array, but there's a better way to check things like props and state - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 
 Just like how Chrome's DevTools are invaluable when it comes to troubleshooting the DOM, so are React's Developer Tools when it comes to troubleshooting a React app!
 
@@ -562,12 +540,13 @@ Let's use the `colors` prop inside of `<ColorPicker>` to render a button for eac
 ```javascript
 const ColorPicker = (props) => (
   <div>
-    {props.colors.map(color =>
+    {props.colors.map((color) => (
       <button key={color}>{color}</button>
-    )}
+    ))}
   </div>
-);
+)
 ```
+
 Yup, once again, the `map` array iterator method is the go to for transforming an array of data into an array of components!
 
 Check it out, they won't be pretty (yet), but you'll find a button for each color in the `props.colors` array!
@@ -584,7 +563,6 @@ Remember, the prop came from a component somewhere up the hierarchy and if the p
 
 However, a component can certainly pass down via props methods that can be used to update its state - but that's for another day.
 
-
 <br>
 <br>
 
@@ -594,7 +572,7 @@ Your turn to pass some props:
 
 1. The `<ColorPicker>` component will need to know which color is selected, thus, pass the `selColorIdx` state to it as a prop with the same name.
 
-	> Note: The name of the prop can be anything, but it makes sense to name it the same as the state property being passed.
+   > Note: The name of the prop can be anything, but it makes sense to name it the same as the state property being passed.
 
 2. The `<GameBoard>` component will need access to both the `colors` array and the `guesses` state. Pass both as props using the same names.
 
@@ -607,11 +585,11 @@ Check your work using the React Developer Tools.
 
 Let's summarize the key differences between state and props:
 
-| state | props |
-|---|---|
-| `state` created by the `useState` hook holds information "owned" by that component | `props` holds information passed down the component hierarchy |
-| State can be replaced to a newer version using the setter function we get from the `useState` hook | Props cannot be modified |
-| When changed, React re-renders the component | N/A<br><br> We can pass the setter function as a prop to change state, which will effectively send the updated data when React re-renders the component and it's children|
+| state                                                                                              | props                                                                                                                                                                     |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `state` created by the `useState` hook holds information "owned" by that component                 | `props` holds information passed down the component hierarchy                                                                                                             |
+| State can be replaced to a newer version using the setter function we get from the `useState` hook | Props cannot be modified                                                                                                                                                  |
+| When changed, React re-renders the component                                                       | N/A<br><br> We can pass the setter function as a prop to change state, which will effectively send the updated data when React re-renders the component and it's children |
 
 <br>
 <br>
@@ -640,9 +618,9 @@ function getNewGuess() {
     code: [null, null, null, null],
     score: {
       perfect: 0,
-      almost: 0
-    }
-  };
+      almost: 0,
+    },
+  }
 }
 ```
 
@@ -651,11 +629,12 @@ We're using a `null` in each of the four positions to represent that a guess has
 Now we can use this `getNewGuess` function to update how the `guesses` state array is initialized in **App.js**:
 
 ```javascript
-   const [gameState, setGameState] = useState({
-      guesses: [getNewGuess()],
-      code: genCode()
-    });
+const [gameState, setGameState] = useState({
+  guesses: [getNewGuess()],
+  code: genCode(),
+})
 ```
+
 <br>
 <br>
 
@@ -667,16 +646,16 @@ Let's make a change to temporarily create two guess objects in the `guesses` arr
 
 ```javascript
 const [gameState, setGameState] = useState({
-   guesses: [getNewGuess(), getNewGuess()],
-   code: genCode()
- });
+  guesses: [getNewGuess(), getNewGuess()],
+  code: genCode(),
+})
 
-
-  /* helper functions */
- function genCode() {
-   return new Array(4).fill().map(() => Math.floor(Math.random() * colors.length));
- }
-
+/* helper functions */
+function genCode() {
+  return new Array(4)
+    .fill()
+    .map(() => Math.floor(Math.random() * colors.length))
+}
 
 function getNewGuess() {
   return {
@@ -685,9 +664,9 @@ function getNewGuess() {
     code: [3, 2, 1, 0], // for testing purposes
     score: {
       perfect: 0,
-      almost: 0
-    }
-  };
+      almost: 0,
+    },
+  }
 }
 ```
 
@@ -704,7 +683,7 @@ const GameBoard = (props) => (
     <GuessRow />
     <GuessRow />
   </div>
-);
+)
 ```
 
 However, now that `<GameBoard>` is being passed the actual `guesses` array, let's refactor to render a `<GuessRow>` for each guess object in the array instead:
@@ -712,15 +691,11 @@ However, now that `<GameBoard>` is being passed the actual `guesses` array, let'
 ```javascript
 const GameBoard = (props) => (
   <div>
-    {props.guesses.map((guess, idx) =>
-      <GuessRow
-        guess={guess}
-        colors={props.colors}
-        key={idx}
-      />
-    )}
+    {props.guesses.map((guess, idx) => (
+      <GuessRow guess={guess} colors={props.colors} key={idx} />
+    ))}
   </div>
-);
+)
 ```
 
 While we're at it, we're passing both the `guess` object and the `colors` array as props because the `<GuessRow>` needs access to them to do its job.
@@ -728,13 +703,12 @@ While we're at it, we're passing both the `guess` object and the `colors` array 
 <br>
 <br>
 
-We're also using `idx` to assign to `key` to make React happy. 
+We're also using `idx` to assign to `key` to make React happy.
 
 > Note: Passing state and props down multiple levels of the component hierarchy is common in React. However, state management alternatives, such as Redux and React's context API, allow for "providing" state to components directly instead. Redux has a lot of set up overhead and is overkill for most apps.
 
 <br>
 <br>
-
 
 Okay, we should still be seeing two `<GuessRow>` components being rendered.
 
@@ -742,12 +716,12 @@ However, now it has `guess` & `colors` props that can be used. Here's what **Gue
 
 ```javascript
 const GuessRow = (props) => (
-  <div className='flex-h'>
+  <div className="flex-h">
     Guess Row #
     <GuessPegs />
     <GuessScore />
   </div>
-);
+)
 ```
 
 Now let's display an actual number for "Guess Row #".
@@ -776,16 +750,17 @@ Now we can go back to **GuessRow.js** and render the actual row number:
 
 ```javascript
 const GuessRow = (props) => (
-  <div className='flex-h'>
+  <div className="flex-h">
     <div>{props.rowIdx + 1}</div>
     <GuessPegs />
     <GuessScore />
   </div>
-);
+)
 ```
+
 As you can see, we want the row number to be 1-based.
 
-Check it out in the browser and you will find that the row number is now being displayed.  Although we want the newest row on top, which we'll take care of using styling.
+Check it out in the browser and you will find that the row number is now being displayed. Although we want the newest row on top, which we'll take care of using styling.
 
 Okay, next up is passing props to the `<GuessPegs>` component.
 
@@ -798,19 +773,15 @@ Let's pass these along:
 
 ```javascript
 const GuessRow = (props) => (
-  <div className='flex-h'>
+  <div className="flex-h">
     <div>{props.rowIdx + 1}</div>
-    <GuessPegs
-      colors={props.colors}
-      code={props.guess.code}
-    />
+    <GuessPegs colors={props.colors} code={props.guess.code} />
     <GuessScore />
   </div>
-);
+)
 ```
 
 Sweet. Make sure the page is not receiving any errors and let's move on to the `<GuessPegs>` component that we just passed some props to...
-
 
 <br>
 <br>
@@ -821,19 +792,19 @@ Currently, `<GuessPegs>` is rendering "GuessPegs" text and the four `<GuessPeg>`
 
 ```javascript
 const GuessPegs = (props) => (
-  <div className='flex-h'>
+  <div className="flex-h">
     GuessPegs
     <GuessPeg />
     <GuessPeg />
     <GuessPeg />
     <GuessPeg />
   </div>
-);
+)
 ```
 
 First, delete that temp "GuessPegs" text.
 
-Now, what does each `<GuessPeg>` need to know?  Simply the color value it is responsible for displaying.
+Now, what does each `<GuessPeg>` need to know? Simply the color value it is responsible for displaying.
 
 But the specific color value to pass as a prop depends upon the color that the player has guessed for that position.
 
@@ -847,7 +818,7 @@ const GuessPegs = (props) => (
     <GuessPeg color={props.colors[props.code[2]]} />
     <GuessPeg color={props.colors[props.code[3]]} />
   </div>
-);
+)
 ```
 
 Each `<GuessPeg>` is receiving a `color` prop that is being set to the value from the colors array, indexed by the guess stored in<br> `props.code[/* index of the peg's position */]`
@@ -860,11 +831,7 @@ Now let's get the `<GuessPeg>` component to simply render the color value instea
 Update **GuessPeg.js** as follows:
 
 ```javascript
-const GuessPeg = (props) => (
-  <div>
-    {props.color}
-  </div>
-);
+const GuessPeg = (props) => <div>{props.color}</div>
 ```
 
 <br>
@@ -879,7 +846,6 @@ const GuessPeg = (props) => (
 
 <br>
 <br>
-
 
 #### Display Either the `<GuessScore>` or `<ScoreButton>`
 
@@ -927,20 +893,13 @@ Let's add the necessary conditional logic in **GuessRow.js**:
 
 ```javascript
 const GuessRow = (props) => (
-  <div className='flex-h'>
+  <div className="flex-h">
     <div>{props.rowIdx + 1}</div>
-    <GuessPegs
-      colors={props.colors}
-      code={props.guess.code}
-    />
+    <GuessPegs colors={props.colors} code={props.guess.code} />
     {/* Refactor as follows */}
-    {
-      props.currentGuess ?
-        <ScoreButton /> :
-        <GuessScore />
-    }
+    {props.currentGuess ? <ScoreButton /> : <GuessScore />}
   </div>
-);
+)
 ```
 
 Ah yes, our friend the ternary expression is the go to for returning one of two expressions depending upon a conditional expression.
@@ -952,17 +911,16 @@ Ah yes, our friend the ternary expression is the go to for returning one of two 
 One last detail, we've referenced the `<ScoreButton>` component without importing it:
 
 ```javascript
-import React from 'react';
-import GuessPegs from '../GuessPegs/GuessPegs';
-import GuessScore from '../GuessScore/GuessScore';
+import React from "react"
+import GuessPegs from "../GuessPegs/GuessPegs"
+import GuessScore from "../GuessScore/GuessScore"
 // Import the ScoreButton component
-import ScoreButton from '../ScoreButton/ScoreButton';
+import ScoreButton from "../ScoreButton/ScoreButton"
 ```
 
 <br>
 <br>
 <br>
-
 
 The look of sweet success:
 
@@ -983,24 +941,16 @@ Take a minute to review the following questions:
 
 **❓ In the context of an application, what is state?**
 
-
 **❓ In the lesson, where and how was state initialized?**
-
 
 **❓ How do we "update" state?**
 
-
 **❓ What is wrong with the following code:**
-
 
 ```jsx
 function GameTimer(props) {
-  props.elapsedTime += 1;
-  return (
-    <div>
-      Elapsed Time: {props.elapsedTime}
-    </div>
-  );
+  props.elapsedTime += 1
+  return <div>Elapsed Time: {props.elapsedTime}</div>
 }
 ```
 
@@ -1015,7 +965,7 @@ function GameTimer(props) {
 ## References
 
 - [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
-- [Import Statements *(named vs default)*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+- [Import Statements _(named vs default)_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 - [React Docs - Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)
 - [React Docs - Hooks API Reference](https://reactjs.org/docs/hooks-reference.html)
 - [React Docs - Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html)

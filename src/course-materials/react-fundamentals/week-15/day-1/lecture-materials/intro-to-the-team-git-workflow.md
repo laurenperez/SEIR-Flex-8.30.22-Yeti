@@ -13,7 +13,7 @@ type: "lecture"
 
 ### Cohort
 
-### [Click here](https://generalassembly.zoom.us/rec/share/3ZMmQR7dvswco0HnliTR4rPQTfoukY7c3kObg1FVOIArZO2o5WdBFRC3yJ75ytit.exF6BGCjpY-YVQ4Y?startTime=1626553867000) to access recording
+### [DanielJS Recording](https://generalassembly.zoom.us/rec/share/3ZMmQR7dvswco0HnliTR4rPQTfoukY7c3kObg1FVOIArZO2o5WdBFRC3yJ75ytit.exF6BGCjpY-YVQ4Y?startTime=1626553867000)
 
 <br>
 <br>

@@ -21,7 +21,7 @@ type: "lecture"
 <br>
 <br>
 
-### [Click Here](https://generalassembly.zoom.us/rec/share/GTis15E7NTelhVEuNxrIZd4b2bJm1C03p0GJhPfHYE_XLqoAV_7-yl0vrPp5HMJh.zK_eu5cxJ2MWDGN0?startTime=1621699441000) to access recording
+### [DanielJS Recording](https://generalassembly.zoom.us/rec/share/GTis15E7NTelhVEuNxrIZd4b2bJm1C03p0GJhPfHYE_XLqoAV_7-yl0vrPp5HMJh.zK_eu5cxJ2MWDGN0?startTime=1621699441000)
 
 <br>
 <br>

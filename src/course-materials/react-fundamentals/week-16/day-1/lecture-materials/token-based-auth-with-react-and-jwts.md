@@ -13,7 +13,7 @@ type: "lecture"
 <br>
 <br>
 
-<!-- ### [Click here](https://generalassembly.zoom.us/rec/share/4k1vEm8AOOaZn3dJRv1IQpkpXjZwzhJyDW1bjAni9y6iFawzk7fMvNbOUZqKrnC9.3MK_5mcpPqzachfC?startTime=1608395918000) to access recording -->
+### [DanielJS Recording](https://generalassembly.zoom.us/rec/share/4k1vEm8AOOaZn3dJRv1IQpkpXjZwzhJyDW1bjAni9y6iFawzk7fMvNbOUZqKrnC9.3MK_5mcpPqzachfC?startTime=1608395918000)
 
 
 ## Learning Objectives

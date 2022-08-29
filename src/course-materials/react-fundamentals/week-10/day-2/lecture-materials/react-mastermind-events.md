@@ -14,18 +14,6 @@ type: "lecture"
 <br>
 <br>
 
-
-<!-- 
-### [Click Here]() to access recording
-
-
-<br>
-<br>
-<br> 
--->
-
-
-
 ## Learning Objectives
 
 | Students Will Be Able To |
