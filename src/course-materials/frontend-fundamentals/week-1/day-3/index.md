@@ -9,8 +9,8 @@ topics: "HTML & CSS Review"
 
 # Week 1 - Day 3
 
-- [**Lecture:** HTML & CSS](/frontend-fundamentals/week-1/day-3/lecture/html-css-review/)
-- [**Lecture:** HTML & CSS Layout](/frontend-fundamentals/week-1/day-3/lecture/html-css-layout/)
+- [**Lecture:** HTML & CSS](/frontend-fundamentals/week-1/day-3/lecture-materials/html-css-review/)
+- [**Lecture:** HTML & CSS Layout](/frontend-fundamentals/week-1/day-3/lecture-materials/html-css-layout/)
 
 #### Lunch
 

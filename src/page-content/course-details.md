@@ -45,7 +45,7 @@ title: "Course Details"
 | Nathaniel Stack (he/him)     | Lead Instructor             | TBD
 | TBD                          | Lead Instructor             | TBD
 | Katie Pestotnik (she/her)    | Instructional Associate     | Sundays 4:00pm - 6:00pm PST
-| Tanise Williams (she/her)    | Instructional Associate     | TBD
+| Tanise Williams (she/her)    | Instructional Associate     | Wednesdays 3:00pm - 5:00pm PST
 | John Bacolores (he/him)      | Outcomes Coach              | Message as needed
 | Dominique Garcia (she/they)  | Student Success Specialist  | Message as needed
 
