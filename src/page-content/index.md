@@ -19,9 +19,9 @@ This website contains assignments and materials for General Assembly's Software 
 
 #### [Class Recordings](https://docs.google.com/spreadsheets/d/1TPJZVFidiyuOw9K4jwnamBWgItsZrE8oqaGQhm61dlU/edit?usp=sharing)
 
-#### [Homework Tracker](#) - Needs to be created
+#### [Homework Tracker](#)
 
-#### [Attendance Tracker](#) - Needs to be created
+#### [Attendance Tracker](#)
 
 <br>
 <br>

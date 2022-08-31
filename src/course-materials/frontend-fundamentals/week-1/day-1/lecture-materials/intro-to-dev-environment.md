@@ -65,42 +65,6 @@ Students will be able to:
 <br>
 <br>
 
-## Uploading Screenshots and Images to _imgur.com_
-
-<br>
-
-### Why Upload Images?
-
-- Often you will need to share images with others or use them in your applications, notes, readme files, etc
-
-- Unfortunately, if an image exists only on your computer, you lose the ability to use it anywhere but on your computer
-
-- The solution is to upload images to a cloud service...
-
-<br>
-<br>
-<br>
-
-### Imgur
-
-- One of the most popular image hosting services on the Internet is [Imgur](http://imgur.com/).
-
-- Go there now and open a free account
-
-- Although you can upload images using Imgur's web interface, but there's a better way...
-
-<br>
-<br>
-<br>
-
-### Upload Tools for Imgur
-
-[Click this link](https://help.imgur.com/hc/en-us/articles/209592766-Tools-for-Imgur) to go to a page of different tools you can use to conveniently upload images to imgur from your computer
-
-<br>
-<br>
-<br>
-
 ### Screenshots
 
 - The following keyboard shortcuts can be used to take screenshots of your screen: - Whole screen: `shift-cmd-3` - Part of your screen: `shift-cmd-4` - A certain window: `shift-cmd-4`, then `spacebar` to toggle window mode
@@ -127,19 +91,7 @@ Students will be able to:
 
 ### Command Line Basics
 
-Before we get started with this section, it might be helpful to ensure we are all using the same shell configuration.
-
-That said, here are some screenshots to show how your instructor has set up their shell:
-
-![screenshot](https://i.imgur.com/XWfZzKt.png)
-![screenshot](https://i.imgur.com/8dvHVnq.png)
-![screenshot](https://i.imgur.com/7MdUP9k.png)
-
-<br>
-<br>
-<br>
-
-<p>Now that we've reviewed shell config, here are the basic command tasks we'll try out:</p>
+<p>Here are the basic command tasks we'll try out:</p>
 
 - Change directories (folders)
 - List a directory's contents
