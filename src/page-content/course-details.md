@@ -41,10 +41,10 @@ title: "Course Details"
 
 | Name           | Role                    | Office Hours       | 
 | -------------- | ----------------------- | -------------------|
-| Lauren Perez (she/her)       | Lead Instructor             | TBD
-| Nathaniel Stack (he/him)     | Lead Instructor             | Tuesdays/Wednesdays 5:30-6:30pm PST
-| Katie Pestotnik (she/her)    | Instructional Associate     | Sundays 4:00pm - 6:00pm PST
-| Tanise Williams (she/her)    | Instructional Associate     | Wednesdays 3:00pm - 5:00pm PST
+| Lauren Perez (she/her)       | Lead Instructor             | Fri 6:30pm - 8:30pm PST 
+| Nathaniel Stack (he/him)     | Lead Instructor             | Tue + Wed 5:30pm - 6:30pm PST
+| Katie Pestotnik (she/her)    | Instructional Associate     | Sun 4:00pm - 6:00pm PST
+| Tanise Williams (she/her)    | Instructional Associate     | Wed 3:00pm - 5:00pm PST
 | John Bacolores (he/him)      | Outcomes Coach              | Message as needed
 | Dominique Garcia (she/they)  | Student Success Specialist  | Message as needed
 
