@@ -21,7 +21,7 @@ This website contains assignments and materials for General Assembly's Software 
 
 #### [Homework Tracker](https://docs.google.com/spreadsheets/d/1vXV8V2Qg-CAbrc5AFfEJpjMP6sQlW_dBgI1sNx3cSWg/edit?usp=sharing)
 
-#### [Attendance Tracker](#)
+#### [Attendance Tracker](https://docs.google.com/spreadsheets/d/1vXV8V2Qg-CAbrc5AFfEJpjMP6sQlW_dBgI1sNx3cSWg/edit?usp=sharing)
 
 <br>
 <br>
