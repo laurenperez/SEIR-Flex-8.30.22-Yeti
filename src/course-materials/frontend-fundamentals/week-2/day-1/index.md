@@ -15,4 +15,4 @@ topics: "HTML & CSS Review - Layout"
 
 - [**Lecture:** Intro to Flexbox and Grid - Flexbox](/frontend-fundamentals/week-2/day-1/lecture-materials/intro-to-css-flexbox-and-css-grid/)
 
-- [**Lab:** Flexbox Layouts](#)
+- [**Lab:** Flexbox Layouts](https://drive.google.com/file/d/1gCxqkfRrqdv68rDLDSRGD98y8kUxHJvL/view?usp=sharing)
