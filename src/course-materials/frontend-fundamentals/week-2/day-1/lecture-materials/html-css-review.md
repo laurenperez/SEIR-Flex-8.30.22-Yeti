@@ -391,7 +391,6 @@ behavior is called "cascading", and is where the "C" in CSS comes from.
 
 **Pseudo-classes** are used to apply settings based either the  state of the elements, such as when a user **hovers** over an element or it's **position** in the HTML. 
 
-In order to target **SMILE** we will go the route of selecting it's position and then the span within it.
 
 ```css
 p:first-of-type span {

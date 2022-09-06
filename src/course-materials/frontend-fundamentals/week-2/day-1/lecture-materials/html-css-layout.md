@@ -66,7 +66,8 @@ in the following terms:
   'm'. For all dimensions except `font-size`, `em` will refer to the font size
   of the element; as a value for `font-size`, `em` refers to the font size of
   the *parent*.
-
+- `rem` : similar to `em`, the dimentions are tied to `font-size`. Specifically the "root"
+font size of the html document. `rem` actually stands for "root em". If no default font size is set on the document, it defaults to the browsers default - generally `font-size` of `16px`. rem calculations work like this: as a default **1rem = 16px**. So a div with a set height of **3rem** would be **48px** tall. 
 ### Demo: Box Sizing
 
 The Box Model explains how CSS `width` and `height` is Calculated.
