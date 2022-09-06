@@ -95,7 +95,7 @@ positioning, called 'static' positioning. Static positioning is the default
 positioning model for elements. They are displayed in the page where they
 rendered as part of normal HTML flow.
 
-![Static](public/images/static.gif)
+![Static](https://miro.medium.com/max/1400/1*3nHXvVEEbQziTats5DlZOA.png)
 
 Though there are others, the most significant type of positioning besides
 `static` positioning is `fixed` positioning. `fixed` positioning defines the
@@ -103,7 +103,7 @@ position of an element with respect to the _view window_, essentially 'fixing'
 its position on the screen. Fixed positioning is frequently used in parallax
 scrolling, or for holding a navigation bar at the top/side/bottom of the screen.
 
-![Fixed](public/images/fixed.gif)
+![Fixed](https://miro.medium.com/max/1400/1*3nHXvVEEbQziTats5DlZOA.png)
 
 ### Relative and Absolute Positioning ( Further Reading - After Class )
 
