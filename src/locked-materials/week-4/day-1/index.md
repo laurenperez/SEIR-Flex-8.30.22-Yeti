@@ -4,15 +4,13 @@ title: "Week 4 - Day 1"
 week: 4
 day: 1
 type: "homepage"
-topics: "Tic Tac Toe Code Along"
+topics: "Intro to DOM"
 ---
-
 
 # Week 4 - Day 1
 
+#### Intro to the DOM
 
-#### Tic Tac Toe Code Along
+- [**Lecture:** Intro to the DOM](/frontend-fundamentals/week-4/day-1/lecture-materials/intro-to-the-dom/)
 
-- [**Lecture:** Building a Game in the Browser](/frontend-fundamentals/week-4/day-1/lecture-materials/guide-to-building-a-browser-game/)
-
-- [**Activity:** Tic Tac Toe Code Along](/frontend-fundamentals/week-4/day-1/lecture-materials/tic-tac-toe-code-along/)
+- [**Lab:** DOM Menu Lab - Part 1 of 2](/frontend-fundamentals/week-4/day-1/labs/dom-menu-lab-part-1/) - **Only Part 1 is Deliverable**

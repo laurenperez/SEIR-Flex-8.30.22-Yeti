@@ -9,9 +9,7 @@ topics: "Build Another Project That Uses AJAX"
 
 # Week 5 - Day 1
 
-#### Build Another Project That Uses AJAX
 
-- **Activity:** Build Another Project That Uses AJAX
 
 #### Project 1 Kickoff 
 

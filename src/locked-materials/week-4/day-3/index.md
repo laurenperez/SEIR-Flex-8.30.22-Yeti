@@ -4,23 +4,27 @@ title: "Week 4 - Day 3"
 week: 4
 day: 3
 type: "homepage"
-topics: "JQuery & APIs with AJAX"
+topics: "JS Lab Day: TicTacToe + Calculator"
 ---
 
 
 # Week 4 - Day 3
 
-#### Intro to JQuery
+#### Tic Tac Toe Code Along
 
-- [**Lecture:** Intro to JQuery](/frontend-fundamentals/week-4/day-3/lecture-materials/intro-to-jquery-part-1)
+Lets talk about what makes a great browser game, and then build one together! 
 
-#### API's with AJAX
+- [**Lecture:** Building a Game in the Browser](/frontend-fundamentals/week-4/day-3/lecture-materials/guide-to-building-a-browser-game/)
 
-- [**Lecture:** AJAX and JavaScript Promises with jQuery](/frontend-fundamentals/week-4/day-3/lecture-materials/intro-to-ajax-and-javascript-promises/)
+- [**Activity:** Tic Tac Toe Code Along](/frontend-fundamentals/week-4/day-3/lecture-materials/tic-tac-toe-code-along/)
 
 #### Lunch
 
-- [**Lab:** Build a Weather App With AJAX](/frontend-fundamentals/week-4/day-3/labs/build-a-weather-app-with-ajax/) - **Deliverable**
+#### Calculator Lab
+
+- [**Group Lab:** Calculator Lab](/frontend-fundamentals/week-4/day-3/labs/javascript-calculator-lab/) - **Non-Deliverable**
+
+
 
 
 

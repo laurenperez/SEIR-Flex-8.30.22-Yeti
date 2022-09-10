@@ -82,7 +82,14 @@ The best way to get started is to start with the "big picture" of what the app n
 ```
 
 Since most web apps are event-driven by nature. Coding an event-driven program generally requires that we set up the application when it loads (steps 1 - 4) and wait for the user to interact with the app (steps 5 & 6).
+
 Now we can start filling some more detailed steps:
+
+
+*:warning: **THIS IS JUST AN EXAMPLE. NOT A GUIDE.** :warning:
+
+
+Here is an example of what that kind of psudo code may look like: 
 
 ```shell
 1) Define required constants:
