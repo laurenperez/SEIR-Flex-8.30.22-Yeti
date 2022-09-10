@@ -86,7 +86,7 @@ Since most web apps are event-driven by nature. Coding an event-driven program g
 Now we can start filling some more detailed steps:
 
 
-*:warning: **THIS IS JUST AN EXAMPLE. NOT A GUIDE.** :warning:
+⚠️  **THIS IS JUST AN EXAMPLE. NOT A GUIDE.** ⚠️ 
 
 
 Here is an example of what that kind of psudo code may look like: 

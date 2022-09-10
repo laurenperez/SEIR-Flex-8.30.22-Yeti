@@ -17,7 +17,7 @@ title: "Course Details"
 - Saturday 10:00am - 6:00pm PST
 - Holidays: 
 
-    - 9/3/2022 (in observation of 9/5/2022)
+    - **9/3/2022 (in observation of Labor Day)**
     - 11/11/2022 
     - **11/12/2022 Sat ( No class )**
     - **11/23/2022 Wed ( No class )**
@@ -43,6 +43,7 @@ title: "Course Details"
 | -------------- | ----------------------- | -------------------|
 | Lauren Perez (she/her)       | Lead Instructor             | Fri 6:30pm - 8:30pm PST 
 | Nathaniel Stack (he/him)     | Lead Instructor             | Tue + Wed 5:30pm - 6:30pm PST
+| Andrew Deitrick (he/him)     | Lead Instructor             | TBD
 | Katie Pestotnik (she/her)    | Instructional Associate     | Sun 4:00pm - 6:00pm PST
 | Tanise Williams (she/her)    | Instructional Associate     | Wed 3:00pm - 5:00pm PST
 | John Bacolores (he/him)      | Outcomes Coach              | Message as needed
