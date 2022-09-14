@@ -28,7 +28,16 @@ type: "lecture"
 
 ### Lesson Setup
 
-For this lesson, we're going to code along using a `JavaScript` `REPL` from [repl.it](https://repl.it) -- you can name it `"JavaScript Functions and Scope Practice"`.
+For this lesson, create a directory called `"javascript-functions-and-scope"`. Inside it, create a file called `functions.js`.
+
+``` shell
+  cd ~ 
+  cd unit1
+  mkdir javascript-functions-and-scope
+  cd javascript-functions-and-scope
+  touch functions.js
+  code .
+```
 
 <br>
 <br>

@@ -19,7 +19,7 @@ module.exports = {
       // {title: 'Coding Challenges', slug: '/coding-challenges'},
     ],
     homeworkSubmissionLink: {
-      title: "Submit Deliverables",
+      title: "Submit Homework",
       href: "https://forms.gle/NagUE6GGp3Qs6Suh8",
     },
   },

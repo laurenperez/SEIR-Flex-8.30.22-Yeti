@@ -57,7 +57,16 @@ Students Will Be Able To:
 
 ### Lesson Setup
 
-For this lesson, we're going to code along using an `HTML, CSS & JS` `REPL` from [repl.it](https://repl.it) -- you can name it `"JavaScript Objects Practice"`.`
+For this lesson, create a directory called `"javascript-objects"`. Inside it, create a file called `objects.js`.
+
+``` shell
+  cd ~ 
+  cd unit1
+  mkdir javaScript-objects
+  cd javaScript-objects
+  touch objects.js
+  code .
+```
 
 <br>
 <br>
@@ -106,7 +115,7 @@ For this lesson, we're going to code along using an `HTML, CSS & JS` `REPL` from
 - There are three different ways we can create objects:
 
   - By using _Object Literal notation_
-  - By invoking a _Class_ (also known as a*Constructor Function*)
+  - By invoking a _Class_ (also known as a *Constructor Function*)
   - By using the `Object.create` method
 
 - Today, we're going to focus on using _Object Literals_ to create objects
@@ -235,9 +244,9 @@ _Using dot notation on the `game` object:_
 
 - The other way to access, add, update and delete properties is by using **square bracket notation**
 
-- We use _square bracket notation_ instead of _dot notation_ when at the time you're writing the code, you don't know which property needs to be accessed
+- Use _square bracket notation_ instead of _dot notation_ when you don't know which property needs to be accessed, at the time you're writing the code.
 
-- In other words, we use _square brackets_ to access properties _dynamically_ during runtime
+- In other words, we use _square brackets_ to access properties _dynamically_ during runtime.
 
 > Less common is to have to resort to using _square brackets_ to access properties when the key name contains a space.
 
