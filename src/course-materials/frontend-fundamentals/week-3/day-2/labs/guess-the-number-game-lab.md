@@ -26,9 +26,18 @@ This lab is a **deliverable** - when completed, please use the **"Submit Homewor
 
 ### Lab Setup
 
-For this lab, create a `HTML, CSS & JS` `REPL` from [repl.it](https://repl.it) -- you can name it `"JavaScript Objects Lab"`.
+For this lesson, create a directory called `"javascript-objects-lab"`. Inside it, create a file called `objects-lab.js`.
 
-1. Copy over the work already done on the `game` object from the lesson earlier into your `REPL's` `script.js`
+``` shell
+  cd ~ 
+  cd unit1
+  mkdir javaScript-objects-lab
+  cd javaScript-objects-lab
+  touch objects-lab.js
+  code .
+```
+
+1. Copy over the work already done on the `game` object from the lesson earlier into `objects-lab.js`.
 
 2. To make the `game` object's code 'cleaner', let's move the properties that were added separately during the lesson, into the object literal so that it looks like this:
 
@@ -48,7 +57,7 @@ For this lab, create a `HTML, CSS & JS` `REPL` from [repl.it](https://repl.it) -
 
 > Note that `numGuesses` has been removed because you will be adding a `prevGuesses` array whose length can be used to obtain the number of guesses when needed.
 
-3. To begin running your code and checking its output, click the `[run]` button.
+3. To begin running your code and checking its output, type `node objects-lab.js` in your terminal. 
 
 <br>
 <br>
