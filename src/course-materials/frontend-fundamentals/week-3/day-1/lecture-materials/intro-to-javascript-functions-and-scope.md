@@ -28,16 +28,7 @@ type: "lecture"
 
 ### Lesson Setup
 
-For this lesson, create a directory called `"javascript-functions-and-scope"`. Inside it, create a file called `functions.js`.
-
-``` shell
-  cd ~ 
-  cd unit1
-  mkdir javascript-functions-and-scope
-  cd javascript-functions-and-scope
-  touch functions.js
-  code .
-```
+For this lesson, we're going to code along using a node.js file. You can name it `"JavaScript Functions and Scope Practice"`.
 
 <br>
 <br>
@@ -466,24 +457,6 @@ Any expression can be provided as a default, including objects, etc.
 #### Functions as Arguments
 
 In JavaScript, it's easy to pass around functions like data - because they are - they're objects!
-
-<br>
-<br>
-<br>
-
-##### Passing an Anonymous Function
-
-Often functions or methods (functions attached to an object) will require a function be provided as an argument.<br><br>For example, the `forEach` method on arrays:
-
-```javascript
-var a = ["red", "green", "blue"]
-
-a.forEach(function(color) {
-  console.log(color)
-})
-```
-
-Since the function provided to the `forEach` will never be called anywhere else in the code, why create a separate named function and pass it in? <br><br>**Anonymous functions** like shown above can really come in handy!
 
 <br>
 <br>
