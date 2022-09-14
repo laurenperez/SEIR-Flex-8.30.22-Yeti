@@ -31,8 +31,8 @@ For this lesson, create a directory called `"javascript-objects-lab"`. Inside it
 ``` shell
   cd ~ 
   cd unit1
-  mkdir javaScript-objects-lab
-  cd javaScript-objects-lab
+  mkdir javascript-objects-lab
+  cd javascript-objects-lab
   touch objects-lab.js
   code .
 ```

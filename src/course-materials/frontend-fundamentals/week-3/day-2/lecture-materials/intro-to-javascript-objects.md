@@ -62,8 +62,8 @@ For this lesson, create a directory called `"javascript-objects"`. Inside it, cr
 ``` shell
   cd ~ 
   cd unit1
-  mkdir javaScript-objects
-  cd javaScript-objects
+  mkdir javascript-objects
+  cd javascript-objects
   touch objects.js
   code .
 ```
