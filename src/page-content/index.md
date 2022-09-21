@@ -59,10 +59,10 @@ Curriculum schedule and content is subject to change at the instructional team's
 | Week | Topics                                                                      |
 | ---- | --------------------------------------------------------------------------- |
 | 1    | Intro to the Dev Environment, Git/Github, and JavaScript Fundamentals       |
-| 2    | Intro to JavaScript Objects, Classes, and OOP (Object Oriented Programming) |
-| 3    | Intro to the DOM & jQuery                                                   |
-| 4    | Frontend project practice and AJAX                                          |
-| 5    | More practice with Frontend projects and Start Project 1                    |
+| 2    | HTML CSS Review, Flexbox, & Grid, JS Control Flow and JS Arrays             |
+| 3    | Intro to JavaScript Objects, Classes, and OOP (Object Oriented Programming) |
+| 4    | Intro to the DOM & Dom Events, Building a Browser Game                      |
+| 5    | Using APIs, Fetch, Promises and making http requests and Start Project 1    |
 | 6    | Finish Project 1 and Project Presentations                                  |
 
 <br>
