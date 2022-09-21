@@ -16,5 +16,5 @@ topics: "DOM Events"
 
 #### Callback Functions
 
-- [**Lecture:** Callback Functions](/frontend-fundamentals/week-4/day-2/lecture-materials/callback-functions/)
+- [**Extra Reading:** Callback Functions](/frontend-fundamentals/week-4/day-2/lecture-materials/callback-functions/)
 

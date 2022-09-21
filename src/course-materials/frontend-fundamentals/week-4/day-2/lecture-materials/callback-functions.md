@@ -1,343 +1,350 @@
 ---
 track: "Frontend Fundamentals"
-title: "Callback Functions"
+title: "Array Methods with Callbacks"
 week: 3
 day: 3
 type: "lecture"
 ---
 
-<img src="https://i.imgur.com/uizE4Zt.png" height="500">
+# Array Methods with Callbacks
 
-# JavaScript Callback Functions
+## Lesson Objectives
 
-| Learning Objectives - SWBAT: |
-| :--- |
-| Use Anonymous & Named Functions as Callbacks |
-| Use Callbacks with Array Iterator Methods |
-| Use Callbacks with Asynchronous Operations |
+- Define and understand the various different callback methods that can be used on an array.
+- Understand what each method does and when we might want to use it.
 
-## Roadmap
-1. Setup
-2. What's a Callback Function?
-3. Why are Callbacks Needed?
-4. Using Callbacks with Array Iterator Methods 
-5. Using Callbacks with Asynchronous Functions
-6. Essential Questions
-7. Further Study
+### With food first!
 
-### 1. Setup
+<img src="https://i.redd.it/yf7rw3pjiapx.jpg" width=400/>
 
-Create a new HTML, CSS, JS Repl and name it **Callback Functions**.
+<br><br>
 
-### 2. What's a Callback Function?
+## Getting Started
 
-- **Callback functions** are not a new type of function, they are defined just like any other function (as a declaration, expression or arrow function).
+Let's begin with a basic for loop:
 
-- **A callback function, is a function being passed to another function as an argument.**
+```javascript
+const iceCreams = ['Vanilla','Chocolate','Strawberry','Rocky Road'];
+for(let i = 0; i < iceCreams.length; i++){
+    console.log(iceCreams[i]);
+}
+```
 
-	> DEV VOCAB:  In programming, a function that accepts a function as input and/or returns a function is known as a **_higher-order function_**.
+This whole thing with `i` and `iceCreams[i]` is kind of obnoxious.  Wouldn't it be nice if we could just deal with the element in the array, instead of indexes?  
 
-- Typically, the higher-order function accepts a callback for the purpose of invoking it at least once.
+## Creating a ForEach function
+Let's create a function that takes two parameters: 
+- `array` - the list oof things we want to loop over
+- `function` - that we want to be called on each element in the array:
 
-- Because you've already used the array `forEach` method which accepts a function as an argument, you've already passed callback functions!
+```hs
+// CREATE THE FUNCTION EXPRESSION
+const forEach = (array, callback) => {
+    for(let i = 0; i < array.length; i++){
+        callback(array[i]);
+    }
+}
 
-- Although using **anonymous functions** as callbacks is convenient, it's not uncommon to use a **named function** for code organization, for example:
+// INVOKE FOREACH
+forEach(
+    ['Vanilla','Chocolate','Strawberry','Rocky Road'],
+    (currentArrayElement) => {
+        console.log(currentArrayElement + ' ice cream');
+    }
+);
+```
 
-	```js
-	document.getElementById('todo-container')
-	  .addEventListener('click', handleTodoClick);
-	```
-	Or when the callback might be called from more than just one point in the code, for example:
-	
-	```js
-	/*-- Event Listeners --*/
-	document.getElementById('replay-btn').addEventListener('click', init);
-	
-	/*-- Functions --*/
-	init();
-	
-	function init() {
-	  // Initialize state and call render
-	}
-	```
 
-- **Be careful not to invoke the callback when passing it** - in other words, do not put parens after it! Otherwise, you'll be passing the result returned by that function instead of the function itself.
 
-##### ❓ REVIEW QUESTIONS
+#### The .forEach Array Method
 
-1. **What's a callback function?**
+Great, but writing the definition of `forEach` is a pain.  
 
-2. **Based upon the following code:**
+Fortunately, JavaScript has something like this already built in, the `.forEach` method.
 
-	```js
-	const colors = ['red', 'green', 'blue'];
-		
-	colors.forEach(function(color, idx) {
-	  console.log(`${idx + 1} - ${color}`);
-	});
-	```
-	
-	2A) **What part of the code is the callback function?**
-	
-	2B) **How many times will the higher-order function, `forEach`, invoke the callback?**
+```javascript
+const iceCreams = ['Vanilla','Chocolate','Strawberry','Rocky Road'];
+iceCreams.forEach((currentElement)=>{
+    console.log(currentElement);
+})
+```
 
-### 3. Why are Callbacks Needed?
+There are lots of other handy functions like `forEach`, such as `map`, `filter`, and `reduce` to just name a few.  These functions are called `Array Methods`.
 
-There are two scenarios that require the use of callbacks:
+**Note:** Any time you pass a function another function as an argument the initial function is considered a `Higher Order` functionn. 
 
-1. As you've already seen, functions/methods like `forEach` & `addEventListener` can only fulfill their purpose if they are provided a block of code - and callback functions provide that block of code.
+<hr>
 
-2. As we'll see later in this lesson, JavaScript requires certain operations to execute _asynchronously_, that is, certain functions have to run in the "background" while the rest of the program continues to execute. These asynchronous operations are often designed to accept a callback function that's invoked when the background operation has completed.
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 3min
 
-	> NOTE: JavaScript's asynchronous programming model is one of the more challenging concepts, so don't despair if it takes a bit of time to understand.
+These array methods are so useful that people write articles about them all the time.  Let's take a look at one of them:
 
-### 4. Practice Using Callbacks with Array Iterator Methods
+[5 Array Methods That You Should Be Using Now](https://colintoh.com/blog/5-array-methods-that-you-should-use-today)
 
-One of the most popular use cases for callback functions is to provide them to iterator methods on arrays.
 
-As we've seen, calling the `forEach` method is a great way to iterate over all of the elements in an array.
+<hr>
 
-As you know, JavaScript has designed the `forEach` method to:
 
-1. Accept a callback function as an argument, and
-2. Invoke that callback once for each element in the array
 
-There are several other very useful Array iterator methods that we'll cover later this week - you can get a peek [here](https://gist.github.com/jim-clark/843ebb5288d90da6b0dfd9eecd134b7c) when you get a chance.
+## What is an Array Method with a Callback?
 
-#### 💪 Practice Exercise - Callbacks with Iterator Methods (15 min)
+You'll notice that even though `iceCreams` is an array, it functions like an object as well.  Consequently, you can add methods to them, just like normal objects (don't forget, `array.length` is a property of the array).
 
-**Partner up** and practice using callbacks with iterator methods by doing the following:
+JavaScript has lots of pre-defined array methods available for us.  Each array method accepts a callback function which is executed on each of the elements in the array and may or may not do something with the results of that function.
 
-1. Research the array [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) method.  
+In the previous example, `forEach` simply calls the callback function, passing in the current element as a parameter.
 
-	> Hint: If the callback function returns a truthy value, the element for the current iteration will be included in the new array returned by the `filter` method.
 
-2. Use the `filter` method to "select" the objects within the `cars` array that have been driven more than 20,000 miles per year:
+## Creating a Map function
 
-	```js
-	const cars = [
-	  { make: 'Toyota', yrsOld: 5, mileage: 92399 },
-	  { make: 'Ford', yrsOld: 12, mileage: 255005 },
-	  { make: 'Ferrari', yrsOld: 9, mileage: 12966 },
-	  { make: 'Subaru', yrsOld: 9, mileage: 111266 },
-	  { make: 'Toyota', yrsOld: 2, mileage: 41888 },
-	  { make: 'Tesla', yrsOld: 3, mileage: 57720 }
-	];
-	```
-	
-	> Hint: Like `forEach`, the `filter` method will invoke the callback once for each element in the `cars` array. Note that each element is an object, so each time the callback is invoked, its parameter will hold an object with `make`, `yrsOld` & `mileage` properties.
+Lets take a look at another array method called `map`.  In the previous example, `forEach` iterated over each of its elements and ran the given callback on each of them.  
 
-3. Store the new array returned by `filter` in a variable named `wellDrivenCars`.
+What if we wanted to modify each element?  How would we write that?
 
-4. You may use either an anonymous or named function as the callback function provided to the `filter` method.
+```javascript
+const map = (array, callback) => {
+    const newArray = []
+    for (let i=0; i < array.length; i++) {
+        const newElement = callback(array[i]);
+        newArray.push(newElement);
+    }
+    return newArray;
+}
 
-5. Use the `forEach` method on the `wellDrivenCars` array to `console.log` each "car" object.
+const resultArray = map(
+    ['Vanilla','Chocolate','Strawberry','Rocky Road'],
+    (currentArrayElement) => {
+        return currentArrayElement + " ice cream";
+    }
+)
 
-We'll review a solution in 15 minutes...
+console.log(resultArray);
+```
 
-### 5. Using Callbacks with Asynchronous Functions
+### The .map Array Method
 
-To understand what "asynchronous" code means, let's first confirm what **synchronous** code is.
+Again, the implementation of this function is tricky.  Lucky for us we have the `.map` method.
 
-#### Synchronous Code Execution
+```javascript
+const iceCreams = ['Vanilla', 'Chocolate', 'Strawberry', 'Rocky Road'];
 
-So far, we've taken for granted that the code we write runs line by line and if we call a function/method, it finishes before the next line of code runs, i.e., it executes synchronously.
-
-For example:
-
-```js
-const colors = ['red', 'green', 'blue'];
-
-console.log('Code BEFORE the forEach...');
-
-colors.forEach(function(color, idx) {
-  console.log(`${idx + 1} - ${color}`);
+const updatedIceCreams = iceCreams.map((flavor)=>{
+    return flavor + " Ice Cream";
 });
 
-console.log('Code AFTER the forEach...');
-```
-Running the above results in this expected output:
-
-```
-Code BEFORE the forEach...
-1 - red
-2 - green
-3 - blue
-Code AFTER the forEach...
+console.log(updatedIceCreams);
 ```
 
-#### Asynchronous Code Execution
+`map` calls a provided callback function once for each element in an array, in order, and constructs a new array from the return values.
 
-By design, certain functions/methods in JavaScript run **asynchronously**.
+:question: **Question:** Does the `map` method mutate the original array?
 
-When we invoke one of these asynchronous operations, they start doing their business in the "background" while the rest of the code continues to run.
+### Lets try that again!
 
-For example, let's take a look at JavaScript's `setTimeout` & `setInterval` functions which, when called, wait in the background until the appropriate time to call the provided callback:
+Use the `map` method with the following array to multiply each item by 2 and log the new array.
+
+```javascript
+const orinalArray = [2,4,6,8,10];
+
+const newNumArray = orinalArray.map((num) => {
+    return num * 2
+})
+
+console.log(newNumArray);
+```
+
+What was the result?
+
+```javascript
+[4, 8, 12, 16, 20]
+```
+
+**Small Refactor**
+
+Since the fat arrow callback function is running a single like of code we can write it as a one liner.
+
+Also take note that since we aren't using curly braces we no longer need the return keyword as a fat arrow function written as a one liner includes an `implicit` return under the hood.
 
 ```js
-const colors = ['red', 'green', 'blue'];
-
-console.log('Code BEFORE the forEach...');
-
-// setTimeout accepts a callback & how long to wait before calling the cb
-setTimeout(function() {
-  colors.forEach(function(color, idx) {
-    console.log(`${idx + 1} - ${color}`);
-  });
-}, 1000);  // 1000 milliseconds (1 sec)
-
-console.log('Code AFTER the forEach...');
+const newNumArray = orinalArray.map((num) => num * 2)
 ```
 
-Running the above results in different output than the synchronous version:
+Also since there is only 1 parameter we can remove the parens around `num`
 
-```
-Code BEFORE the forEach...
-Code AFTER the forEach...
-1 - red
-2 - green
-3 - blue
-```
-
-##### Why do Asynchronous Functions exist?
-
-Asynchronous functions exists in JS for two reasons:
-
-1. **By Design:**
-
-	The `setTimeout` & `setInterval` allow us to run code after a certain amount of time expires (repeatedly as in the case of `setInterval`).  Meanwhile, we want the rest of the program to continue to run, handle events, update the DOM, etc.
-	
-	Another example is the browser's event system.  As we've seen, calling `addEventListener` starts listening for a certain event in the background while the rest of the program continues to execute.
-
-2. **For Efficiency/Performance:**
-
-	One day, we'll be calling functions to fetch data across the Internet or from a database.  In computer terms, these operations take a crazy long time to complete - that's why they are known as **long-running operations**.  To avoid wasting valuable CPU cycles waiting for a long-running operation to finish, they are designed as asynchronous operations so that the rest of the program can do its thing.
-
-##### Using Callbacks to Work with Asynchronous Code
-
-JavaScript provides two approaches to run a function **after** an asynchronous operation completes its long-running process or when an event such as a timeout occurs:
-
-- **Callbacks**, and
-- **Promises**
-
-Which approach is determined by the function/method itself.  For example, `forEach` & `setTimeout` require callbacks.
-
-Later in the course, we'll encounter functions/methods designed to use promises, or even both!
-
-##### An Asynchronous Example
-
-The code below demonstrates how `setTimeout` and callback functions can be used to implement the scenario where we need to do something, wait for some time, do something else, wait for some time, etc.
-
-Let's say we wanted a traffic light to cycle between Red, Green & Yellow lights with each light being "lit" for a differing amount of time:
-
-- Red light on for 3 seconds
-- Green light on for 2 seconds
-- Yellow light on for 1 second
-
-First, let's copy/paste the HTML into **index.html**:
-
-```html
-<body>
-  <!-- add the following HTML -->
-  <main>
-    <div id="red"></div>
-    <div id="yellow"></div>
-    <div id="green"></div>
-  </main>
-```
-
-Now for some CSS:
-
-```css
-body {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-main {
-  display: grid;
-  grid-template-columns: 20vmin;
-  grid-template-rows: repeat(3, 20vmin);
-  border: 2px solid grey;
-}
-
-main div {
-  margin: 2vmin;
-  border-radius: 50%;
-  border: 2px solid grey;
-}
-```
-
-> REMINDER: Expect the following asynchronous code to be difficult to understand.  However, the following example will come in handy if you choose to do a game like _Simon_ that requires timing/sequencing.
-
-For the JavaScript, let's start by defining a flexible data structure that makes it easy to modify the functionality (color and time):
 
 ```js
-// Using a data-centric approach minimizes code and increases flexibility
-const lightSequence = [
-  {color: 'red', time: 3000},
-  {color: 'green', time: 2000},
-  {color: 'yellow', time: 1000}
-];
+const newNumArray = orinalArray.map( num => num * 2)
 ```
 
-Next, cache the light `<div>`s and define a variable to track the current light:
+<hr>
+
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 5min
+
+You have been provided the following array of names
 
 ```js
-// Cache the divs for the lights
-const lightEls = document.querySelectorAll('main > div');
-
-// Variable to track the current light
-let curLightIdx = 0;  // Start with red object
+const names = ['joe', 'alex', 'kenny', 'stack'];
 ```
 
-Now for the function responsible for displaying the current light and letting its caller know when the time has expired for the light:
+- Using .map, return a new array of all the names converted to upper case
 
 ```js
-function renderLight(cb) {
-  // Turn all lights off
-  lightEls.forEach(el => el.style.backgroundColor = 'black');
-  lightEls[curLightIdx].style.backgroundColor = lightSequence[curLightIdx].color;
-  // Invoke the callback when this light's time has expired
-  setTimeout(cb, lightSequence[curLightIdx].time);
-}
+=> ['JOE', 'ALEX', 'KENNY', 'STACK'];
 ```
 
-Finally, a function that increments the `curLightIdx` and calls `renderLight` while passing itself as a callback:
+**Bonus**
+
+- Using Array.map, return a new array of all the names but only the first letter or each word is upper case
 
 ```js
-function renderNextLight() {
-  renderLight(renderNextLight);
-  // Increment and reset to zero when 3 is reached
-  curLightIdx = ++curLightIdx % 3;
-}
-
-// Make it start!
-renderNextLight();
+=> ['Joe', 'Alex', 'Kenny', 'Stack']
 ```
 
-Very cool!
+<hr>
 
-Let's wrap up with some questions!
+[5 Array Methods That You Should Be Using Now](https://colintoh.com/blog/5-array-methods-that-you-should-use-today)
 
 
-## 6. Essential Questions
+<hr>
 
-1. **True or False:  Callback functions are defined differently than non-callback functions.**
+### Filtering Items
 
-2. **If asked in a job interview, "What's a callback function?" - what would a good answer be?**
+Another useful array method is `.filter`.  Let's use it to filter the `mappedNumbers` array and return only even numbers.
 
-3. **Is the following code likely to work as expected?**
+```js
+const filteredNumbers = mappedNumbers.filter( element => element % 2 === 0 )
+```
 
-	```js
-	document.getElementById('items')
-	  .addEventListener('click', handleClick());
-	```
+<hr>
 
-4. **True or False:  The `addEventListener` method is a _higher-order function_.**
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 5min
+
+You have been provided the following array of colors
+
+```js
+const favColor = ["green","blue","yellow",'blue','purple','blue'],
+```
+- Using .filter, return a new array  of all the colors that with a name of 'blue' 
+
+```js
+=> ['blue', 'blue', 'blue']
+```
+
+<hr>
+
+### Method chaining & using declared functions
+
+When using these array methods we can method chain. 
+
+So instead of doing:
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+const mappedNumbers = numbers.map( element => element + 1 )
+
+const filteredNumbers = mappedNumbers.filter( element => element % 2 === 0 )
+
+console.log(filteredNumbers)
+
+```
+
+We can do:
+
+```javascript
+const filteredAndMappedNumbers = numbers
+  .map( element  => element + 1)
+  .filter( element  => element % 2 === 0)
+```
+
+Furthermore, we don't have to inline the anonymous functions, we can declare them elsewhere:
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+const add1 = num => num + 1 
+
+const isEven = num => num % 2 === 0
+
+const result = numbers.map(add1).filter(isEven);
+
+console.log(result)
+```
+
+<hr>
+
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 5min
+
+You have been provided the following list of students:
+
+```js
+  let students = [
+    {name: 'John', grade: 8, gender: 'M'},
+    {name: 'John', grade: 8, gender: 'M'},
+    {name: 'Bob', grade: 3, gender: 'M'},
+    {name: 'Johnny', grade: 2, gender: 'M'},
+    {name: 'Ethan', grade: 4, gender: 'M'},
+    {name: 'Paula', grade: 6, gender: 'F'},
+    {name: 'Donald', grade: 5, gender: 'M'},
+    {name: 'Jennifer', grade: 13, gender: 'F'},
+    {name: 'Courtney', grade: 15, gender: 'F'},
+    {name: 'Jane', grade: 9, gender: 'F'}
+]
+```
+
+- Using .filter, return a new array of only those students with a grade of 8 or higher
+
+```js
+=> [
+{name: 'John', grade: 8, gender: 'M'},
+{name: 'John', grade: 8, gender: 'M'},
+{name: 'Jennifer', grade: 13, gender: 'F'}
+{name: 'Courtney', grade: 15, gender: 'F'},
+{name: 'Jane', grade: 9, gender: 'F'}
+]
+```
+
+**Bonus**
+
+- Using method chaining return a new array of only those students with a grade of 8 or higher AND increase their grade by 1 as they have all graduated to the next level
+
+```js
+=> [
+{name: 'John', grade: 9, gender: 'M'},
+{name: 'John', grade: 9, gender: 'M'},
+{name: 'Jennifer', grade: 14 gender: 'F'}
+{name: 'Courtney', grade: 16, gender: 'F'},
+{name: 'Jane', grade: 10, gender: 'F'}
+]
+```
+
+<hr>
+
+
+
+## Additional Array Methods To Explore
+
+For the lab you will use the following methods:
+
+- forEach()
+- map()
+- filter()
+- reduce() - possibly
+
+Theare a quite a few additional methoods that you should familiarize yourself with as well. 
+
+- indexOf
+- includes
+- find
+- sort 
+- every
+- some
+
+
+## Resources
+
+- [array-methods-explained](https://codeburst.io/array-methods-explained-filter-vs-map-vs-reduce-vs-foreach-ea3127c6d319)
+
 
 
 ## 7. Further Study
