@@ -123,8 +123,8 @@ Curriculum schedule and content is subject to change at the instructional team's
 ### Unit Project Requirements:
 | Unit | Link to Rubric                                                              |
 | ---- | --------------------------------------------------------------------------- |
-| 1    | Project 1 - [Frontend Fundamentals: Your First Web Application](#) |
-<!-- /unit-projects/unit-one-project-requirements/ -->
+| 1    | Project 1 - [Frontend Fundamentals: Your First Web Application](/unit-projects/unit-one-project-requirements-portfolio/) |
+<!-- /unit-projects/unit-one-project-requirements-portfolio/ -->
 | 2    | Project 2 - [Backend Fundamentals: Your First Full Stack Application](#) |
 <!-- /unit-projects/unit-two-project-requirements -->
 | 3    | Project 3 - [React: A MERN Stack Application ](#)  |

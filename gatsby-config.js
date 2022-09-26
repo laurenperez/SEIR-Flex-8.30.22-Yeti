@@ -6,7 +6,7 @@ const { spaceId, accessToken } = process.env;
 
 module.exports = {
   siteMetadata: {
-    title: 'SEIR Flex 8/30/2022 - "Cohort"',
+    title: 'SEIR Flex 8/30/2022 - "Yeti"',
     author: "Daniel Scott",
     currentYear: new Date().getFullYear(),
     description:

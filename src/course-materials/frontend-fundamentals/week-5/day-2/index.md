@@ -12,5 +12,7 @@ topics: "Official Start of Project 1"
 
 #### Official Start of Project 1
 
+- **Activity:** ****In person standup with squad leader****
 - **DUE:** **Final Approvals for Project Proposals due EOD**
+- [**Reference:** Review Project One Requirements](/unit-projects/unit-one-project-requirements-portfolio/)
 - **Activity:** Students Start Project 1
