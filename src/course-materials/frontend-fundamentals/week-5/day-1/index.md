@@ -19,6 +19,9 @@ topics: "Apis, Fetch, and Promises"
 
 - [**Lecture:** Review Project One Requirements](/unit-projects/unit-one-project-requirements-portfolio/)
 
+- [**Worksheet:** Project Planning Matrix](/frontend-fundamentals/week-5/day-1/lecture-materials/priority-matrix/)
+
+
 - **Activity:** Plan Your Project: Create Project Proposal - **(All Approvals Are Due Tomorrow)**
 
 - **Project Proposal must contain:** 
