@@ -13,7 +13,7 @@ topics: "Apis, Fetch, and Promises"
 
 #### Project 1 Kickoff 
 
-- [**Lecture:** APIs with Fetch and Promises - TBD](/frontend-fundamentals/week-5/day-1/lecture-materials/Fetch.md)
+- [**Lecture:** APIs with Fetch and Promises - TBD](frontend-fundamentals/week-5/day-1/lecture-materials/Fetch.md)
 
 - [**Lecture:** Review Project One Requirements](/unit-projects/unit-one-project-requirements-portfolio/)
 
