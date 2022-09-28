@@ -1,12 +1,12 @@
 ---
 track: "Frontend Fundamentals"
 title: "Build a Weather App With AJAX"
-week: 4
-day: 3
+week: 5
+day: 1
 type: "lab"
 ---
 
-# Build a Weather App With AJAX
+# Build a Weather App with Ajax
 
 
 
@@ -19,11 +19,11 @@ type: "lab"
 
 
 
-**The Lab is a Deliverable**
+**This Lab is a Deliverable**
 
 - Create an app that uses a search form to show the weather in any city the user searches for.
 
-- For example, you can model this project after what we did for the AJAX Movies exercise for the AJAX lesson.
+- For tips on how to get user input from a form [see this page.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) 
   
 - Set this up as a seperate project repo, and push it to your personal GitHub.
 
