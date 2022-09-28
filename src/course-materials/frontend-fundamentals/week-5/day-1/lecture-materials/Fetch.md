@@ -1,3 +1,10 @@
+---
+track: "Frontend Fundamentals"
+title: "APIs and Fetch"
+week: 5
+day: 1
+type: "lecture"
+---
 # AJAX and APIs
 
 ## Learning Objectives
