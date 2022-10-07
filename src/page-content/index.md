@@ -68,9 +68,9 @@ Curriculum schedule and content is subject to change at the instructional team's
 <br>
 <br>
 
-<!-- ### [Unit Two: Backend Fundamentals](/backend-fundamentals) -->
+### [Unit Two: Backend Fundamentals](/backend-fundamentals)
 
-### 🔒 Unit Two: Backend Fundamentals - **Locked**
+<!-- ### 🔒 Unit Two: Backend Fundamentals - **Locked** -->
 
 | Week  | Topics                                                                      |
 | ----- | --------------------------------------------------------------------------- |
