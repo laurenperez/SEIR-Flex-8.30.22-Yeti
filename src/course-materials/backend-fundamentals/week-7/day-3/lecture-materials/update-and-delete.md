@@ -73,8 +73,7 @@ Inside our `index.ejs` file, add a form with just a delete button.
     <ul>
       <% for(let i = 0; i < fruits.length; i++){ %>
       <li>
-        The <a href="/fruits/<%=i%>"><%=fruits[i].name; %></a> is
-        <%= fruits[i].color; %>.
+        The <a href="/fruits/<%=i%>"><%= fruits[i].name %></a> is <%= fruits[i].color %>.
         <!--  ADD DELETE FORM HERE-->
         <form>
           <input type="submit" value="DELETE" />
@@ -123,7 +122,7 @@ app.use(methodOverride('_method'));
 Now go back and set up our delete form to send a DELETE request to the appropriate route
 
 ```html
-<form action="/fruits/<%=i; %>?_method=DELETE" method="POST"></form>
+<form action="/fruits/<%=i%>?_method=DELETE" method="POST"></form>
 ```
 
 <br>
@@ -142,8 +141,7 @@ In our `server.js`, create a GET route which will just display an edit form for 
 
 ```javascript
 app.get('/fruits/:indexOfFruitsArray/edit', (req, res) => {
-  res.render(
-    'edit.ejs', //render views/edit.ejs
+  res.render( 'edit.ejs', //render views/edit.ejs 
     {
       //pass in an object that contains
       fruit: fruits[req.params.indexOfFruitsArray], //the fruit object
@@ -171,10 +169,14 @@ Now create a very basic form for editing in `views/edit.ejs`
     <h1>Edit Fruit Page</h1>
     <form>
       <!--  NOTE: the form is pre-populated with values for the server-->
-      Name: <input type="text" name="name" value="<%=fruit.name%>" /><br />
-      Color: <input type="text" name="color" value="<%=fruit.color%>" /><br />
-      Is Ready To Eat: <input type="checkbox" name="readyToEat" <%
-      if(fruit.readyToEat === true){ %> checked <% } %> />
+      <label for="name">Name:</label>
+      <input type="text" name="name" value="<%=fruit.name%>" />
+      <br />
+      <label for="color">Color:</label>
+      <input type="text" name="color" value="<%=fruit.color%>" />
+      <br />
+      <label for="readyToEat">Is Ready To Eat:</label>
+      <input type="checkbox" name="readyToEat" <% if(fruit.readyToEat){ %> checked <% } %> />
       <br />
       <input type="submit" name="" value="Submit Changes" />
     </form>
@@ -201,16 +203,19 @@ Inside our `index.ejs` file, add a link to our edit route which passes in the in
   <body>
     <h1>Fruits index page</h1>
     <ul>
-      <% for(var i = 0; i < fruits.length; i++){ %>
+      <% for(let i = 0; i < fruits.length; i++){ %>
       <li>
-        The <a href="/fruits/<%=i%>"><%=fruits[i].name; %></a> is
-        <%=fruits[i].color; %>. <% if(fruits[i].readyToEat === true){ %> It is
-        ready to eat <% } else { %> It is not ready to eat <% } %>
-        <form action="/fruits/<%=i; %>?_method=DELETE" method="POST">
+        The <a href="/fruits/<%=i%>"><%= fruits[i].name %></a> is <%= fruits[i].color %>. 
+        <% if(fruits[i].readyToEat){ %> 
+          It is ready to eat 
+        <% } else { %>
+          It is not ready to eat 
+        <% } %>
+        <form action="/fruits/<%=i%>?_method=DELETE" method="POST">
           <input type="submit" value="DELETE" />
         </form>
         <!-- Add edit link here  -->
-        <a href="/fruits/<%=i; %>/edit">Edit</a>
+        <a href="/fruits/<%=i%>/edit">Edit</a>
       </li>
       <% } %>
     </ul>
@@ -241,7 +246,7 @@ app.put('/fruits/:indexOfFruitsArray', (req, res) => {
     //if not checked, req.body.readyToEat is undefined
     req.body.readyToEat = false;
   }
-  fruits[req.params.indexOfFruitsArray] = req.body //in our fruits array, find the index that is specified in the url (:indexOfFruitsArray).  Set that element to the value of req.body (the input data)
+  fruits[req.params.indexOfFruitsArray] = req.body // in our fruits array, find the index that is specified in the url (:indexOfFruitsArray).  Set that element to the value of req.body (the input data)
   res.redirect('/fruits'); //redirect to the index page
 })
 ```
@@ -266,10 +271,14 @@ When we click "Submit Changes" on our edit page (edit.ejs), the form needs to ma
     <h1>Edit Fruit Page</h1>
     <!--  ADD action attribute to form tag-->
     <form action="/fruits/<%=index%>">
-      Name: <input type="text" name="name" value="<%=fruit.name%>" /><br />
-      Color: <input type="text" name="color" value="<%=fruit.color%>" /><br />
-      Is Ready To Eat: <input type="checkbox" name="readyToEat" <%
-      if(fruit.readyToEat === true){ %> checked <% } %> />
+      <label for="name">Name:</label>
+      <input type="text" name="name" value="<%=fruit.name%>" />
+      <br />
+      <label for="color">Color:</label>
+      <input type="text" name="color" value="<%=fruit.color%>" />
+      <br />
+      <label for="readyToEat">Is Ready To Eat:</label>
+      <input type="checkbox" name="readyToEat" <% if(fruit.readyToEat){ %> checked <% } %> />
       <br />
       <input type="submit" name="" value="Submit Changes" />
     </form>
