@@ -12,10 +12,13 @@ topics: "CRUD with Mongoose - Create & Read"
 #### CRUD with Mongoose - Create & Read
 
 - [**Lecture:** CRUD with Mongoose - Create & Read](/backend-fundamentals/week-8/day-2/lecture-materials/crud-app-with-mongoose)
+
 - [**Resource Guide:** Creating a Seed Route](/backend-fundamentals/week-8/day-2/lecture-materials/creating-a-seed-route)
-- [**Lab:** The Captain's Log - Full CRUD Project **(Complete Create & Read)**](/backend-fundamentals/week-8/day-2/labs/the-captains-log) - **Non-Deliverable**
-- [**Homework:** Mongoose Store - Full CRUD Project **(Complete PART 1: Create & Read)**](/backend-fundamentals/week-8/day-2/labs/mongoose-store) - **Deliverable**
+
+- [**Lab:** The Captain's Log - Part 1: Create & Read](/backend-fundamentals/week-8/day-2/labs/the-captains-log) - **Non-Deliverable**
+
+- [**Homework:** Mongoose Store - Part 1: Create & Read](/backend-fundamentals/week-8/day-2/labs/mongoose-store) - **Deliverable**
 
 
-#### Looking ahead
+#### Looking ahead - Project Week Starts Tuesday 10/24
 - [**Read:** Review Project 2 Requirements](/unit-projects/unit-two-project-requirements)
