@@ -110,13 +110,13 @@ Next, ensure that the **Node.js** driver and latest version is selected. Then cl
 
 ## Use the Connection String in Your App
 
-You can now paste the connection string in the app's `.env` file, assigning it to a `DATABASE_URL` environment variable:
+You will paste the connection string in the app's `.env` file, assigning it to a `DATABASE_URL` environment variable:
 
 ```shell
 DATABASE_URL=mongodb+srv://sei:<password>@sei-w0kys.azure.mongodb.net/test?retryWrites=true
 ```
 
-You're almost done, but you need to update the connection string as follows:
+You're almost done, but you'll need to update the connection string as follows:
 
 1. Replace `<password>` with the password of the database user you created earlier.
 2. **IMPORTANT** The connection string by default connects to a namespace (database) named `admin` (`...mongodb.net/admin?retryWrites=true...`). However, the `admin` namespace **must** be updated to your preferred namespace (database) name. For example, "movies" (`...mongodb.net/movies?retryWrites=true...`).
