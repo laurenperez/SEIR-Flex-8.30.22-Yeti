@@ -150,8 +150,6 @@ This should clear up the errors:
 mongoose.connect(DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
 })
 ```
 
@@ -193,8 +191,6 @@ const db = mongoose.connection
 mongoose.connect(DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
 })
 
 // Database Connection Error/Success - optional but can be really helpful
