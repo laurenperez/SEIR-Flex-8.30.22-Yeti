@@ -330,7 +330,7 @@ We can add a field. Claire has no state, let's give her a state
 Click the pencil (edit) button on Clair's record (AKA Document).
 
 ```js
-"state" : "California"
+state : "California"
 ```
 
 And we should see that Claire now has a state.
