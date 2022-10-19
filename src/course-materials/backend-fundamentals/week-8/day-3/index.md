@@ -17,9 +17,8 @@ topics: "CRUD with Mongoose - Delete and Update"
 
 - **Lunch**
 
-- [**Lab:** The Captain's Log - FULL CRUD Project](/backend-fundamentals/week-8/day-2/labs/the-captains-log) - **Non-Deliverable**
+- [**Lab:** The Captain's Log - FULL CRUD Project ( Create & Read )](/backend-fundamentals/week-8/day-3/labs/the-captains-log) - **Non-Deliverable**
 
-- [**Homework:** Finish Mongoose Store - Delete & Update](/backend-fundamentals/week-8/day-2/labs/mongoose-store) - **Deliverable**
 
 
 #### Looking ahead - Project Week Starts Tuesday 11/02

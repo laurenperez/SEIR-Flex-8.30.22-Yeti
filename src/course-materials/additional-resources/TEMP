@@ -38,3 +38,6 @@ topics: "JQuery & APIs with AJAX"
 - [**Lecture:** Intro to Authentication With Oauth](/backend-fundamentals/week-9/day-1/lecture-materials/authentication-with-oauth/)
 
 
+- [**Lab:** Mongoose Store - Create & Read](/backend-fundamentals/week-8/day-2/labs/mongoose-store) - **Deliverable**
+
+- [**Homework:** Finish Mongoose Store - Delete & Update](/backend-fundamentals/week-8/day-2/labs/mongoose-store) - **Deliverable**

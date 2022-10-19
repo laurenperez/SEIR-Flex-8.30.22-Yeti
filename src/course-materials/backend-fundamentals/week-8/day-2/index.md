@@ -15,8 +15,7 @@ topics: "CRUD with Mongoose - Create & Read"
 
 - [**Lecture:** Booklist - Creating a Seed Route](/backend-fundamentals/week-8/day-2/lecture-materials/creating-a-seed-route)
 
-
-- [**Lab:** Mongoose Store - Create & Read](/backend-fundamentals/week-8/day-2/labs/mongoose-store) - **Deliverable**
+- [**Lab:** The Captain's Log - FULL CRUD Project ( Create & Read )](/backend-fundamentals/week-8/day-2/labs/the-captains-log) - **Non-Deliverable**
 
 
 
