@@ -216,9 +216,9 @@ Add some key value pairs, for Jennifer. We're going to split it up across multip
 
 ```js
 {
-  'name': 'Jennifer',
-  'phone': 8675309,
-  'state': 'California'
+  "name": "Jennifer",
+  "phone": 8675309,
+  "state": "California"
 }
 ```
 
@@ -258,7 +258,7 @@ Let's go ahead and copy paste these into our atlas interface to populate our col
 <br>
 <br>
 
-**HEADS UP: The JSON format required by Atlas doesn't support trailing commas or other JS features. And all strings need to be in full `"` marks and not single ticks `'`.**
+**HEADS UP: The JSON format required by Atlas doesn't support trailing commas or other JS features. And all strings need to be in full double `"` quotes and not single quotes `'`.**
 
 We may notice that our data wasn't consistent.
 
@@ -328,7 +328,7 @@ We can add a field. Claire has no state, let's give her a state
 Click the pencil (edit) button on Clair's record (AKA Document).
 
 ```js
-state: "California"
+"state" : "California"
 ```
 
 And we should see that Claire now has a state.
@@ -362,7 +362,7 @@ Let's just try one together. Let's query for the people who are NOT in Californi
 
 ```js
 {
-  state: {
+  "state": {
     $ne: "California"
   }
 }
