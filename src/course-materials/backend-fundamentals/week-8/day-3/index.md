@@ -17,7 +17,7 @@ topics: "CRUD with Mongoose - Delete and Update"
 
 - **Lunch**
 
-- [**Lab:** The Captain's Log - FULL CRUD Project ( Create & Read )](/backend-fundamentals/week-8/day-3/labs/the-captains-log) - **Non-Deliverable**
+- [**Lab:** The Captain's Log - FULL CRUD Project ( Update & Delete )](/backend-fundamentals/week-8/day-3/labs/the-captains-log) - **Non-Deliverable**
 
 
 
