@@ -28,7 +28,7 @@ Here's what we're going to create:
 
 ## Set Up
 
-Note: Your default branch on github might be set to 'main' if you want to make sure it's the same everywhere to avoid branching issues before we learn about branching, navigate to [https://github.com/settings/repositories](https://github.com/settings/repositories) and change your default branch to `master`
+Note: Your default branch on github might be set to 'main' if you want to make sure it's the same everywhere to avoid branching issues, navigate to [https://github.com/settings/repositories](https://github.com/settings/repositories) and change your default branch to `main`
 
 - On [github.com](https://github.com) NOT GHE, create a new repo called `meen-auth-starter` with a node `.gitignore` \
   You may already have a global .gitignore configured, but it never hurts to have a local one, and if someone else wants to use your template, they'll be all set up with the proper files ignored.
@@ -46,6 +46,8 @@ Note: Your default branch on github might be set to 'main' if you want to make s
 ## Add ENV Variables
 
 In `.env`:
+
+(This is an example, do not copy & paste)
 
 ```shell
 PORT=3000
@@ -91,8 +93,6 @@ const mongoose = require("mongoose")
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
 })
 
 // Database Connection Error / Success

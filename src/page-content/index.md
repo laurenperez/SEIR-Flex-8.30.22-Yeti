@@ -93,7 +93,7 @@ Curriculum schedule and content is subject to change at the instructional team's
 | 11    | State, Inputs, Event Handling & AJAX in React                          |
 | 12    | React & CSS, React Router                                              |
 | 13    | JSON Api, Full-Stack React, React Portfolio                            |
-| 14    | Full MERN Build Parts 1, 2 & 3 and  *Memorial Day Holiday*             |
+| 14    | Full MERN Build Parts 1, 2 & 3                                         |
 | 15    | Project Management, BookMarked Group Project                           |
 | 16    | Project Week - Project 3                                               |
 | 17    | Project 3 - Presentations & Install Fest Phase 3                       |
@@ -108,7 +108,7 @@ Curriculum schedule and content is subject to change at the instructional team's
 | Week | Topics                                                                              |
 | ---- | ----------------------------------------------------------------------------------- |
 | 18   | Intro to Python, Control flow, Containers, & Functions                              |
-| 19   | Python Classes, Intro to SQL and Relational Databases, (Independence Day Holiday)   |
+| 19   | Python Classes, Intro to SQL and Relational Databases                               |
 | 20   | Django Views, Templates & Models, Relational Data Design, Class Based Views         |
 | 21   | Django Model Relationships, Upload Photos with Amazon S3, Django Auth               |
 | 22   | Project 4 Week                                                                      |

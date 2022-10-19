@@ -2,7 +2,7 @@
 track: "Backend Fundamentals"
 title: "Mongoose Store - Full CRUD Project"
 week: 8
-day: 2
+day: 3
 type: "lab"
 ---
 

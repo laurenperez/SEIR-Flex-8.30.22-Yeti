@@ -11,16 +11,16 @@ topics: "CRUD with Mongoose - Delete and Update"
 
 #### CRUD with Mongoose - Delete & Update
 
-- [**Lecture:** CRUD with Mongoose - Delete & Update](/backend-fundamentals/week-8/day-3/lecture-materials/crud-app-with-mongoose)
+- [**Lecture:** Booklist CRUD with Mongoose - Delete & Update](/backend-fundamentals/week-8/day-3/lecture-materials/crud-app-with-mongoose-2)
 
-- [**Lab:** The Captain's Log - Part 2: Delete & Update](/backend-fundamentals/week-8/day-2/labs/the-captains-log) - **Non-Deliverable**
+- [**Lecture:** Booklist - Express Router](/backend-fundamentals/week-8/day-3/lecture-materials/express-router)
 
 - **Lunch**
 
-- [**Lecture:** Express Router](/backend-fundamentals/week-8/day-3/lecture-materials/express-router)
+- [**Lab:** The Captain's Log - FULL CRUD Project](/backend-fundamentals/week-8/day-2/labs/the-captains-log) - **Non-Deliverable**
 
-- [**Homework:** Mongoose Store - Part 2: Delete & Update](/backend-fundamentals/week-8/day-2/labs/mongoose-store) - **Deliverable**
+- [**Homework:** Finish Mongoose Store - Delete & Update](/backend-fundamentals/week-8/day-2/labs/mongoose-store) - **Deliverable**
 
 
-#### Looking ahead - Project Week Starts Tuesday 10/24
+#### Looking ahead - Project Week Starts Tuesday 11/02
 - [**Read:** Review Project 2 Requirements](/unit-projects/unit-two-project-requirements)

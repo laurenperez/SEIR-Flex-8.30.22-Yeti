@@ -16,3 +16,25 @@ topics: "JQuery & APIs with AJAX"
 #### Lunch
 
 - [**Lab:** Build a Weather App With AJAX](/frontend-fundamentals/week-4/day-3/labs/build-a-weather-app-with-ajax/) - **Deliverable**
+
+#### Authentication
+
+- [**Lecture:** Intro to Authentication With Bcrypt & Sessions](/backend-fundamentals/week-9/day-1/lecture-materials/authentication-with-bcrypt-and-sessions/)
+- [**Activity:** Review Project 2](/unit-projects/unit-two-project-requirements)
+- **Activity:** Post Project 2 Squads!
+- **Lab:** Project 2 Planning
+
+#### Extra Resources and Bonus Lab
+
+- [**Tutorial:** Meen Auth Template 1 ](/backend-fundamentals/week-9/day-1/lecture-materials/meen-auth-template-part-1/)
+- [**Tutorial:** Meen Auth Template 2 ](/backend-fundamentals/week-9/day-1/lecture-materials/meen-auth-template-part-2/)
+- [**Lab:** Building an API with Express](/backend-fundamentals/week-9/day-1/lecture-materials/producing-an-api-with-express/)
+
+
+
+
+- [**Bonus Session - ASYNC/AWAIT**](https://git.generalassemb.ly/shawkitajima/Async-Await-Dogs)
+
+- [**Lecture:** Intro to Authentication With Oauth](/backend-fundamentals/week-9/day-1/lecture-materials/authentication-with-oauth/)
+
+

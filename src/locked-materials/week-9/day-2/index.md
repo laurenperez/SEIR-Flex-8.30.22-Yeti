@@ -9,10 +9,5 @@ topics: "Project 2 Week"
 
 # Week 9 - Day 2
 
-#### Project 2 Week
-
-- **Activity:** Students Work on Project 2
-- **Due:** Project Proposals EOD
-
-
-- [**Bonus Session - ASYNC/AWAIT**](https://git.generalassemb.ly/shawkitajima/Async-Await-Dogs)
+#### Looking ahead - Project Week Starts Tuesday 11/02
+- [**Read:** Review Project 2 Requirements](/unit-projects/unit-two-project-requirements)
