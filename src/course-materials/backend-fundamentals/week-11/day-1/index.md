@@ -4,12 +4,12 @@ title: "Week 11 - Day 1"
 week: 11
 day: 1
 type: "homepage"
-topics: ""
+topics: "Project Week (Heroku Deployment Day)"
 ---
 
 # Week 11 - Day 1
 
-#### Project 2 Week
+#### Project Week - Unit 2
 
 - **Activity:** Students Work on Project 2
 

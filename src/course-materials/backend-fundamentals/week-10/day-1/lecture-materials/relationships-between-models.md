@@ -8,6 +8,8 @@ type: "lecture"
 
 # Creating A Relationship Between Two Models
 
+**Today we are creating what is called a _one to many_ relationship between _Authors_ and the many _Articles_ they write.** 
+
 <br>
 <br>
 <br>
@@ -38,7 +40,7 @@ const Article = require("./articles.js")
 
 const authorSchema = mongoose.Schema({
   name: String,
-  articles: [Article.schema],
+  articles: [Article.schema], // <- here 
 })
 
 const Author = mongoose.model("Author", authorSchema)
@@ -84,11 +86,14 @@ Create A Select Element in `views/articles/new.ejs`:
 <form action="/articles" method="post">
   <select name="authorId">
     <% for(let i = 0; i < authors.length; i++) { %>
-    <option value="<%=authors[i]._id%>"><%=authors[i].name%></option>
-    <% } %></select
-  ><br />
-  <input type="text" name="title" /><br />
-  <textarea name="body"></textarea><br />
+    <option value="<%= authors[i]._id %>"><%= authors[i].name %></option>
+    <% } %>
+  </select>
+  <br />
+  <input type="text" name="title" />
+  <br />
+  <textarea name="body" />
+  <br />
   <input type="submit" value="Publish Article" />
 </form>
 ```
@@ -141,8 +146,8 @@ router.get("/:id", (req, res) => {
 views/articles/show.ejs:
 
 ```html
-<h1><%=article.title%></h1>
-<small>by: <a href="/authors/<%=author._id%>"><%=author.name%></a></small>
+<h1><%= article.title %></h1>
+<small>by: <a href="/authors/<%= author._id %>"><%= author.name %></a></small>
 ```
 
 <br>
@@ -159,8 +164,8 @@ views/authors/show.ejs:
   <ul>
     <% for(let i = 0; i < author.articles.length; i++) { %>
     <li>
-      <a href="/articles/<%=author.articles[i]._id%>"
-        ><%=author.articles[i].title%></a
+      <a href="/articles/<%= author.articles[i]._id %>"
+        ><%= author.articles[i].title %></a
       >
     </li>
     <% } %>
@@ -278,21 +283,21 @@ router.get("/:id/edit", (req, res) => {
 `views/articles/edit.ejs`
 
 ```html
-<form action="/articles/<%=article._id%>?_method=PUT" method="post">
+<form action="/articles/<%= article._id %>?_method=PUT" method="post">
     <select name="authorId">
         <% for(let i = 0; i < authors.length; i++) { %>
             <option
-                value="<%=authors[i]._id%>"
+                value="<%= authors[i]._id %>"
                 <% if(authors[i]._id.toString() === articleAuthor._id.toString()) { %>
                     selected
-                <% } %>
-                >
+                <% } %>>
                 <%=authors[i].name%>
             </option>
         <% } %>
-    </select><br/>
-    <input type="text" name="title" value="<%=article.title%>"/><br/>
-    <textarea name="body"><%=article.body%></textarea><br/>
+    </select>
+    <br/>
+    <input type="text" name="title" value="<%= article.title %>"/><br/>
+    <textarea name="body"><%= article.bod y%></textarea><br/>
     <input type="submit" value="Update Article"/>
 </form>
 ```
@@ -339,3 +344,6 @@ router.put("/:id", (req, res) => {
   )
 })
 ```
+
+
+### You now have two models in a _one to many_ relationship! 

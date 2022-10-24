@@ -4,11 +4,11 @@ title: "Week 11 - Day 2"
 week: 11
 day: 2
 type: "homepage"
-topics: "Project 2 Presentations"
+topics: "Presentation Day"
 ---
 
 # Week 11 - Day 2
 
-#### Project 2 Week
+#### Project Week - Unit 2
 
 - **Activity:** Students Present Project 2  🎉
