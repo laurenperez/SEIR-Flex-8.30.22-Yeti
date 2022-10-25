@@ -43,7 +43,27 @@ Note: Your default branch on github might be set to 'main' if you want to make s
 <br>
 <br>
 
-## Add ENV Variables
+## Explain what a session is
+
+Cookies are little strings of data that get stored on your computer so that, when you return to a web page, it will remember what you did the last time you were there. You can specify how long a cookie will stay around on a browser before it "expires" or is deleted. This can be a specific date, or it can end as soon as the user closes their browser.
+
+<br>
+
+The problem with cookies is that if you store sensitive information in them (usernames, etc), someone could take the computer and view this sensitive information just by opening up the web browser. Sessions are basically cookies, but the server stores the sensitive info in its own memory and passes an encrypted string to the browser, which gets stored in the cookie. The server then uses this encrypted string to know what was saved on the user's computer.
+
+<br>
+
+Sessions typically only last for as long as the user keeps their window open, and aren't assigned a specific date to expire. **BE CAREFUL: IF YOU RESTART YOUR SERVER, IT WILL LOSE ALL MEMORY OF THE SESSIONS IT CREATED, AND USERS' SESSIONS WILL NOT WORK**
+
+## Set up Environmental Variables
+
+We need a way to protect our sensitive information and a way to store environmental variables that are specific to our computer (in contrast to a co-workers computer or the environment in a cloud service).
+
+<br>
+
+Typically we'll have a `.gitignore` file to help with this. Sometimes this is a global file, sometimes we add is per-project. This file tells git which files to ignore when tracking our files. In there it states to never track `node_modules` nor `.env` - that way our values stay safely on our machines.
+
+## Set up ENV file
 
 In `.env`:
 
@@ -55,7 +75,9 @@ DATABASE_URL=mongodb+srv://<username>:<password>@general-assembly.1wjse.mongodb.
 SECRET=feedmeseymour
 ```
 
-- Remember to use your own `DATABASE_URL`. Copying the one above will not work. \
+We'll be using this `SECRET` value soon. In general, it should be a completely random string. You do not want to copy this value from app to app or your stuff can get hacked. Feel free to jazz up your secret now if you like!
+
+- Remember to use your own `DATABASE_URL`. Copying the one above will not work.
 - Remember your `SECRET` should be a totally random string. This matters less in development, but it'll be important when you deploy your apps and have to add the variable to Heroku.
 
 <br>
@@ -119,7 +141,9 @@ mongo connected
 <br>
 <br>
 
-## User Stories
+## Create User Stories
+
+AAU = "As a User..."
 
 - AAU I should be able to navigate to a registration page and create an account
 - AAU I should be able to navigate to a login page and login to my account
@@ -206,7 +230,6 @@ In `controllers/users.js`:
 
 ```js
 // Dependencies
-const bcrypt = require("bcrypt")
 const express = require("express")
 const userRouter = express.Router()
 const User = require("../models/user.js")
@@ -225,7 +248,40 @@ module.exports = userRouter
 
 ## Create Registration Route (Create / POST)
 
-Before we do too much at once, let's just see if we can successfully hash the user's password.
+This is where the user is first created and their username and password are saved for the first time. 
+
+
+
+### Explain what bcrypt does
+
+bcrypt is a package that will encrypt passwords so that if your database gets hacked, people's passwords won't be exposed.
+
+
+### Include bcrypt package
+
+In `server.js`:
+
+```js
+// Dependencies
+const bcrypt = require("bcrypt")
+```
+
+<br>
+<br>
+<br>
+
+Here's the code for hashing a string:
+
+```js
+const hashedString = bcrypt.hashSync("yourPasswordStringHere", bcrypt.genSaltSync(10))
+```
+
+<br>
+<br>
+<br>
+
+Let's add it to a route to see how it works:
+
 
 In `controllers/users.js`:
 
@@ -362,6 +418,7 @@ const User = require("../models/user.js")
 
 // Create (login route)
 
+
 // Export Sessions Router
 module.exports = sessionsRouter
 ```
@@ -370,6 +427,27 @@ module.exports = sessionsRouter
 <br>
 <br>
 
+## Login Functionality - Using Bycrypt compare 
+
+Here's the code to compare a string:
+
+```js
+bcrypt.compareSync("yourGuessHere", hashedStringFromDatabase )
+```
+
+compareSync evaluates to true or false.
+
+<br>
+<br>
+<br>
+
+### Compare a string to a hashed value to see if they are the same
+
+Because the same string gets encrypted differently every time, we have no way of actually seeing what the value of the string is. We can compare it to another string and see if the two are "mathematically" equivalent.
+
+Take a moment to think about how bcrypt can help us protect users passwords (we should never store an un-hashed password in our database) and how it can help us check to make sure the password a user is trying to log in with matches the hashed password we have stored in the database.
+
+
 ## Create Login Route (Create / POST)
 
 Before we start coding, let's think this through a bit.
@@ -377,9 +455,9 @@ Before we start coding, let's think this through a bit.
 When a user tries to login, we need to check a few things.
 
 1. First we want to check if the user exists in our database
-   - If the user doesn't exist, return an error
+   - If the user doesn't exist, return an error (they havent signed up yet)
    - If the user exists...
-1. Compare the password they provided with the hashed password we have stored in the database
+1. Compare the password they provided with the hashed password we have stored in the database for them
    - If the passwords don't match, return an error and ask the user to try again
    - If the passwords do match...
 1. Create a new express session for the user (log them in)
@@ -407,6 +485,7 @@ sessionsRouter.post("/", (req, res) => {
       } else {
         // If a user has been found
         // compare the given password with the hashed password we have stored
+        // this will return a true or false 
         const passwordMatches = bcrypt.compareSync(
           req.body.password,
           foundUser.password
@@ -516,3 +595,12 @@ Awesome! Now that our core functionality is built out, all we need is:
 - Register View
 - Login View
 - Protected Dashboard View
+
+
+## References
+
+- [Bcrypt in a little more depth - Thanks Eric Lewis!](https://www.dailycred.com/article/bcrypt-calculator)
+
+- [Express Session Middleware](https://www.npmjs.com/package/express-session)
+- [Express.js Docs on Session Middleware](https://expressjs.com/en/resources/middleware/session.html)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
