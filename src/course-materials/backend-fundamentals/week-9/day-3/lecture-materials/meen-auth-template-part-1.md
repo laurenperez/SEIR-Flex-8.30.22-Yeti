@@ -8,7 +8,7 @@ type: "lecture"
 
 # MEEN Auth Template Build - Part 1
 
-As a Junior Developer, User Authentication is something you really shouldn't be working on just yet. But having some experince with it, and building projects with authentication looks really good on your resume and portfolio.
+As a Junior Developer in your first job, User Authentication is something you really shouldn't be working on just yet. But having some experince with it, and building projects with authentication looks really good on your resume and portfolio.
 
 So, today we're going to build a template repo which will allow you to get up and running with Authenticatication without having to build it out every time you want to create a portfolio project with it.
 
@@ -28,10 +28,9 @@ Here's what we're going to create:
 
 ## Set Up
 
-Note: Your default branch on github might be set to 'main' if you want to make sure it's the same everywhere to avoid branching issues, navigate to [https://github.com/settings/repositories](https://github.com/settings/repositories) and change your default branch to `main`
-
 - On [github.com](https://github.com) NOT GHE, create a new repo called `meen-auth-starter` with a node `.gitignore` \
   You may already have a global .gitignore configured, but it never hurts to have a local one, and if someone else wants to use your template, they'll be all set up with the proper files ignored.
+
 - Clone that repo down to your computer
 - `cd meen-auth-starter`
 - `touch server.js`
@@ -53,17 +52,22 @@ The problem with cookies is that if you store sensitive information in them (use
 
 <br>
 
-Sessions typically only last for as long as the user keeps their window open, and aren't assigned a specific date to expire. **BE CAREFUL: IF YOU RESTART YOUR SERVER, IT WILL LOSE ALL MEMORY OF THE SESSIONS IT CREATED, AND USERS' SESSIONS WILL NOT WORK**
+Sessions typically only last for as long as the user keeps their window open, and aren't assigned a specific date to expire. 
+
+<br>
+
+**BE CAREFUL: IF YOU RESTART YOUR SERVER YOU WILL LOSE ALL MEMORY OF THE SESSIONS IT CREATED AND USERS' SESSIONS WILL NOT WORK**
+
+<br>
+<br>
+<br>
 
 ## Set up Environmental Variables
 
 We need a way to protect our sensitive information and a way to store environmental variables that are specific to our computer (in contrast to a co-workers computer or the environment in a cloud service).
 
-<br>
 
-Typically we'll have a `.gitignore` file to help with this. Sometimes this is a global file, sometimes we add is per-project. This file tells git which files to ignore when tracking our files. In there it states to never track `node_modules` nor `.env` - that way our values stay safely on our machines.
-
-## Set up ENV file
+### Set up your ENV file
 
 In `.env`:
 
