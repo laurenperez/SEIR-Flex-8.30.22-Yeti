@@ -130,7 +130,7 @@ Make a product inventory manager with full CRUD using Mongoose.
 
 ## The Buy Button
 
-After you have your full CRUD app working, it's time to break/extend RESTful conventions according to your own lights. The app needs a buy button. It's up to you to make your own routes to facilitate it.
+After you have your full CRUD app working, you can ignore RESTful routing practices for a moment in order to add some fake "buy" funtionality. The app needs a buy button. It's up to you to make your own route to facilitate that.
 
 As mentioned in the expected functionality, if a product is in stock (the qty is above 0), the show page should have a BUY button. If the product is out of stock, it should not have this button.
 
