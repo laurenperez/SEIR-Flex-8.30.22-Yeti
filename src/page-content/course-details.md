@@ -41,7 +41,7 @@ title: "Course Details"
 
 | Name           | Role                    | Office Hours       | 
 | -------------- | ----------------------- | -------------------|
-| Lauren Perez (she/her)       | Lead Instructor             | Fri 6:30pm - 8:30pm PST 
+| Lauren Perez (she/her)       | Lead Instructor             | Mon 6:30pm - 8:30pm PST 
 | Nathaniel Stack (he/him)     | Lead Instructor             | Tue + Wed 5:30pm - 6:30pm PST
 | Andrew Deitrick (he/him)     | Lead Instructor             | TBD
 | Katie Pestotnik (she/her)    | Instructional Associate     | Sun 4:00pm - 6:00pm PST
