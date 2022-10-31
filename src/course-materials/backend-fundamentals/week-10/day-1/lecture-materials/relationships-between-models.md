@@ -30,7 +30,45 @@ type: "lecture"
 <br>
 <br>
 
+## Getting Set Up
+
+[You can find todays starter code here. ](https://git.generalassemb.ly/laurenperez-ga/blog)
+
+**Fork this repo so that you have your own copy in github.**  ( The fork button is in the top right coner of the page. )
+
+**Now clone this copy to your local machine.**
+
+1. Click the green code button. 
+
+2. Select HTTPS and copy the link generated. 
+
+3. In your terminal:
+
+``` shell
+git clone https://git.generalassemb.ly/laurenperez-ga/blog
+```
+ 4. `cd blog`
+
+ 5. `npm install`
+
+You are ready to code! 
+
+
+<br>
+<br>
+<br>
+
+### Review the starter code...
+
+Take a tour of the repo. As a new developer you will spend a significant amount of time getting to know new code bases at your first job. This means looking through the folder set up, taking note of how things are organized and what patterns you see in the code. 
+
+<br>
+<br>
+<br>
+
 ## Add Articles Array to Author Model
+
+Now lets create a relationship between Authors and the Articles they write. 
 
 models/authors.js
 
