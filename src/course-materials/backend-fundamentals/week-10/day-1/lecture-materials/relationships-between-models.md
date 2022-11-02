@@ -51,6 +51,8 @@ git clone https://git.generalassemb.ly/laurenperez-ga/blog
 
  5. `npm install`
 
+ 6. Create a `.env` file with your PORT and DATABASE_URL - set the name of the DB to `blog`
+
 You are ready to code! 
 
 
@@ -69,21 +71,26 @@ Take a tour of the repo. As a new developer you will spend a significant amount 
 ## Add Articles Array to Author Model
 
 Now lets create a relationship between Authors and the Articles they write. 
+Add a new property to the Author schema called articles.
 
 models/authors.js
 
 ```javascript
-const mongoose = require("mongoose")
-const Article = require("./articles.js")
+const mongoose = require("./connection");
+const Article = require("./article");
 
-const authorSchema = mongoose.Schema({
+const { Schema, model } = mongoose;
+
+const authorSchema = new Schema({
   name: String,
-  articles: [Article.schema], // <- here 
-})
+  articles: [Article.schema], //  <-- here
+  },
+  { timestamps: true }
+);
 
-const Author = mongoose.model("Author", authorSchema)
+const Author = model("Author", authorSchema);
 
-module.exports = Author
+module.exports = Author;
 ```
 
 <br>
@@ -95,7 +102,7 @@ module.exports = Author
 Require the Author model in `controllers/articles.js`:
 
 ```javascript
-const Author = require("../models/authors.js")
+const Author = require("../models/author")
 ```
 
 <br>
@@ -122,11 +129,13 @@ Create A Select Element in `views/articles/new.ejs`:
 
 ```html
 <form action="/articles" method="post">
-  <select name="authorId">
+  <!-- This is the new code -->
+  <select name="authorId" class="browser-default">
     <% for(let i = 0; i < authors.length; i++) { %>
     <option value="<%= authors[i]._id %>"><%= authors[i].name %></option>
     <% } %>
   </select>
+  <!-- end of new code -->
   <br />
   <input type="text" name="title" />
   <br />
@@ -184,7 +193,7 @@ router.get("/:id", (req, res) => {
 views/articles/show.ejs:
 
 ```html
-<h1><%= article.title %></h1>
+<h2><%= article.title %></h2>
 <small>by: <a href="/authors/<%= author._id %>"><%= author.name %></a></small>
 ```
 
@@ -268,7 +277,7 @@ router.put("/:id", (req, res) => {
 controllers/authors.js
 
 ```javascript
-const Article = require("../models/articles.js")
+const Article = require("../models/article")
 
 //...farther down the file
 router.delete("/:id", (req, res) => {
@@ -322,21 +331,21 @@ router.get("/:id/edit", (req, res) => {
 
 ```html
 <form action="/articles/<%= article._id %>?_method=PUT" method="post">
-    <select name="authorId">
-        <% for(let i = 0; i < authors.length; i++) { %>
-            <option
-                value="<%= authors[i]._id %>"
-                <% if(authors[i]._id.toString() === articleAuthor._id.toString()) { %>
-                    selected
-                <% } %>>
-                <%=authors[i].name%>
-            </option>
-        <% } %>
-    </select>
-    <br/>
-    <input type="text" name="title" value="<%= article.title %>"/><br/>
-    <textarea name="body"><%= article.bod y%></textarea><br/>
-    <input type="submit" value="Update Article"/>
+  <select name="authorId" class="browser-default">
+      <% for(let i = 0; i < authors.length; i++) { %>
+          <option
+              value="<%= authors[i]._id %>"
+              <% if(authors[i]._id.toString() === articleAuthor._id.toString()) { %>
+                  selected
+              <% } %>>
+              <%=authors[i].name%>
+          </option>
+      <% } %>
+  </select>
+  <br/>
+  <input type="text" name="title" value="<%= article.title %>"/><br/>
+  <textarea name="body"><%= article.body %></textarea><br/>
+  <input type="submit" value="Update Article"/>
 </form>
 ```
 
