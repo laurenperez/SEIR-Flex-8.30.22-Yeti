@@ -1,10 +1,15 @@
 ---
 track: "React Fundamentals"
 title: "React Weather Forecast"
-week: 10
+week: 12
 day: 3
 type: "lab"
 ---
+
+Title: Passing Props<br>
+Duration: 1hr+<br>
+Creator:  Joe Keohan<br>
+
 
 ## React Weather Forecast
 

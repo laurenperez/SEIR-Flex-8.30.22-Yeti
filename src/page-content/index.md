@@ -90,14 +90,14 @@ Curriculum schedule and content is subject to change at the instructional team's
 
 | Week  | Topics                                                                 |
 | ----  | ---------------------------------------------------------------------- |
-| 11    | Intro to React, Props, JSX & Components                                |
-| 12    | State, Inputs, Event Handling & AJAX in React                          |
-| 13    | React & CSS, React Router                                              |
-| 14    | JSON Api, Full-Stack React, React Portfolio                            |
-| 15    | Full MERN Build Parts 1, 2 & 3                                         |
-| 16    | Project Management, BookMarked Group Project                           |
-| 17    | Project Week - Project 3                                               |
-| 18    | Project 3 - Presentations & Install Fest Phase 3                       |
+| 13    | Intro to React, Props, JSX & Components                                |
+| 14    | State, Inputs, Event Handling & AJAX in React                          |
+| 15    | React & CSS, React Router                                              |
+| 16    | JSON Api, Full-Stack React, React Portfolio                            |
+| 17    | Full MERN Build Parts 1, 2 & 3                                         |
+| 18    | Project Management, BookMarked Group Project                           |
+| 19    | Project Week - Project 3                                               |
+| 20    | Project 3 - Presentations & Install Fest Phase 3                       |
 
 <br>
 <br>
@@ -108,9 +108,8 @@ Curriculum schedule and content is subject to change at the instructional team's
 
 | Week | Topics                                                                              |
 | ---- | ----------------------------------------------------------------------------------- |
-| 19   | Intro to Python, Control flow, Containers, & Functions                              |
-| 20   | Python Classes, Intro to SQL and Relational Databases                               |
-| 21   | Django Views, Templates & Models, Relational Data Design, Class Based Views         |
+| 20  | Intro to Python, Control flow, Containers, & Functions                              |
+| 21   | Python Classes, Intro to SQL and Relational Databases                               |
 | 22   | Django Model Relationships, Upload Photos with Amazon S3, Django Auth               |
 | 23   | Project 4 Week                                                                      |
 | 24   | Project 4 Week Presentations & Start CS Week                                        |

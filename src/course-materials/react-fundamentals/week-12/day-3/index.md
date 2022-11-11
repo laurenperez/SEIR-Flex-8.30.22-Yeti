@@ -4,14 +4,13 @@ title: "Week 12 - Day 3"
 week: 12
 day: 3
 type: "homepage"
-topics: "React Router"
+topics: "Passing Props"
 ---
 
 # Week 12 - Day 3
-#### React Router
 
-- [**Lecture:** Bitcoin Router Build](/react-fundamentals/week-12/day-3/lecture-materials/react-router-bitcoin-price-finder/)
+- [**Lecture:** Passing Props ](/react-fundamentals/week-12/day-3/lecture-materials/passing-props)
 
-- [**Lab:** React Router Stocks](/react-fundamentals/week-12/day-3/labs/react-router-lab-stocks/) **Deliverable**
+- Lunch
 
-- [**Lab:** React Router Lab](/react-fundamentals/week-12/day-3/labs/react-router-lab/) **Non-Deliverable**
+- [**Lab:** Weather Icons ](/react-fundamentals/week-12/day-3/lab/weather-icons)
