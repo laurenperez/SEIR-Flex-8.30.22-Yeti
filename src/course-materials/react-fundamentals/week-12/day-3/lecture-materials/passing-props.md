@@ -1,10 +1,9 @@
 ---
 track: "React Fundamentals"
-title: "Week 12 - Day 3"
+title: "Nested Components"
 week: 12
 day: 3
-type: "homepage"
-topics: "Passing Props"
+type: "lecture"
 ---
 
 Title: Passing Props<br>
