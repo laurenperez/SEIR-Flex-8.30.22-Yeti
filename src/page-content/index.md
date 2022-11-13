@@ -84,14 +84,15 @@ Curriculum schedule and content is subject to change at the instructional team's
 <br>
 <br>
 
-<!-- ### [Unit Three: React Fundamentals](/react-fundamentals) -->
+### [Unit Three: React Fundamentals](/react-fundamentals)
 
-### 🔒 Unit Three: React Fundamentals - **Locked**
+<!-- ### 🔒 Unit Three: React Fundamentals - **Locked** -->
 
 | Week  | Topics                                                                 |
 | ----  | ---------------------------------------------------------------------- |
-| 13    | Intro to React, Props, JSX & Components                                |
-| 14    | State, Inputs, Event Handling & AJAX in React                          |
+| 12    | Intro to React, Props, JSX & Components                                |
+| 13    | Intro to State,  Thanksgiving Holidays                                 |
+| 14    | Inputs, Event Handling, AJAX in React                                  |
 | 15    | React & CSS, React Router                                              |
 | 16    | JSON Api, Full-Stack React, React Portfolio                            |
 | 17    | Full MERN Build Parts 1, 2 & 3                                         |
@@ -108,7 +109,7 @@ Curriculum schedule and content is subject to change at the instructional team's
 
 | Week | Topics                                                                              |
 | ---- | ----------------------------------------------------------------------------------- |
-| 20  | Intro to Python, Control flow, Containers, & Functions                              |
+| 20   | Intro to Python, Control flow, Containers, & Functions                              |
 | 21   | Python Classes, Intro to SQL and Relational Databases                               |
 | 22   | Django Model Relationships, Upload Photos with Amazon S3, Django Auth               |
 | 23   | Project 4 Week                                                                      |

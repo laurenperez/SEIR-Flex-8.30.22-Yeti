@@ -15,4 +15,4 @@ topics: "Intro to React"
 
 - [**Lecture:** Intro to React](/react-fundamentals/week-12/day-1/lecture-materials/intro-to-react)
 
-- [**Lecture:** Components and JSX](/react-fundamentals/week-12/day-1/lecture-materials/NAME)
+- [**Lecture:** Components and JSX](/react-fundamentals/week-12/day-1/lecture-materials/components-and-jsx)
