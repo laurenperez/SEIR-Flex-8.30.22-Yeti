@@ -13,4 +13,4 @@ topics: "Passing Props"
 
 - Lunch
 
-- [**Lab:** Weather Icons ](/react-fundamentals/week-12/day-3/lab/weather-icons)
+- [**Lab:** Weather Icons ](/react-fundamentals/week-12/day-3/labs/react-weather-forecast)
