@@ -1,3 +1,10 @@
+---
+track: "React Fundamentals"
+title: "Intro to State Exercise"
+week: 13
+day: 1
+type: "lab"
+---
 # React Cities
 
 ## Intro To State Exercise

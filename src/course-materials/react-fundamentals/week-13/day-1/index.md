@@ -16,4 +16,4 @@ topics: "Intro to State"
 
 - [**Lab:** React Cities - Intro to using State](/react-fundamentals/week-13/day-1/labs/react-cities) - **Deliverable**
 
-- <a href="/downloads/react_fundamentals/intro-to-state-labs/react-cities-starter.zip" download>React Cities Starter Code</a>
+  **<a href="/downloads/react_fundamentals/intro-to-state-labs/react-cities-starter.zip" download>React Cities Starter Code</a>**
