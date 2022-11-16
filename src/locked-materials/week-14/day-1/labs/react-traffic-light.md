@@ -19,9 +19,9 @@ Objectives:
 
 Here is a <a target="_" href="https://zhtbi.csb.app/">working CodeSandBox solution</a> of the app so you can examine the components in React DevTools.
 
-## Starter CodeSandbox
+## Starter Code
 
-Here is our [Starter Code](./traffic-light-single-app-component-starter)
+Here is our <a href="/downloads/react_fundamentals/intro-to-state-labs/traffic-light-single-app-component-starter.zip" download>Starter Code</a>
 
 ### Instructions
 

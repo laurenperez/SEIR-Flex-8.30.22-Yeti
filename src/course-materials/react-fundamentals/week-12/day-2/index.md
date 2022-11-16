@@ -13,7 +13,7 @@ topics: "Nested Components"
 
 - [**Lecture:** Nested Components](/react-fundamentals/week-12/day-2/lecture-materials/nested-components)
 
-  **<a href="/downloads/react_fundamentals/starter-code.zip" download>Nested Components Starter Code</a>**
+  **<a href="/downloads/react_fundamentals/react-nested-components/nested-components-starter.zip" download>Nested Components Starter Code</a>**
 
 - [**Lab:** React Floorplan](/react-fundamentals/week-12/day-2/labs/react-floorplan)
 

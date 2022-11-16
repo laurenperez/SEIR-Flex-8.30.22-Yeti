@@ -53,7 +53,7 @@ In order to bridge the gap of what defines a Component, we will be creating a cu
 
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 3min
 
-<a href="/downloads/react_fundamentals/starter-code.zip" download>Nested Components Starter Code</a>
+<a href="/downloads/react_fundamentals/react-nested-components/nested-components-starter.zip" download>Nested Components Starter Code</a>
 
 Open the start code folder and run ```npm i```
 
