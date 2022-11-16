@@ -172,7 +172,7 @@ Confirm in React Dev Tools that CardBody is now being passed a prop
 
 <img src="" alt="image of props being passed"/><br>
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 <hr>
 
@@ -218,7 +218,7 @@ import cardsArr from "./cardsData"
 console.log("this is cardsArr:", cardsArr)
 ```
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 <hr>
 
@@ -298,7 +298,7 @@ Keep in the mind the following:
 - Both Components need to include a parameter which we will always call `props`.
 - Any JS rendered in JSX must be wrapped in {}
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 <hr>
 
@@ -402,7 +402,7 @@ const CardBody = ({ title, text, url }) => {
 
 Take a moment to update the `CardImage` and `Button` Component to make use of Object Destructuring.
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 <hr>
 

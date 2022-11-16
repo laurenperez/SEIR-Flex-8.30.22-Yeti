@@ -115,7 +115,7 @@ Here is the basic syntax of writing an inline style.
 <span style="{{" css-property-name: value }}></span>
 ```
 
-:👍: Click on the thumbs up when you've implemented the solution
+👍 Click on the thumbs up when you've implemented the solution
 
 <hr>
 
@@ -281,7 +281,7 @@ Now it's your turn.
 
 - Update both `handleDecrement` and `handleRest` to use the new implementation of state.
 
-:👍: - Click on the thumbs up when you've implemented the solution
+👍 - Click on the thumbs up when you've implemented the solution
 
 <hr>
 
@@ -415,7 +415,7 @@ Jump into the `way back machine`...
 
 Before the introduction of the ES6 `...spread` operator what other techniques were available to create a copy of an existing array?
 
-:👍: - Click on the thumbs up when you have at least one solution
+👍 - Click on the thumbs up when you have at least one solution
 
 When asked slack you answer in a thread created by the instructor.
 

@@ -180,7 +180,7 @@ If we test the app now it should still work as before.
 
 Also take a minute to investigate the Component in `React Dev Tools`.
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 `SmallImage.js`
 
@@ -231,7 +231,7 @@ const SmallImage = (props) => {
 }
 ```
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 :walking: **Poll:** How do you feel about the material so far
 

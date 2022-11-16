@@ -60,7 +60,7 @@ Students will be placed in breakout rooms to discuss what a front end framework 
 
 The group will decide on a single cohesive answer to that question and pick a member to post their answer.
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 When asked slack your answer in the thread created by the instructor
 
@@ -140,7 +140,7 @@ Take a moment to install the tool and then open `DevTools` to confirm the follow
 
 <img src="https://i.imgur.com/KsccFOw.png">
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 The instructor will provide a quick walk through of the tool.
 

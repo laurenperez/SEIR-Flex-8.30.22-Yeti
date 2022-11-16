@@ -69,7 +69,7 @@ You should see the following:
 - Take a moment to examine the code.
 - See if you can determine where the `H1` is being rendered as well as the 2 cards
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 - Slack your answer in the thread created by the instructor
 
@@ -99,7 +99,7 @@ In the `src` folder create the following files:
 - Card1.js
 - Card2.js
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 **Card1**
 
@@ -124,7 +124,7 @@ const Card1 = () => {
 export default Card1
 ```
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 #### Nesting A Component
 
@@ -150,7 +150,7 @@ If successful you should see the following:
 
 <img src="https://i.imgur.com/jHnPLLv.png" width=200/><br>
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 <hr>
 
@@ -168,7 +168,7 @@ Your code should produce the following:
 
 <img src="https://i.imgur.com/MOiPdAA.png" width=200/><br>
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 <hr>
 
@@ -200,7 +200,7 @@ const Card1 = () => {
 }
 ```
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 We should be immediately encounter the following error:
 
@@ -230,7 +230,7 @@ The other JSX rule we must follow is:
 
 So we need to rename every instance of `class` to `className`.
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 Here is our Component with those changes:
 
@@ -270,7 +270,7 @@ Your code should produce the following:
 
 <img src="https://i.imgur.com/MOiPdAA.png" width=150/>
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 <hr>
 
@@ -350,7 +350,7 @@ const CardBody = () => {
 export default CardBody
 ```
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 #### Render The CardBody Component
 
@@ -391,7 +391,7 @@ Now it's your turn to do the following:
 - Import CardImage and Button into Card1
 - Replace the HTML with those Components
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 <hr>
 

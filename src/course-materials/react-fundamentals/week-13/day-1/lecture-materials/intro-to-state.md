@@ -91,7 +91,7 @@ We'll walk through building a very simple `Counter` Component which will do the 
 
 For this demo you will create a new react app with `npx create-react-app`
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 #### Creating The Counter Component
 
@@ -487,7 +487,7 @@ Let's try a quick activity that should help you apply some of these concepts.
 - Use the `handler` naming convention that we used earlier to setup the previous buttons.
 - Call setCount to update state and set it to 0
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 **Bonus**
 
@@ -551,7 +551,7 @@ Take a few minutes to think about the following questions:
 
 **Note:** Do not slack your answers until the instructor has given the ok.
 
-:👍: Click on the thumbs up when your done.
+👍 Click on the thumbs up when your done.
 
 When asked slack your answer(s) in a thread created by the instructor
 
