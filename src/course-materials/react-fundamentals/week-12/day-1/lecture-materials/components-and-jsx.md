@@ -1,10 +1,4 @@
----
-track: "React Fundamentals"
-title: "Components and JSX"
-week: 12
-day: 1
-type: "lecture"
----
+
 
 Title: Components And JSX<br>
 Duration: 45min+ <br>
