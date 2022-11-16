@@ -1,10 +1,3 @@
----
-track: "React Fundamentals"
-title: "Intro to React"
-week: 12
-day: 1
-type: "lecture"
----
 
 Title: Intro to React<br>
 Duration: 1hr+ <br>
@@ -82,7 +75,7 @@ When asked slack your answer in the thread created by the instructor
 
 A framework is a library that provides generic functionality and structure and serves as the foundation to build and deploy applications.  
 
-The following are just a few of the most popular front end frameworks mentioned in [state of js](https://2020.stateofjs.com/en-US/technologies/front-end-frameworks/)
+The following are just a few of the most popular front end frameworks mentioned in [state of js](https://2021.stateofjs.com/en-US/libraries/front-end-frameworks)
 
 - React
 - Vue
@@ -220,15 +213,6 @@ React then isolates the changes between old and new instances of the Virtual
 ### Getting Started With React
 
 So now it's time to get started with React. For this demo we will be using a command called  `npx create-react-app`. 
-
-
-Here is the starter code we will be working with: [React CodeSandbox Starter](https://codesandbox.io/s/seir-831-getting-starter-fbewl)
-
-**Note:** Be sure to fork button on the top right:
-
-<img src="https://i.imgur.com/KQSFfqE.png" width=300/>
-
-<!-- **NOTE:** In order to easily share code, submit homeowrk and work through errors we will be using `CodeSandbox` for this remote course. -->
 
 #### Configuring Our React App
 
