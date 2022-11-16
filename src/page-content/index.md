@@ -91,14 +91,15 @@ Curriculum schedule and content is subject to change at the instructional team's
 | Week  | Topics                                                                 |
 | ----  | ---------------------------------------------------------------------- |
 | 12    | Intro to React, Props, JSX & Components                                |
-| 13    | Intro to State,  Thanksgiving Holidays                                 |
-| 14    | Inputs, Event Handling, AJAX in React                                  |
-| 15    | React & CSS, React Router                                              |
-| 16    | JSON Api, Full-Stack React, React Portfolio                            |
-| 17    | Full MERN Build Parts 1, 2 & 3                                         |
-| 18    | Project Management, BookMarked Group Project                           |
-| 19    | Project Week - Project 3                                               |
-| 20    | Project 3 - Presentations & Install Fest Phase 3                       |
+| 13    | Intro to State  &  **Thanksgiving Holidays**                           |
+| 14    | Complex state, Lifting State, Inputs & Forms in React                  |
+| 15    | Event Handling, AJAX in React, React & CSS                             |
+| 16    | React Router, Full-Stack React, React Portfolio                        |
+| 17    | Full MERN Build                                                        |
+| 18    | **Christmas Holidays - No Classes**                                    |
+| 19    | Git Collab & BookMarked Group Project                                  |
+| 20    | Project Week - Project 3                                               |
+| 21    | Project 3 - Presentations                                              |
 
 <br>
 <br>
@@ -109,14 +110,14 @@ Curriculum schedule and content is subject to change at the instructional team's
 
 | Week | Topics                                                                              |
 | ---- | ----------------------------------------------------------------------------------- |
-| 20   | Intro to Python, Control flow, Containers, & Functions                              |
-| 21   | Python Classes, Intro to SQL and Relational Databases                               |
-| 22   | Django Model Relationships, Upload Photos with Amazon S3, Django Auth               |
-| 23   | Project 4 Week                                                                      |
-| 24   | Project 4 Week Presentations & Start CS Week                                        |
-| 25   | CS Week - Data Structures, Algorithms, Searches  &  Start Capstone Project          |
-| 26   | Capstone Project Week                                                               |
-| 27   | Capstone Project Presentations & Graduation 🎉                                      |
+| 22   | Intro to Python, Control flow, Containers, & Functions                              |
+| 23   | Python Classes, Intro to SQL and Relational Databases                               |
+| 24   | Django Model Relationships, Upload Photos with Amazon S3, Django Auth               |
+| 25   | Project 4 Week                                                                      |
+| 26   | Project 4 Week Presentations + CS Week                                              |
+| 27   | CS Week  &  Capstone Project Week Kickoff                                           |
+| 28   | Capstone Project Week                                                               |
+| 29   | Capstone Project Presentations & Graduation 🎉                                      |
 
 <br>
 <br>
