@@ -13,7 +13,7 @@ topics: "Nested Components"
 
 - [**Lecture:** Nested Components](/react-fundamentals/week-12/day-2/lecture-materials/nested-components)
 
-- [**Nested Components Saterter Code**](https://github.com/laurenperez/nested-components-starter)
+- [**Nested Components Saterter Code**](https://git.generalassemb.ly/dctalk1234/react-intro-starter)
 
 - [**Lab:** React Floorplan](/react-fundamentals/week-12/day-2/labs/react-floorplan)
 
