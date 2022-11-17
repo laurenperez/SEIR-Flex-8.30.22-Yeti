@@ -15,7 +15,7 @@ Creator:  Joe Keohan<br>
 
 In this exercise, you will practice creating reusable React Components.
 
-Use the following [CodeSandbox Starter](https://codesandbox.io/s/adoring-goodall-mhive) code.
+Use the following [Starter Code](https://git.generalassemb.ly/laurenperez-ga/weaher-icons).
 
 <br>
 <br>
