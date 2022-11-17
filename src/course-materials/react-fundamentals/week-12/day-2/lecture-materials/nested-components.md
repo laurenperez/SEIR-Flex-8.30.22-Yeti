@@ -58,7 +58,7 @@ In order to bridge the gap of what defines a Component, we will be creating a cu
 
 Clone down this repository into your unit 3 folder.
 
-[**Nested Components Saterter Code**](https://git.generalassemb.ly/dctalk1234/react-intro-starter)
+[**Nested Components Starter Code**](https://git.generalassemb.ly/dctalk1234/react-intro-starter)
 
 Cd into the starter code repo and run `npm i`
 
