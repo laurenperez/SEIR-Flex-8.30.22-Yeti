@@ -119,7 +119,7 @@ We can see here that `props` is an object and that `title` is a key. This will b
 
 <hr>
 
-#### :alarm_clock: Activity - 3min
+#### ⏰ Activity - 3min
 
 Let's take a moment to edit our previous `Bootstrap Cards CodeSandbox` and try to reassign props.
 
