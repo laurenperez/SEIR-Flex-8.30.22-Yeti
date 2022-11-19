@@ -255,7 +255,7 @@ So it seems that state lost one of its keys. In this instance when we called `se
 
 This is due to the following rule:
 
-:oncoming_police_car: State is never directly edited and must always be overwritten with a new value
+🚨 State is never directly edited and must always be overwritten with a new value
 
 In order to guarantee that all the previous keys are present in the new object created we must use the `...spread` operator to import all the previous keys.
 
@@ -489,7 +489,7 @@ const styles = {
 
 You've learned quite a bit about React state. Let's take a minute to review the `rules` and `best practices`
 
-:oncoming_police_car: - Rules
+🚨 - Rules
 
 Here are some of the rules that govern the useState Hook:
 

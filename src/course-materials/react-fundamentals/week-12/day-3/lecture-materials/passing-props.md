@@ -56,7 +56,7 @@ Here is a [live](https://kv1bq.csb.app/) version of today's solution.
 
 ### Prop Rules
 
-:oncoming_police_car: Props are how we pass data from one Component to another and adhere to the following rules:
+🚨 Props are how we pass data from one Component to another and adhere to the following rules:
 
 - Data is unidirectional in React passed down from a `parent` > `child` Component
 - Props are immutable which means you can't reassign them within the receiving Component
@@ -88,7 +88,7 @@ A `prop` is written in a `name=value` format like the other html attributes your
 
 Since the `Card1` component is the parent that renders `CardBody` than it must pass the prop to it's child.
 
-:oncoming_police_car: - Data is unidirectional in React passed down from a `parent` > `child` Component
+🚨 - Data is unidirectional in React passed down from a `parent` > `child` Component
 
 Let's assign CardBody the following `prop`.
 
@@ -138,7 +138,7 @@ Refresh the page and you should see the following:
 
 So it looks like props was not updated to reflect the edit. This is an example of one of the rules of props:
 
-:oncoming_police_car: - Props are immutable which means you can't reassign them within the receiving Component
+🚨 - Props are immutable which means you can't reassign them within the receiving Component
 
 So any attempt to change those props directly within the Component will have no effect.
 
@@ -158,7 +158,7 @@ That didn't see to work out as planned. It seems it outputs `props.title` and no
 
 It seems we forgot about one of the rules of JSX:
 
-:oncoming_police_car: Any JavaScript code that needs to be executed in JSX must be enclosed in opening/closing curls braces `{}`
+🚨 Any JavaScript code that needs to be executed in JSX must be enclosed in opening/closing curls braces `{}`
 
 ```js
 <h5 className="card-title">{props.title}</h5>
@@ -250,7 +250,7 @@ Something will be needed to distinguish it as unique. React does so by assigning
 
 It is currently set to `null` and React will warn in just a bit when we render the Cards based on the following rule:
 
-:oncoming_police_car: Any Components created within a .map() must be assigned a unique key.
+🚨 Any Components created within a .map() must be assigned a unique key.
 
 Before we render the Cards we first need to update `Card1` to pass the data down the props it's received to it's corresponding children.
 

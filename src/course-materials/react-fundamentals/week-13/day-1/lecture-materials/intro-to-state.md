@@ -66,7 +66,7 @@ This is a very important concept to keep in mind as a `re-render` can also initi
 
 ### Rules Of State
 
-:oncoming_police_car: - Rules (Component Specific)
+🚨 - Rules (Component Specific)
 
 - State is assigned using the `useState` or `useReducer` hook
 - The State value is never updated directly
@@ -252,7 +252,7 @@ We will revisit this concept later when we cover the `useReducer` hook as it use
 
 Let's take a moment to once again review the `rules` of `useState` and include some best practices as well.
 
-:oncoming_police_car: - Rules
+🚨 - Rules
 
 - the State value is never updated directly
 - the State value is only updated using it's corresponding `setState` function
@@ -342,7 +342,7 @@ With our state value in place it's time to provide some functionality to the but
 
 In the case of our Counter the only way to update `count` is to call the `setCount` function and pass it a new value.
 
-:oncoming_police_car: Always use the `setState` function to update state
+🚨 Always use the `setState` function to update state
 
 There are 2 ways to perform this action:
 

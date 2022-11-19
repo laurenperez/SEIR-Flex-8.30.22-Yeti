@@ -208,7 +208,7 @@ We should be immediately encounter the following error:
 
 This has to do with a rule related to JSX which is:
 
-:oncoming_police_car: Any JS within JSX must be enclosed in curly braces `{}`
+🚨 Any JS within JSX must be enclosed in curly braces `{}`
 
 Since style accepts an object with the css key:value pairs (first set of curlys) we then need to surround that in an additional set of curlys.
 
@@ -226,7 +226,7 @@ Let's update our Component to include the proper syntax
 
 The other JSX rule we must follow is:
 
-:oncoming_police_car: - The keyword class is reserved so classes must be renamed `className`
+🚨 - The keyword class is reserved so classes must be renamed `className`
 
 So we need to rename every instance of `class` to `className`.
 

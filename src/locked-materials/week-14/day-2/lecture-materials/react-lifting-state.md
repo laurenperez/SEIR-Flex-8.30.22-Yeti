@@ -44,7 +44,7 @@ It's also important to note that the applications state can be placed nearest to
 
 ### Rules Of State
 
-:oncoming_police_car: - Rules (Component Specific)
+🚨 - Rules (Component Specific)
 
 - Data in React is unidirectional and props are always passed down from parent > child
 - Child Components cannot communicate directly and therefore cannot pass data between them
