@@ -30,9 +30,7 @@ The solution above was implemented using jQuery so there is no React code to ins
 
 ## Starter Code
 
-[Download Starter Code]()
-
-The starter code is in the ```react-cities-starter``` folder
+[Starter Code](https://github.com/katiepestotnik/react-cities)
 
 
 ## Instructions
@@ -40,9 +38,8 @@ For this exercise you will do the following:
 
 #### App Component
 - Examine the working live solution and determine the functionality needed
-- Examine the HTML provided in `src/index.html` as this contains the HTML elements needed for the design
+- Examine the HTML provided in `src/public/index.html` as this contains the HTML elements needed for the design
 - Determine how best to organize the data needed to render the images
-- Create a file called imageData.js that contains an array of image objects that are assigned keys of your own choosing, but must include the image url and alt values. 
 - Using Array.map() loop over the data to create the small images based on the structure you decided
 - Render the array of small image elements 
 - Import `useState` into App
