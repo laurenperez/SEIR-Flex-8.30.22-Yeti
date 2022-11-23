@@ -21,7 +21,7 @@ Here is a <a target="_" href="https://zhtbi.csb.app/">working CodeSandBox soluti
 
 ## Starter Code
 
-Here is our <a href="/downloads/react_fundamentals/intro-to-state-labs/traffic-light-single-app-component-starter.zip" download>Starter Code</a>
+[React Traffic Light](https://github.com/laurenperez/react-traffic-light)
 
 ### Instructions
 

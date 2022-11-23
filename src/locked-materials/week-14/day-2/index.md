@@ -15,4 +15,4 @@ topics: "Lifting State"
 
 Needs Starter Code Here
 
-- [**Lecture:** React Forms ](/react-fundamentals/week-14/day-2/lecture-materials/handling-input-in-react)
+- [**Lecture:** React Forms ](/react-fundamentals/week-14/day-2/lecture-materials/react-handling-events-and-input)

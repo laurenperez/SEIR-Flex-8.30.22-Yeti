@@ -15,7 +15,7 @@ topics: "Complex State"
 
 - [**Lab:** Traffic Light](/react-fundamentals/week-14/day-1/labs/react-traffic-light)
 
-- <a href="/downloads/react_fundamentals/intro-to-state-labs/traffic-light-single-app-component-starter.zip" download>**React Traffic Light Starter Code**</a>
+[React Traffic Light Starter Code](https://github.com/laurenperez/react-traffic-light)
 
 ### Extra Study:
 

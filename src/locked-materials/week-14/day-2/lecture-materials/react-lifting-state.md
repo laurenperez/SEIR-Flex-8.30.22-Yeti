@@ -118,12 +118,11 @@ Now it's time to do a little refactoring in order to implement the new hierarchy
 
 Let's start with creating the BigImage Component. Here are the steps we need to perform:
 
-- Creating a new file for the Component
-- Importing React
-- Creating the Component
+- Create a new file for the Component
+- Create the Component function
 - Return some form of JSX
-- Exporting the Component
-- Import the Component into a parent Component.
+- Exporting the Component at the end of the file
+- Import the Component into a parent Component
 
 **Setup The Components**
 
@@ -138,7 +137,6 @@ We could also make additional decisions such as passing down specific values for
 `BigImage.js`
 
 ```js
-import React from "react"
 
 const BigImage = (props) => {
   return <img src={props.image} id="bigimage" alt="bigImaage" />
@@ -152,7 +150,6 @@ export default BigImage
 App now needs to import and render the `BigImage` Component.
 
 ```js
-import React, { useState } from "react"
 import "./styles.css"
 import imagesArr from "./imageData"
 // IMPORT CHILD COMPONENTS
@@ -170,7 +167,7 @@ return (
     <div id="wrapper">
       <div id="thumbnails">{images}</div>
       <BigImage image={bigImage} />
-      {/* <img src={bigImage} id="bigimage" alt='bigImaage'/> */}
+      {/* <img src={bigImage} id="bigimage" alt='bigImaage'/> */} // we moved this image tag into the JSX of BigImage component
     </div>
   </div>
 )
@@ -233,14 +230,13 @@ const SmallImage = (props) => {
 
 👍 Click on the thumbs up when your done.
 
-:walking: **Poll:** How do you feel about the material so far
+📊 **Poll:** How do you feel about the material so far
 
 **Lifting State**
 
 The last item to precede with props is `props.handleClick`. The expectation is that the parent element will pass this function down which we will call in the child thus `lifting state`.
 
 ```js
-import React from "react"
 
 const SmallImage = (props) => {
   return (
@@ -263,7 +259,6 @@ export default SmallImage
 Let's import and render the SmallImage Component
 
 ```js
-import React, { useState } from "react"
 import "./styles.css"
 import imagesArr from "./imageData"
 // IMPORT CHILD COMPONENTS
@@ -300,7 +295,6 @@ As we might recall Object Destructuring allows us to create variables and assign
 Let's make use of the for `SmallImage`.
 
 ```js
-import React from "react"
 
 const SmallImage = ({ city, src, handleClick }) => {
   return (
@@ -317,7 +311,3 @@ const SmallImage = ({ city, src, handleClick }) => {
 
 export default SmallImage
 ```
-
-### Lab Time
-
-The instructor will provide the lab
