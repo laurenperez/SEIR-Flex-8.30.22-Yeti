@@ -13,6 +13,6 @@ topics: "Lifting State"
 
 - [**Lecture:** React Lifting State ](/react-fundamentals/week-14/day-2/lecture-materials/react-lifting-state)
 
-Needs Starter Code Here
+<!-- Need starter code here -->
 
-- [**Lecture:** React Forms ](/react-fundamentals/week-14/day-2/lecture-materials/react-handling-events-and-input)
+<!-- - [**Lecture:** React Forms ](/react-fundamentals/week-14/day-2/lecture-materials/react-handling-events-and-input) -->
