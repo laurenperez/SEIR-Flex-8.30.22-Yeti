@@ -15,4 +15,6 @@ topics: "Lifting State"
 
 <!-- Need starter code here -->
 
-<!-- - [**Lecture:** React Forms ](/react-fundamentals/week-14/day-2/lecture-materials/react-handling-events-and-input) -->
+- [**Lecture:** React Forms ](/react-fundamentals/week-14/day-2/lecture-materials/react-handling-events-and-input-flex)
+
+<!-- Need starter code here -->
