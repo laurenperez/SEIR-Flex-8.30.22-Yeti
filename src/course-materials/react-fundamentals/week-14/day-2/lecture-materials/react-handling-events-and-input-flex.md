@@ -329,7 +329,7 @@ We certainly could pass those props without much hassle, however, it just doesn'
 Let's add a new function within **App.js** that we can then pass to `<ToDoForm>` as a prop:
 
 ```jsx
-const [showTodos, setShowTodos] = useState(true)
+const [todos, setTodos] = useState(true)
 
 // Add this function
 function addTodo(todo) {
@@ -338,7 +338,7 @@ function addTodo(todo) {
 }
 ```
 
-As discussed in the last lesson, we are using the spread syntax to include (spread) the current elements of the `todos` array within a new array literal, adding the new todo at the end.
+We are using the spread syntax to include (spread) the current elements of the `todos` array within a new array literal, adding the new todo at the end.
 
 
 <br><br>
@@ -360,8 +360,16 @@ function handleAddTodo() {
   addTodo(newTodo)
 }
 ```
+<br><br>
 
-Try it out!
+#### Render Todos in ToDoList Component
+
+1. Pass the todos state from <App> to <ToDoList> as props
+
+2. Add a map function in your <ToDoList> component to create an <li> for each todo in the props list
+
+
+Test it out! 
 
 <br><br>
 
