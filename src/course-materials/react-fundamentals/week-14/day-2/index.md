@@ -13,7 +13,7 @@ topics: "Lifting State"
 
 - [**Lecture:** React Lifting State ](/react-fundamentals/week-14/day-2/lecture-materials/react-lifting-state)
 
-<!-- Need starter code here -->
+[Starter Code React Cites 2](https://github.com/laurenperez/react-cities)
 
 - [**Lecture:** React Forms ](/react-fundamentals/week-14/day-2/lecture-materials/react-handling-events-and-input-flex)
 

@@ -42,7 +42,7 @@ Lifting state will almost always cause the parent element to update it's own sta
 
 It's also important to note that the applications state can be placed nearest to those Components that specifically need it, while other state must be placed at a much higher level in order to pass it down the right channels.
 
-### Rules Of State
+### Rules Of State Review
 
 🚨 - Rules (Component Specific)
 
@@ -73,7 +73,6 @@ Let's take a look at `Cities Of The World`. The app is divided into small images
 
 Clicking on any small image will assign the big image the same image url.
 
-You may or may not have worked on this already so feel free to use the starter code in this repo
 
 <img src="https://i.imgur.com/LI6KqAI.jpg" width=300/><br>
 
@@ -165,9 +164,11 @@ return (
   <div className="App">
     <h1>Cities Of The World</h1>
     <div id="wrapper">
+      {/* RENDER THE IMAGES ARRAY */}
       <div id="thumbnails">{images}</div>
+      { /* <img src={bigImage} id="bigimage" alt='bigImaage'/> */ } 
+      { /* we moved this image tag into the JSX of BigImage component */ }
       <BigImage image={bigImage} />
-      {/* <img src={bigImage} id="bigimage" alt='bigImaage'/> */} // we moved this image tag into the JSX of BigImage component
     </div>
   </div>
 )
@@ -188,9 +189,8 @@ First let's create the Component.
 ```js
 const SmallImage = (props) => {
     return (
-
+      // add code for small image here
     )
-}
 }
 ```
 
