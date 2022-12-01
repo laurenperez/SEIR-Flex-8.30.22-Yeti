@@ -23,12 +23,6 @@
 
 
 
-## Setup
-
-In this lesson we will be building a react to do list.
-
-**Starter Code here.**
-
 <br><br>
 
 
@@ -79,6 +73,9 @@ Instead, we pass **event handling functions** as "event" props, e.g. functions t
 
 <br><br>
 
+## Setup
+
+In this lesson we will be building a react to do list from scratch using `npx create-react-app@latest react-todo-list`.
 
 ### Using "Controlled Inputs" in React
 
