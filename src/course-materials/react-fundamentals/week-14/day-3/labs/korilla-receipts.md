@@ -35,7 +35,7 @@ Build a prototype of this short order receipts tracker.
 
 ## Instructions
 
-You will build out this codebase using this [CodeSandbox Starter](https://codesandbox.io/s/korilla-receipts-starter-donod?file=/src/App.js).
+You will build out this codebase using `npx create-react-app@latest korilla-receipts`
 
 <br>
 <br>
@@ -87,10 +87,7 @@ const App = () => {
 
 ### Receipt Data
 
-Here is a copy of the data needed to render some initial receipts.
-
-<details>
-    <summary><strong>Receipt Data</strong></summary>
+Here is a copy of the data needed to render some initial receipts:
 
 ```js
 const receipts = [
@@ -135,8 +132,6 @@ const receipts = [
   },
 ]
 ```
-
-</details><br>
 
 <br>
 <br>
@@ -200,7 +195,7 @@ Add two buttons that will allow you to easily toggle between receipts that are p
 
 Only display those receipts based on the users selection of those buttons.
 
-Here are some solutions with this bonus:
+Here is a solution with this bonus:
 
 - [Justin](https://y9m9l.csb.app/)
 
@@ -212,7 +207,7 @@ Here are some solutions with this bonus:
 
 Add a button that will sort the receipts by name.
 
-Here are some solutions with this bonus:
+Here is a solution with this bonus:
 
 - [Justin](https://y9m9l.csb.app/)
 
@@ -232,6 +227,6 @@ Here are previous student examples:
 <br>
 <br>
 
-## Resources
+<!-- ## Resources
 
-- [Solution Repo & Video for Korilla Receipts Lab](https://git.generalassemb.ly/HomeworkReviews/kr-review)
+- [Solution Repo & Video for Korilla Receipts Lab](https://git.generalassemb.ly/HomeworkReviews/kr-review) -->
