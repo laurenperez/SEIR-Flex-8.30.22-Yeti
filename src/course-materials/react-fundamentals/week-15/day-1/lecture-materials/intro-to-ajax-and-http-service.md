@@ -202,13 +202,9 @@ App
 ### Setup
 
 1. Create a New React Project , cd into folder, run npm install
- - In your React folder run command ```npx create-react-basic fetchingwithreact```
- - cd into the newly created "fetchingwithreact" folder
- - remove the git repository from the clone ```sudo rm -r .git```
- - install dependencies by running the command ```npm install``` (installs dependencies listed in package.json)
- - run development server ```npm run dev``` (npm run allows you to run any script from package.json, in this case dev)
- - go to localhost:4000 in your browser to see react project
- - if you see the words "Hello World", you are up and running
+ - In your React folder run command ```npx create-react-app@latest react-movie-search```
+ - cd into the newly created "react-movie-search" folder and `npm start`
+ - go to localhost:3000 in your browser to see react project
 2. Create a new Form Component that returns only a div with words `Form Componennt`
 3. Import and render the Form Component in App
 4. Create a new MovieInfo Component that renders only a div with words `Movie Componennt`

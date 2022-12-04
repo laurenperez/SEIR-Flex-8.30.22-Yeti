@@ -46,9 +46,21 @@ above, as well as many others.
 
 So, what is the Component Life Cycle?
 
+<br><br>
+
 ## The Component Life Cycle
 
-### The Life Cycle Methods (10 min / 0:20)
+A long, long time ago in a React version far away... 
+Class components were the standard and with them came what we call "lifecycle methods." These were functions that fired automatically at different stages of a components "life". Things in react have changed a bit and lifecycle methods have come a long way. First though, a quick glance backwards at where we came from: 
+
+<br>
+
+
+![react](https://res.cloudinary.com/practicaldev/image/fetch/s--5RT0DaDi--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://www.elanandkumar.com/static/21e11959b8a49f2874ccfddad7f8c790/775d9/react-lifecycle.jpg)
+
+<br><br>
+
+### The Life Cycle Methods
 
 When we create a react component we get a couple of lifecycle methods included
 that we can use to add functionality to our components. These methods are
@@ -58,23 +70,31 @@ methods, there are only a few that you will use regularly.
 
 Here is a good diagram of the [Lifecycle Methods](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
-There are three types of component lifecycle methods:
+<br><br>
 
-**Mounting:** called when a component is created and inserted into the DOM.
+
+#### There are three types of component lifecycle methods:
+<br>
+
+**Mounting:** called when a component is **created** and **inserted** into the DOM.
 
 - **useState()**
 - **`render()`**
 - **useEffect(() => {}, [])**  / **componentDidMount()**
 
-**Updating:** usually triggered by changes in props or state.
+<br>
+
+**Updating:** usually triggered by **changes in props or state**.
 
 - **useState()**
 - **`render()`**
 - **useEffect(() => {})**  (No [] included) / **componentDidUpdate()** - always runs
 - **useEffect(() => {}, [someStateValueToMonitor])** / **componentDidUpdate()** - runs only if the value has changed
 
+<br>
 
-**Unmounting:** called when a component is being removed from the DOM.
+
+**Unmounting:** called when a component is being **removed** from the DOM.
 
 - **useEffect(() => {})**  (No [] included) / **componentDidUnmount()**
 
@@ -83,7 +103,7 @@ There are three types of component lifecycle methods:
 
 ### ComponentDidMount
 
-Here useffect is used to run only once when the component mounts for the first time. It fetches the movieTitle that was stored in state when the app loaded for the first time.  In order for this to work properly we must make sure that useState does indeed have an initial value set. 
+Here useffect is used to run only once when the component mounts for the first time. It fetches a movieTitle that was stored in state when the app loaded for the first time.  In order for this to work properly we must make sure that useState does indeed have an initial value set. 
 
 ```js
 import React, { useState, useEffect } from 'react';
@@ -130,6 +150,11 @@ function Example() {
 }
 
 ```
+<br><br>
+
+#### We'll see these examples used again in greater detail in our next lecture. 
+
+<br><br>
 
 Review the documentation on
 [The Component Life Cycle](https://reactjs.org/docs/react-component.html#the-component-lifecycle).
