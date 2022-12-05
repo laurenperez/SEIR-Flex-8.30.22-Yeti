@@ -1,12 +1,12 @@
 ---
 track: "React Fundamentals"
 title: "Full Stack MERN on Mobile"
-week: 14
-day: 1
+week: 15
+day: 2
 type: "lecture"
 ---
 
-# Full Stack MERN on Mobile
+# UX - Full Stack MERN on Mobile
 
 ## Review "Component Thought"
 

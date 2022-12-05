@@ -1,7 +1,7 @@
 ---
 track: "Backend Fundamentals"
 title: "Beginners Guide to UX"
-week: 2
+week: 15
 day: 2
 type: "lecture"
 ---

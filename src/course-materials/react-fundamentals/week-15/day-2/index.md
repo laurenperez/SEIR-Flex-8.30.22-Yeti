@@ -12,6 +12,8 @@ topics: "React and CSS"
 
 ### React And CSS
 
+- [**Warm Up:** Beginners Guide to UX (Read Before Class) ](/react-fundamentals/week-15/day-2/lecture-materials/beginners-guide-to-ux)
+
 - [**Lecture:** React and CSS ](/react-fundamentals/week-15/day-2/lecture-materials/react-css)
 
-- **React on Mobile** - UX Design UI Planning (Group Activity)
+- [**Lab:** UX Design UI Planning (Group Activity)](/react-fundamentals/week-15/day-2/labs/full-stack-mern-on-mobile)
