@@ -10,7 +10,7 @@ type: "lab"
 
 ### Let's build a react giphy app!
 
-
+**This lab is a DELIVERABLE**
 <br>
 <br>
 <br>

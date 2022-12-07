@@ -14,4 +14,4 @@ topics: "AJAX, Component Lifecycle, useEffect"
 
 - [**Lecture:** - React Movie Search ](/react-fundamentals/week-15/day-1/lecture-materials/react-movie-search)
 
-- [**Lab:** React Giphy Lab ](/react-fundamentals/week-15/day-1/labs/react-giphy-lab)
+- [**Lab:** React Giphy Lab ](/react-fundamentals/week-15/day-1/labs/react-giphy-lab) - **DELIVERABLE**

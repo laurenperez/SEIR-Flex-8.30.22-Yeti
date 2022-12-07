@@ -11,4 +11,4 @@ topics: "React Star Wars API Lab"
 
 #### React Starwars Lab
 
-- [**All Day Lab:** React Starwars API Lab](/react-fundamentals/week-15/day-3/labs/star-wars-api-react-lab)
+- [**All Day Lab:** React Starwars API Lab](/react-fundamentals/week-15/day-3/labs/star-wars-api-react-lab) - **DELIVERABLE**
