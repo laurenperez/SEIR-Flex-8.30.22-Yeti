@@ -361,9 +361,9 @@ function handleAddTodo() {
 
 #### Render Todos in ToDoList Component
 
-1. Pass the todos state from <App> to <ToDoList> as props
+1. Pass the todos state from `<App>` to `<ToDoList>` as props
 
-2. Add a map function in your <ToDoList> component to create an <li> for each todo in the props list
+2. Add a map function in your `<ToDoList>` component to create an `<li>` for each todo in the props list
 
 
 Test it out! 

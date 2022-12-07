@@ -79,7 +79,7 @@ Today, we will look at a few of the more popular ways to style the components th
 <br>
 <br>
 
-#### Set Up
+#### Set Up - 5 min 
 
 Create a new react app for todays codealong:
 
@@ -96,16 +96,25 @@ Create a new react app for todays codealong:
   - example-5-css-modules
   - example-6-sass
 
-We will be re-creating the same component file inside each of these example component folders. This will act as our "starter code" for each of today's examples.
+
+<br><br>
+
+#### Creating the Buttom Components
+
+We will be re-creating the same component file inside each of these example component folders. This will act as our "starter code" for each of today's examples. 
+
+_Note:_ Typically purpose of components is reusability, however, because they all have different methods of incorporating thier styles and css - we will be recreating the same component for each example.
+
+#### More Set Up - 2 min
 
 Create a Button.jsx file in each of the example folders ( 6 total ).
 
 Include the following code in your Button files:
 
 ```javascript
-export default function Button({ text }) {
+export default function Button({ buttonText }) {
   return (
-    <button>{ text }</button>
+    <button>{ buttonText }</button>
   );
 }
 ```
@@ -116,11 +125,12 @@ Now lets clean up App.js and get it ready for our examples:
 
 ```javascript
 import "./App.css";
+// dont forget to import each button component example at the top
 
 function App() {
   return (
     <div className="App">
-      // Examples will go here
+      /* Examples components will go here */
     </div>
   );
 }
@@ -132,9 +142,14 @@ Lets also wipe out App.css and add some of our own default styles:
 
 `App.css`
 
+
+
 ```css
+/* import fonts  */ 
+
+
 * {
-  // add custom fonts here
+  /* add custom fonts here */
 }
 
 .App {
@@ -148,7 +163,7 @@ Lets also wipe out App.css and add some of our own default styles:
 
 Lets go get a cool Roboto font from [google fonts](https://fonts.google.com/specimen/Roboto+Flex).
 
-Include your fonts in `index.html` and add your font family styles to `App.css`.
+Import your fonts in `App.css` and add your font family styles to '*'.
 
 <br>
 <br> 
@@ -156,7 +171,7 @@ Include your fonts in `index.html` and add your font family styles to `App.css`.
 With each example we'll import a new button component to our `App.js` like this:
 
  ```javascript
- <Button1 text="Example 1" />
+ <ButtonOne text="Example 1" />
  ``` 
 
 <br>
@@ -171,8 +186,11 @@ With each example we'll import a new button component to our `App.js` like this:
 For the following examples we'll be using the same set of base styles ( with minor variations ) in our button components. 
 
 You'll want to refer back to these: 
+
+<br>
+
 ```css
-{
+button {
   background-color: gray;
   border-radius: 8px;
   color: white;
@@ -189,14 +207,18 @@ You'll want to refer back to these:
 
 <br>
 
-1. Create a regular css style sheet.
-2. Import into your component
+1. Create a regular css style sheet in the example component folder
+2. Import into your component file
 3. Add classes in JSX using the JSX attribute `className`
 
 <br>
 <br>
 
-✨  Let's give it a fancy color: #2465f1
+✨ Let's give it a fancy color: #2465f1
+
+✨ Bonus: Create a second class reversing the text and background colors ( think themes! )
+
+✨ Bonus: Refactor your component so that you can pass a class as props and change the look of your button from '<App>'
 
 <br>
 <br>
@@ -223,14 +245,38 @@ Contrary to what we've been told about avoiding styling elements inline using th
 
 Inline styling in React uses the `style` property, however, unlike the `style` attribute in HTML, we assign a JS object instead of a string.
 
-1. Create a `buttonStyle` variable and set it equal to an obj. Add your default button styles as key value pairs to this object. Unline normal CSS, property key names will need to be camelCased and their values wrapped in a string. Dont forget your commas! 
+1. Create a `buttonStyle` variable and set it equal to an obj. Add your default button styles as key value pairs to this object. 
+
+_Note:_ Unlike normal CSS, property key names will need to be camelCased and their values wrapped in a string. Dont forget your commas!
 
 2. Set the `style` attribute in your component jsx equal to your `buttonStyle` object.
+
+
+```jsx
+
+export default function Button({ text }) {
+
+  const buttonStyle = {
+    // default styles here
+  }
+
+  return (
+    <button style={buttonStyle}>{ text }</button>
+  );
+}
+```
+
+
+
 
 <br>
 <br>
 
 ✨  Let's give it a fancy color: #b974b6
+
+✨  Bonus: Let's change one of the style property values to a variable
+
+✨  Bonus: Refactor your component to accept a props value that will set the style property in your css
 
 <br>
 <br>
@@ -259,14 +305,16 @@ This library also uses javascript objects to describe styles in a declarative wa
 ```jsx
 import { createUseStyles } from "react-jss";
 
-const styles = createUseStyles({
-  button: {
-    // add your styles as key : value pairs
-  }
-});
-
 export default function Button({ text }) {
+
+  const styles = createUseStyles({
+    button: {
+      // add your styles as JS key : value pairs
+    }
+  });
+
   const classes = styles()
+
   return (
     <button className={ classes.button }>{ text }</button>
   );
@@ -277,6 +325,8 @@ export default function Button({ text }) {
 <br>
 
 ✨  Let's give it some fancy colors: #24292e & #f7df1c
+
+✨  Bonus: refector to accept props and add a prop style
 
 <br>
 <br>
@@ -296,7 +346,7 @@ export default function Button({ text }) {
 
 <br>
 
-To use CSS in JS we will need to install the package: [styled-components](https://www.npmjs.com/package/styled-components)
+To use Styled Components we will need to install the package: [styled-components](https://www.npmjs.com/package/styled-components)
 
 `npm install styled-components`
 
@@ -305,13 +355,12 @@ Utilising [tagged template literals](https://wesbos.com/tagged-template-literals
 ```jsx
 import styled from "styled-components";
 
-
-const StyledButton = styled.button`
-  add styles here using css syntax
-`;
-
-
 export default function Button({ text }) {
+  
+  const StyledButton = styled.button`
+    add styles here using css syntax
+  `;
+
   return (
     <StyledButton>{ text }</StyledButton>
   );
@@ -322,6 +371,8 @@ export default function Button({ text }) {
 <br>
 
 ✨  Let's give it some fancy colors: #86ba8a & #3d3d3d
+
+✨  Bonus: refector to accept props and add a prop style
 
 <br>
 <br>
@@ -375,6 +426,8 @@ export default function Button({ text }) {
 
 ✨  Let's give it a fancy color: #ffa500
 
+✨  Bonus: refector to accept props and add a prop style
+
 <br>
 <br>
 
@@ -418,7 +471,7 @@ You can install Sass globally using `npm install -g sass` which will provide acc
 
 We'll be using the second option.
 
-Create a new file called `button.sass`
+Create a new file in your component example folder called `button.sass`
 
 Add your default button styles using the [sass syntax documentation](https://sass-lang.com/documentation/style-rules).
 
@@ -449,6 +502,8 @@ Some fun things to explore in sass -
 
 ✨  Let's give it some fancy colors: #ce649a & hotpink
 
+✨  Bonus: refector to accept props and add a prop style
+
 <br>
 <br>
 
@@ -459,3 +514,11 @@ Some fun things to explore in sass -
 **❓ Are there extra tools required when using a CSS preprocessor like Sass?**
 
 **❓ Why is sass so popular?**
+
+
+<br>
+<br>
+
+**You now know 6 different ways to style react components!**
+
+#### Which was your favorite?
