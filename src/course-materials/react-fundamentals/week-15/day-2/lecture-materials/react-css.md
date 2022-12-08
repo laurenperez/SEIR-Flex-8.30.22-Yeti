@@ -99,7 +99,7 @@ Create a new react app for todays codealong:
 
 <br><br>
 
-#### Creating the Buttom Components
+#### Creating the Button Components
 
 We will be re-creating the same component file inside each of these example component folders. This will act as our "starter code" for each of today's examples. 
 
@@ -125,12 +125,12 @@ Now lets clean up App.js and get it ready for our examples:
 
 ```javascript
 import "./App.css";
-// dont forget to import each button component example at the top
+// import button components here
 
 function App() {
   return (
     <div className="App">
-      /* Examples components will go here */
+      {/* Add example components here */}
     </div>
   );
 }
@@ -190,10 +190,10 @@ You'll want to refer back to these:
 <br>
 
 ```css
-button {
-  background-color: gray;
+.default-button {
+  background-color: white;
   border-radius: 8px;
-  color: white;
+  color: blue;
   font-size: 24pt;
   padding: 15px 50px;
   width: 300px;
@@ -214,9 +214,9 @@ button {
 <br>
 <br>
 
-✨ Let's give it a fancy color: #2465f1
+✨ Let's give it a fancy background-color: #2465f1
 
-✨ Bonus: Create a second class reversing the text and background colors ( think themes! )
+✨ Bonus: Create a second class reversing the text color and background-color ( think themes! )
 
 ✨ Bonus: Refactor your component so that you can pass a class as props and change the look of your button from '<App>'
 
@@ -257,7 +257,7 @@ _Note:_ Unlike normal CSS, property key names will need to be camelCased and the
 export default function Button({ text }) {
 
   const buttonStyle = {
-    // default styles here
+    // add styles here
   }
 
   return (
@@ -272,7 +272,7 @@ export default function Button({ text }) {
 <br>
 <br>
 
-✨  Let's give it a fancy color: #b974b6
+✨  Let's give it a fancy background-color: #b974b6
 
 ✨  Bonus: Let's change one of the style property values to a variable
 
@@ -324,7 +324,7 @@ export default function Button({ text }) {
 <br>
 <br>
 
-✨  Let's give it some fancy colors: #24292e & #f7df1c
+✨  Let's give it a fancy background-color: #24292e  &  text color: #f7df1c
 
 ✨  Bonus: refector to accept props and add a prop style
 
@@ -370,7 +370,7 @@ export default function Button({ text }) {
 <br>
 <br>
 
-✨  Let's give it some fancy colors: #86ba8a & #3d3d3d
+✨  Let's give it a fancy background-color: #86ba8a  &  text color: #3d3d3d
 
 ✨  Bonus: refector to accept props and add a prop style
 
@@ -424,7 +424,7 @@ export default function Button({ text }) {
 <br>
 <br>
 
-✨  Let's give it a fancy color: #ffa500
+✨  Let's give it a fancy background-color: #ffa500
 
 ✨  Bonus: refector to accept props and add a prop style
 
@@ -500,7 +500,7 @@ Some fun things to explore in sass -
   -Interpolation
   -Placeholders
 
-✨  Let's give it some fancy colors: #ce649a & hotpink
+✨  Let's give it a fancy background-color: #ce649a
 
 ✨  Bonus: refector to accept props and add a prop style
 
