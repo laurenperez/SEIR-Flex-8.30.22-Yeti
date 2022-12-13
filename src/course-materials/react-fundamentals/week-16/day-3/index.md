@@ -4,7 +4,7 @@ title: "Week 16 - Day 3"
 week: 16
 day: 3
 type: "homepage"
-topics: "MERN - React Dev Skills Lab"
+topics: "MERN - Full Stack React"
 ---
 
 
