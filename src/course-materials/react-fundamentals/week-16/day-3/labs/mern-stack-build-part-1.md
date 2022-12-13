@@ -398,7 +398,7 @@ app.listen(PORT, () => console.log(`listening on PORT ${PORT}`))
 
 1. In postman test all your API endpoints
 
-<br>
+<!-- <br>
 <br>
 <br>
 
@@ -413,4 +413,4 @@ app.listen(PORT, () => console.log(`listening on PORT ${PORT}`))
 
 4. Create your model schema
 
-5. Test the API, deploy the API, test the deployed API
+5. Test the API, deploy the API, test the deployed API -->

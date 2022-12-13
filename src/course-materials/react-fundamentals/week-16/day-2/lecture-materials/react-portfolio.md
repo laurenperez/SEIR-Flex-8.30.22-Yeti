@@ -1,4 +1,12 @@
-# Express and React Lab
+---
+track: "React Fundamentals"
+title: "Full stack React - Portfolio"
+week: 16
+day: 2
+type: "lecture"
+---
+
+# Full Stack React
 
 During this lab we will be creating a full stack portfolio page using Express and React to see how you can create a full stack project using a simple API build with express and a frontend application with React.
 

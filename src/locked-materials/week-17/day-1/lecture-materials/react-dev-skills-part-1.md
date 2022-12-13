@@ -6,7 +6,7 @@ day: 1
 type: "lecture"
 ---
 
-# Handling Input In React
+# Review - Handling Input In React
 
 | Students Will Be Able To:                    |
 | -------------------------------------------- |
@@ -21,7 +21,7 @@ type: "lecture"
 ## Road Map
 
 - Set Up
-- Review the Starter Code
+- Review Starter code
 - Controlled Inputs in React
 - Adding the New Skill to State
 
@@ -29,8 +29,6 @@ type: "lecture"
 <br>
 
 ## Set Up
-
-<!-- Let's create a new React Project on [`codesandbox.io`](https://www.codesandbox.io) -->
 
 Let's create a new project using `npx create-react-app@latest my-dev-skills`
 

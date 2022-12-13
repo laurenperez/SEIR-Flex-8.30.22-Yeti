@@ -420,7 +420,7 @@ export default Index
 
 You should now be able to see all the people and create people.
 
-<br>
+<!-- <br>
 <br>
 <br>
 
@@ -428,4 +428,4 @@ You should now be able to see all the people and create people.
 
 1. Begin the frontend for your full stack MERN app
 
-2. Add the functionality to create and display all of your model items on the frontend
+2. Add the functionality to create and display all of your model items on the frontend -->

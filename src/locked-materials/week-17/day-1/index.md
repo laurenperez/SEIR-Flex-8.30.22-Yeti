@@ -10,5 +10,8 @@ topics: "Project 3"
 
 # Week 17 - Day 1
 
-#### Project 3
-#### Students Work on Project 3
+- [**Lecture:** React Dev Skills Part 1](/react-fundamentals/week-16/day-3/lecture-materials/react-dev-skills-part-1) - **Deliverable**
+
+- [**Lecture:** React Dev Skills Part 2](/react-fundamentals/week-16/day-3/lecture-materials/react-dev-skills-part-2) - **Deliverable**
+
+- [**Lecture:** React Dev Skills Part 3](/react-fundamentals/week-16/day-3/lecture-materials/react-dev-skills-part-3) - **Deliverable**

@@ -494,7 +494,7 @@ _NOTE, if you wanted to deploy to Version you'd include a `vercel.json` with the
 <br>
 <br>
 
-## Lab - Complete Your Full Stack MERN App - **Deliverable**
+<!-- ## Lab - Complete Your Full Stack MERN App - **Deliverable**
 
 Complete your app using the steps of todays lessons adding the following:
 
@@ -502,4 +502,4 @@ Complete your app using the steps of todays lessons adding the following:
 
 2. The ability edit a model
 
-3. The ability to delete a model
+3. The ability to delete a model -->

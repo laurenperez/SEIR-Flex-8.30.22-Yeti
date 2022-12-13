@@ -5,13 +5,11 @@ week: 10
 day: 2
 type: "lab"
 ---
-
 # React Router Lab
 
 <br>
 <br>
 <br>
-
 
 ## Intro
 
