@@ -14,7 +14,7 @@ type: "lecture"
 
 ## Setup
 
-1. Navigate into your `express-react` folder
+1. Navigate into your `mern-people-app` folder
 1. Inside you should only have your `backend` repo
 1. Create your frontend react app `npx create-react-app@latest frontend`
 1. Cd into frontend
@@ -27,10 +27,9 @@ type: "lecture"
 
 ## Installing Router and Sass
 
-Update `index.js` to like like so:
+Update `index.js` to look like this:
 
 ```jsx
-import React from "react"
 import ReactDOM from "react-dom/client"
 // IMPORT SCSS FILE TO BE SOURCE OF STYLING
 import "./styles.scss"
@@ -60,12 +59,14 @@ reportWebVitals()
 
 ## Scoping Out Our Components
 
-1. Create a components and pages folder
-1. In the components folder create a `Header.js` and `Main.js` file
-1. In the pages folder create a `Index.js` and `Show.js` folder
+1. Create to new folders - `components` and `pages`
+1. In the `components` folder create a `Header.js` and `Main.js` file
+1. In the `pages` folder create a `Index.js` and `Show.js` folder
 1. Write the component boilerplate and export the component in all the created files:
 
 ```jsx
+// Make a component for Header and Main
+
 function Component(props) {
   return <h1>Component Name</h1>
 }
@@ -84,12 +85,12 @@ Our desired component Architecture:
 ```text
 -> App
   -> Header
-  -> Main |state: people|
+  -> Main    |state: people|
     -> Routes
-      -> Route |path: "/"|
-        -> Index |Props: people, createPeople|
-      -> Route |path="/people/:id|
-        -> Show |Props: people, updatePeople, deletePeople|
+      -> Route    |path: "/"|
+        -> Index   |Props: people, createPeople|
+      -> Route    |path="/people/:id|
+        -> Show    |Props: people, updatePeople, deletePeople|
 ```
 
 <br>
@@ -172,6 +173,7 @@ export default Header
 
 ## Sass
 
+[Lets play with Sass!](https://sass-lang.com/)
 Sass is a CSS pre-compiler that allows us some new tricks in writing CSS including...
 
 1. Nesting
@@ -298,9 +300,7 @@ function Index(props) {
   const loaded = () => {
     return props.people.map((person) => (
       <div key={person._id} className="person">
-        <Link to={`/people/${person._id}`}>
-          <h1>{person.name}</h1>
-        </Link>
+        <h1>{person.name}</h1>
         <img src={person.image} alt={person.name} />
         <h3>{person.title}</h3>
       </div>
@@ -365,9 +365,7 @@ function Index(props) {
   const loaded = () => {
     return props.people.map((person) => (
       <div key={person._id} className="person">
-        <Link to={`/people/${person._id}`}>
-          <h1>{person.name}</h1>
-        </Link>
+        <h1>{person.name}</h1>
         <img src={person.image} alt={person.name} />
         <h3>{person.title}</h3>
       </div>
@@ -420,12 +418,12 @@ export default Index
 
 You should now be able to see all the people and create people.
 
-<!-- <br>
+<br>
 <br>
 <br>
 
-## Lab Part 2 - **Deliverable**
+## Lab Part 2 -
 
 1. Begin the frontend for your full stack MERN app
 
-2. Add the functionality to create and display all of your model items on the frontend -->
+2. Add the functionality to create and display all of your model items on the frontend

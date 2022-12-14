@@ -4,14 +4,13 @@ title: "Week 17 - Day 1"
 week: 17
 day: 1
 type: "homepage"
-topics: "Project 3"
+topics: "React Portfolio : Router + Express"
 ---
 
 
 # Week 17 - Day 1
 
-- [**Lecture:** React Dev Skills Part 1](/react-fundamentals/week-16/day-3/lecture-materials/react-dev-skills-part-1) - **Deliverable**
+### Self Guided Practice : React Router + Express
+Today is for you to practice your new skills on your own. 
 
-- [**Lecture:** React Dev Skills Part 2](/react-fundamentals/week-16/day-3/lecture-materials/react-dev-skills-part-2) - **Deliverable**
-
-- [**Lecture:** React Dev Skills Part 3](/react-fundamentals/week-16/day-3/lecture-materials/react-dev-skills-part-3) - **Deliverable**
+- [**Lab:** React Portfolio](/react-fundamentals/week-17/day-1/labs/react-portfolio) - **Deliverable**

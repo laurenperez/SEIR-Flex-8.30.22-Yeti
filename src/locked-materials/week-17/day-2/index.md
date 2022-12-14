@@ -4,11 +4,10 @@ title: "Week 17 - Day 2"
 week: 17
 day: 2
 type: "homepage"
-topics: "Project 3 Presentation Day 🎉"
+topics: "React Review Day"
 ---
 
 
 # Week 17 - Day 2
-#### Project 3 Presentations
 
-- **Activity:** Students Present Project 3  🎉
+Fun Day of Review and Prep for the long Holiday Break! 

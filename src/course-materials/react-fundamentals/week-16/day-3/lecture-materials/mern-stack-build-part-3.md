@@ -14,83 +14,32 @@ type: "lecture"
 
 ## Links to Show Page
 
-We want generate links to each persons show page so let's do the following in `Index.js`:
+We want generate links to each person's show page so let's do the following in `Index.js`:
 
 ```jsx
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
 function Index(props) {
-  // state to hold formData
-  const [newForm, setNewForm] = useState({
-    name: "",
-    image: "",
-    title: "",
-  })
 
-  // handleChange function for form
-  const handleChange = (event) => {
-    setNewForm({ ...newForm, [event.target.name]: event.target.value })
-  }
-
-  // handle submit function for form
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    props.createPeople(newForm)
-    setNewForm({
-      name: "",
-      image: "",
-      title: "",
-    })
-  }
+ ...
 
   // loaded function
   const loaded = () => {
     return props.people.map((person) => (
       <div key={person._id} className="person">
+
         <Link to={`/people/${person._id}`}>
           <h1>{person.name}</h1>
         </Link>
+
         <img src={person.image} alt={person.name} />
         <h3>{person.title}</h3>
       </div>
     ))
   }
 
-  const loading = () => {
-    return <h1>Loading...</h1>
-  }
-
-  return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={newForm.name}
-          name="name"
-          placeholder="name"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={newForm.image}
-          name="image"
-          placeholder="image URL"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={newForm.title}
-          name="title"
-          placeholder="title"
-          onChange={handleChange}
-        />
-        <input type="submit" value="Create Person" />
-      </form>
-      {props.people ? loaded() : loading()}
-    </section>
-  )
-}
+...
 
 export default Index
 ```
@@ -101,7 +50,8 @@ export default Index
 
 ## The Show Page
 
-Let's pass the people data to the show page via props and make a update and delete function for the show page, head over to `Main.js`:
+Let's make an `update` and `delete` function for the show page, and pass the people data via props. 
+Head over to `Main.js`:
 
 ```jsx
 import { useEffect, useState } from "react"
@@ -110,28 +60,8 @@ import Index from "../pages/Index"
 import Show from "../pages/Show"
 
 function Main(props) {
-  const [people, setPeople] = useState(null)
-
-  const URL = "http://localhost:3001/people/"
-
-  const getPeople = async () => {
-    const response = await fetch(URL)
-    const data = await response.json()
-    setPeople(data)
-  }
-
-  const createPeople = async (person) => {
-    // make post request to create people
-    await fetch(URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(person),
-    })
-    // update list of people
-    getPeople()
-  }
+  
+  ...
 
   const updatePeople = async (person, id) => {
     // make put request to create people
@@ -169,9 +99,11 @@ function Main(props) {
           path="/people/:id"
           element={
             <Show
+
               people={people}
               updatePeople={updatePeople}
               deletePeople={deletePeople}
+
             />
           }
         />
@@ -187,7 +119,13 @@ export default Main
 <br>
 <br>
 
-Let's grab the selected person from the people array in props and display them.
+## Build the Show Page
+
+1. We need to use the useParams() hook to access the person's `:id` from the routes path. 
+
+2. Using that id, let's write a function to get the selected person from the people array in props and display them.
+
+Check out [Array.prototype.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
 `Show.js`
 
@@ -195,8 +133,7 @@ Let's grab the selected person from the people array in props and display them.
 import { useParams } from 'react-router-dom'
 function Show(props) {
   const { id } = useParams();
-  const people = props.people
-  const person = people.find((p) => p._id === id)
+  const person = props.people.find((person) => person._id === id)
 
   return (
     <div className="person">
@@ -224,13 +161,14 @@ On the show page let's add:
 
 1. A form in the JSX below the person
 
+1. Use the [UseNavigate() hook from React Router v6](https://www.geeksforgeeks.org/reactjs-usenavigate-hook/) to redirect the user after a form submit
+
 ```jsx
 import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 function Show(props) {
   const { id } = useParams()
-  const people = props.people
-  const person = people.find((p) => p._id === id)
+  const person = props.people.find((person) => person._id === id)
   let navigate = useNavigate()
 
 
@@ -302,10 +240,8 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"
 function Show(props) {
   const { id } = useParams();
-  const people = props.people;
-  const person = people.find((p) => p._id === id);
+  const person = props.people.find((person) => person._id === id)
   let navigate = useNavigate();
-
 
 
   const [editForm, setEditForm] = useState(person);
@@ -321,12 +257,14 @@ function Show(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.updatePeople(editForm);
+    // redirect people back to index
     navigate("/");
   };
 
   const removePerson = () => {
     props.deletePeople(person._id);
-    props.history.push("/");
+    // redirect people back to index
+    navigate("/")
   };
 
   return (
@@ -461,6 +399,8 @@ img {
 
 ## Deploy
 
+
+###Netlify
 Add a `netlify.toml` with the following:
 
 ```toml
@@ -469,32 +409,27 @@ Add a `netlify.toml` with the following:
   to = "/"
 ```
 
-_NOTE, if you wanted to deploy to Version you'd include a `vercel.json` with the follow_
-
-```json
-{
-  "version": 2,
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
-  ]
-}
-```
-
 1. Push frontend repo to github
 
 1. Connect to netlify
 
 1. Done
 
-**[Finished Backend App Example](https://git.generalassemb.ly/AlexMerced/people_backend)**
-**[Finished Frontend App Example](https://git.generalassemb.ly/AlexMerced/people_frontend)**
 
 <br>
 <br>
 <br>
 
-<!-- ## Lab - Complete Your Full Stack MERN App - **Deliverable**
+Solution Code: 
+
+**[Finished Backend App Example](https://git.generalassemb.ly/laurenperez-ga/people-backend)**
+**[Finished Frontend App Example](https://git.generalassemb.ly/laurenperez-ga/people-frontend)**
+
+<br>
+<br>
+<br>
+
+## Lab - Complete Your Full Stack MERN App
 
 Complete your app using the steps of todays lessons adding the following:
 
@@ -502,4 +437,4 @@ Complete your app using the steps of todays lessons adding the following:
 
 2. The ability edit a model
 
-3. The ability to delete a model -->
+3. The ability to delete a model

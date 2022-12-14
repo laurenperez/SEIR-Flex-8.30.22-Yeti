@@ -4,10 +4,10 @@ title: "Week 17 - Day 3"
 week: 17
 day: 3
 type: "homepage"
-topics: "Juneteenth Holiday"
+topics: "Holiday Break"
 ---
 
 
 # Week 17 - Day 3
 
-### Juneteenth Holiday - No class today
+### Holiday Break - No class today
