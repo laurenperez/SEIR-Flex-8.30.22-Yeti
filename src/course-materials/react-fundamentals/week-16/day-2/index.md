@@ -14,6 +14,6 @@ topics: "Full Stack React - MERN"
 #### Part 1 - Let's build an API!
 
 
-- [**Lecture:** People App: Mern Stack Build Part 1](/react-fundamentals/week-16/day-3/labs/mern-stack-build-part-1)
+- [**Lecture:** People App: Mern Stack Build Part 1](/react-fundamentals/week-16/day-2/lecture-materials/mern-stack-build-part-1)
 
--[**Lab** Create your own mern app guided by peopele app code along](https://git.generalassemb.ly/laurenperez-ga/MERN-lab)
+-[**Lab:** Create your own mern app guided by peopele app code along](https://git.generalassemb.ly/laurenperez-ga/MERN-lab)
