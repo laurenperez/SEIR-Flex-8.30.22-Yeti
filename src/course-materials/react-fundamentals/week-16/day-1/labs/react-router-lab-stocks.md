@@ -91,4 +91,4 @@ If a user clicks on "About" in the navigation bar, they should be directed to an
 <br>
 <br>
 
-- [Solution Repo & Video for iStocks Lab](https://git.generalassemb.ly/HomeworkReviews/istocks)
+<!-- - [Solution Repo & Video for iStocks Lab](https://git.generalassemb.ly/HomeworkReviews/istocks) -->

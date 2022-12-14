@@ -165,9 +165,9 @@ app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 - go to `localhost:4000/about` and make sure you see your about info as json
 
-- Our Backend is complete, now to deploy.
+- Our Backend is complete!
 
-## Express app deployment
+<!-- ## Express app deployment
 
 #### Creating the Procfile
 
@@ -175,7 +175,7 @@ app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 ```
 web: npm start
-```
+``` -->
 
 #### Creating the git repo
 
@@ -193,7 +193,7 @@ web: npm start
 
 - push up your changes `git push origin BRANCH` make sure to replace "BRANCH" with your current branch name which can be retrieved by running `git branch`
 
-#### Deploying to Heroku
+<!-- #### Deploying to Heroku
 
 - Make sure you are logged into heroku by typing `heroku login` in your terminal - follow the prompts to log in. 
 
@@ -214,7 +214,7 @@ web: npm start
 
 congrats, your simple backend API is complete and deployed! You may shut down any local backend servers you have running.
 
-If you have any issues with Heroku refer to [this guide](https://tuts.alexmercedcoder.com/2021/4/deploying_node_heroku/)
+If you have any issues with Heroku refer to [this guide](https://tuts.alexmercedcoder.com/2021/4/deploying_node_heroku/) -->
 
 ## Building the Frontend
 
