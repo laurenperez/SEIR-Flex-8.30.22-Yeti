@@ -198,13 +198,17 @@ app.post("/people", (req, res) => {
 })
 
 ```
+<br>
 
 Test them out before adding your database calls. 
+
+<br>
+<br>
 
 ### Getting Data - Async Await & Try Catch
 
 
-**Async Await instead of .then()**
+**Async/Await instead of .then() or callback functions**
 
 We know that making a request for data isn't instant and must be handled asyncronously. 
 Javascript provides us with a tool called a Promise to handle this asyncronous process. 
@@ -222,6 +226,26 @@ The **Promise** object represents the eventual completion (or failure) of an asy
 
 We have a few different options for "consuming promises" that are returned to us from our data base fucntions. In the past we used .then( ) and callback functions to do something after the data was sucessfully returned. Another more modern method is using **Async Await**.
 
+```js
+
+app.get("/people", (req, res) => {
+  // using a callback
+  People.find({}, (error, allPeople) => {
+    // res inside callback
+    res.json({ People: allPeople })
+  })
+})
+
+
+app.get("/people", async (req, res) => {
+  // using async + await
+  const people = await People.find({})
+  // res not nested
+  res.json(people)
+}
+
+```
+
 When we use async await we should utilize a try catch to handle any errors that might come up. 
 
 <br>
@@ -237,7 +261,22 @@ The try statement always starts with a try block. Then, a catch block or a final
 - try...finally
 - try...catch...finally
 
+The syntax is simple:
+
+
+```js
+
+try {
+  // do something here
+} catch {
+  // do this if there are errors
+}
+
+
+```
 <br>
+
+**Lets put it all together!**
 
 
 ```js
