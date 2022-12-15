@@ -16,4 +16,4 @@ topics: "Full Stack React - MERN"
 
 - [**Lecture:** People App: Mern Stack Build Part 1](/react-fundamentals/week-16/day-2/lecture-materials/mern-stack-build-part-1)
 
-- [**Lab:** Create your own mern app guided by people app code along](https://git.generalassemb.ly/laurenperez-ga/MERN-lab)
+- [**Lab:** Create your own mern app guided by people app code along](https://git.generalassemb.ly/laurenperez-ga/mern-app-lab)
