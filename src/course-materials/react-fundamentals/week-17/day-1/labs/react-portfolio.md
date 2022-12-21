@@ -10,7 +10,7 @@ type: "lecture"
 
 During this lab we will be creating a full stack portfolio page using Express and React to see how you can create a full stack project using a simple API build with express and a frontend application with React.
 
-- [Here is a Repo with a final version for reference](https://git.generalassemb.ly/AlexMerced/Express-React-Portfolio-Reference-Code)
+<!-- - [Here is a Repo with a final version for reference](https://git.generalassemb.ly/AlexMerced/Express-React-Portfolio-Reference-Code) -->
 
 **NOTE** While the above repo has the backend and frontend folder in one repo, to deploy the backend and frontend project MUST be in separate repos, follow the direction carefully regarding where repos are created and deployment.
 
@@ -25,7 +25,7 @@ During this lab we will be creating a full stack portfolio page using Express an
 - Then we will generate a react project for a our frontend, either of these two commands should do the trick (the command should be run from the express_react_folder so make sure your terminal is in that folder)...
 
   - `npx create-react-app frontend`
-  - `npm init @vitejs/app frontend --template react`
+  <!-- - `npm init @vitejs/app frontend --template react` -->
 
 - The end result should be the following folder structure
 
