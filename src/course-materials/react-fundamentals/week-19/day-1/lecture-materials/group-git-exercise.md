@@ -285,7 +285,11 @@ git commit -m "fixes merge conflict"
 git push origin feature-branch
 ```
 
-4. Create a new pull request in github. Merge! 
+4. Attempt to create a new pull request in github but dont merge.... No errors detected!
+
+**DONT MERGE- This is just a demonstration.**
+
+Because your other group mates are at the same point, the second one of you completes their PR, the others will get errors again. They will need to pull those changes and merge them into thier feature branches again. If you want to see this full process, take turns merging and pulling each others new changes. 
 
 
 
