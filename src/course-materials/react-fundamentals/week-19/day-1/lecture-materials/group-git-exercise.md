@@ -59,6 +59,8 @@ Diagram](https://wac-cdn.atlassian.com/dam/jcr:389059a7-214c-46a3-bc52-7781b4730
 
 <br><br>
 
+## Activity 
+
 **Groups of 3 or 4 Students**
 
 1. Choose 1 person to be the **Repo Owner** & Primary Contributor. 
@@ -86,11 +88,11 @@ Diagram](https://wac-cdn.atlassian.com/dam/jcr:389059a7-214c-46a3-bc52-7781b4730
 
 2. Post a thread in slack asking your group members to share their github usernames
 
-3. Add your group mates as "collaborators" in github. Go to demo-project > Settings > Collaborators > search for their username
+3. Add your group mates as "collaborators" in github. Go to demo-project > Settings > Collaborators. Search for their username and add them.
 
-4. Clone down your new repo and add a new file called index.js
+4. Clone down your new repo and add a new file called **index.js**
 
-5. Add a new line at the top of index.js on line 1. 
+5. Add a new line at the top of **index.js** on line 1. 
 
   ```js
   let myVar = "a"
@@ -115,7 +117,7 @@ git push origin main
 
 2. Clone down a copy of the repository to your local machine
 
-3. check out your own "feature branch" to add some feature code.
+3. Check out your own "feature branch" to add some feature code.
   - Feature code refers to a small amount of code in one or two files that accomplishes one purpose. (Think adding a new route or the css for a button component)
   - Feature code is not small changes all over the place in multiple files or editing the formatting of another developers code. Think small and centralized. This will minimize merge conflicts. 
 
@@ -123,7 +125,7 @@ git push origin main
 git checkout -b "<feature-branch-name>"
 ```
 
-4. Open index.js and add an addition to the code on line 1. 
+4. Open **index.js** and add an addition to the code on line 1. 
 
 ```js
 let myVar = "a + b"
@@ -147,7 +149,7 @@ git push origin <feature branch name>
 
 ## Repo Owner
 
-1. While still on the `main` brach open index.js and make a change to the code on line 1. 
+1. While still on the `main` brach open **index.js** and make a change to the code on line 1. 
 
 ```js
 let myVar = "a + c"
@@ -161,6 +163,7 @@ git commit -m "first update"
 git push origin main
 ```
 
+<br><br>
 
 ## Group Members # 2, 3, 4
 
@@ -168,22 +171,20 @@ git push origin main
 
   - Verify that your newest code is there. 
 
-2. Select the "pull requests" tab
+2. Select the "Pull requests" tab
 
 ![create pull request tab](https://i.imgur.com/F9nijj0.png)
 
-3. Attempt to merge your branch into the main branch
+3. Follow the prompts in github to create a pull request to merge your feature branch into main. 
 
 ![create pull request button](https://i.imgur.com/ejuqjn4.png)
 
 <br><br>
 
-Follow the prompts in github to create a pull request to merge your feature branch into main. 
-
 ### You will get warnings that your branch cant automatically merge. Rats!
 
 
-You and someone else ( the repo owner or a group mate ) checked out the code at the same starting point and made changes to the same line of code. It happens ALL the time. This results in a `merge conflict` for whoever didn't merge their code in first. How do you resolve this? Its not too bad, just take it one step at a time. 
+You and someone else (the repo owner or a group mate) checked out the code base at the same starting point and made changes to the same line of code. It happens ALL the time. This results in a `merge conflict` for whoever doesn't merge their code in first. How do you resolve this? It's not too bad, just take it one step at a time. 
 
 
 <br><br>
@@ -295,7 +296,7 @@ git push origin feature-branch
 ```ss
 git checkout main
 git pull
-git checkout "other-feature-branche"
+git checkout <other-feature-branch>
 git merge main
 ```
 
@@ -344,7 +345,7 @@ If you undo a public history you will have to `git push --force` after making th
 
 [Reset, Checkout, Revert](https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting)
 
-**Oh boy I really messed up**. -> https://ohshitgit.com/
+[**Oh boy I really messed up:** ](https://ohshitgit.com/)
 
 ### Extra Resources
 - [An Incredible Git Tutorial](http://gitimmersion.com/) probably the second most helpful git thing I've ever come across . . .by our friend `Jim Weirich`
