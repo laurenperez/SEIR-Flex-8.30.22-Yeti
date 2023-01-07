@@ -13,6 +13,30 @@ topics: "Unit Projects"
 
 **You’ve come a long way, and it's time to show it.** This will be your most advanced project to date.
 
+You’ve already worked in small groups to accomplish various labs and exercises, but this time **we’re going to challenge you to work in a small team on a project.**
+
+You and your teammates together will architect, design, and collaboratively build a full-stack MERN app.
+
+**This project will push you both technically and collaboratively!**
+
+You'll likely be working as part of a team in the workplace and **this project will provide you with that important team development experience.**
+
+
+### Planning Stage: Assign Project Roles
+
+Once teams are set, we reccommend groups assign the following roles. Everyone should have at least one of these roles, but smaller groups will have a member with two roles. 
+We do not advise one person to be both release manager and product manager, as it is a direct conflict of interest ("let's get those features out--no, we need to make sure the code is clean first!").
+
+- **Release manager** (responsible for handling branches, keeping main safe, and resolving merge conflicts if the developers cannot resolve them)
+- **Product manager** (responsible for prioritizing tasks so that the user gets the most out of the app -- this will usually be the originator of the project idea)
+- **Lead front-end dev** (responsible for breaking ties when the group has disagreements on front-end coding, and for designing a general plan for front-end development, e.g. file structure and state management)
+- **Lead back-end dev** (responsible for breaking ties when the group has disagreements on back-end coding, and for designing a general plan for back-end development, e.g. file structure and schema definitions)
+
+These roles may not seem important now, but when disagreements inevitably enter the dialog, it is important for someone to be responsible for specific parts of the application.
+
+
+
+
 ### **Attendance**
 You must check in with your squad lead at the start of each class session. This can be via slack or standups. You will be expected to be working during regular class time hours.
 
@@ -27,17 +51,7 @@ Before you start working on the planning for your project, be sure to review you
 <br>
 <br>
 
-### Planning Stage: Assign Project Roles
 
-Once teams are set, we reccommend groups assign the following roles. Everyone should have at least one of these roles, but smaller groups will have a member with two roles. 
-We do not advise one person to be both release manager and product manager, as it is a direct conflict of interest ("let's get those features out--no, we need to make sure the code is clean first!").
-
-- **Release manager** (responsible for handling branches, keeping mastersafe, and resolving merge conflicts if the developers cannot resolve them)
-- **Product manager** (responsible for prioritizing tasks so that the user gets the most out of the app -- this will usually be the originator of the project idea)
-- **Lead front-end dev** (responsible for breaking ties when the group has disagreements on front-end coding, and for designing a general plan for front-end development, e.g. file structure and state management)
-- **Lead back-end dev** (responsible for breaking ties when the group has disagreements on back-end coding, and for designing a general plan for back-end development, e.g. file structure and schema definitions)
-
-These roles may not seem important now, but when disagreements inevitably enter the dialog, it is important for someone to be responsible for specific parts of the application.
 
 
 ## Necessary Deliverables
@@ -46,9 +60,9 @@ These roles may not seem important now, but when disagreements inevitably enter 
 
 A project consists of more than just code.
 
-This project requires **planning** organized within a **Trello board** with the following **lists**:
+This project requires **planning** organized within a **Kanban board** (Trello/Miro/Github/Figma) with the following sections:
 
-- **User stories**: User stories need to be formed properly using this template:<br>`As a <role>, I want <feature> so that <reason>`. <br>The _reason_ is optional if it's patently obvious.
+- **User stories**: User stories need to be formed properly using this template:<br>`As a <role>, I want <feature> so that <reason>`.
 
 - **Wireframes**: Sketches of each screens's user interface for the major functionality of the application.
 
@@ -72,7 +86,7 @@ This project requires **planning** organized within a **Trello board** with the 
 
 The project's source code must be hosted on a personal **GitHub repository**.
 
-The repo is to contain **frequent commits** from all group members dated from the beginning of the project through its completion.
+The repo is to contain **frequent commits** from **all** group members dated from the beginning of the project through its completion.
 
 The project must include a **`README.md`** file with the following sections:
 
@@ -80,10 +94,13 @@ The project must include a **`README.md`** file with the following sections:
 
 - **User Stories** - Formatted as above. Include User Stories in at least one README
 
+- **Wireframes** - Low fidelity wireframes are fine.
+
+- **Screen Shots** - After you have a fully styled project go back and add screen shots of some completed pages.
 
 - **Technologies Used**: A list of all technologies, libraries, APIs, etc. used in the project.
 
-- **Getting Started**: Links to the project's planning (Trello board)  and the **deployed app** on Netlify.
+- **Getting Started**: Links to the project's planning (Trello board) and the **deployed app** on Netlify.
 
 - **Future Enhancements**: Identify future features and enhancements planned for the project.
 
@@ -100,7 +117,7 @@ For this project, you will be making another full CRUD app using the technologie
 
 - Who Would Use It: Pin collectors
 
-##### A **working** full-stack, single-page application hosted on Heroku & Netlify.
+##### A **working** full-stack, single-page application hosted on Heroku (TBD) & Netlify.
 
 - Incorporate the technologies of the **MERN-stack**:
 	- MongoDB/Mongoose
@@ -110,19 +127,18 @@ For this project, you will be making another full CRUD app using the technologie
 
 - **Have a well-styled interactive front-end** that communicates with the **Express** backend via AJAX.
 
-- **Client side routing** to show multiple page-level components with React Router
+- **Client Side Routing** to show multiple page-level components with React Router
 
 - **Include full CRUD (Create, Read, Update & Delete) data operations/actions**
 
 - **(OPTIONAL)** you can try to implement one or more of the following:
 	- Consume a third-party API.
 	- Include _admin_ features.
-	
 	- Authentication, i.e. the ability of a user to log in & log out.
 	- Authorization, by restricting functionality to authenticated users. Also, navigation should respond to the login status of the user.
 
 ###### Important note about External APIs!
-When you are calling External APIs server-side that require a key, you should store those **keys somewhere private**. They are the only proof that you are you and you are allowed to call that API, after all.
+When you are calling External APIs server-side that require a key, you should store those **keys somewhere private** (.env). They are the only proof that you are you and you are allowed to call that API, after all.
 
 For example, it is very important that you not push your API keys to a public Github repo. Keep them in a `.env` file and make sure you add `.env` to your `.gitignore`. Note that since it won't be pushed into the github repo, your group mates won't be able to pull it either. So, make sure everyone writes their own local `.env` file with the key!
 
@@ -150,6 +166,7 @@ You will have 7 - 10 minutes to present and demonstrate the following:
 
 	- What was your biggest challenge?
 	- What are your key learnings/takeaways?
+
 
 <br>
 <br>
