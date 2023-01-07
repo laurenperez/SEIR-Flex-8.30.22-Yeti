@@ -20,7 +20,7 @@ Approvals require:
 
 - [**Review:** Group Work and Project Management Tools](/react-fundamentals/week-20/day-1/lecture-materials/group-work-and-project-management)
 
-- [**Review:** UX Design UI Planning](/react-fundamentals/week-20/day-1/lecture-materials/full-stack-mern-on-mobile)
+- [**Review:** UX Design UI Planning](/react-fundamentals/week-20/day-1/lecture-materials/beginners-guide-to-ux)
 
 <br><br>
 
