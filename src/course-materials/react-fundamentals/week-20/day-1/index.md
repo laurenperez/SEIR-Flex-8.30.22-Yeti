@@ -18,6 +18,10 @@ Approvals require:
 - Completed Kanban style planning board (Can be added to, not exhaustive)
 - Created Wireframes (Does not need to be finished)
 
+- [**Review:** Group Work and Project Management Tools](/react-fundamentals/week-20/day-1/lecture-materials/group-work-and-project-management)
+
+- [**Review:** UX Design UI Planning](/react-fundamentals/week-20/day-1/lecture-materials/full-stack-mern-on-mobile)
+
 <br><br>
 
 ### Optional Lecture:
