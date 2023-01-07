@@ -129,7 +129,7 @@ Curriculum schedule and content is subject to change at the instructional team's
 <!-- /unit-projects/unit-one-project-requirements-portfolio/ -->
 | 2    | Project 2 - [Backend Fundamentals: Your First Full Stack Application](/unit-projects/unit-two-project-requirements) |
 <!-- /unit-projects/unit-two-project-requirements -->
-| 3    | Project 3 - [React: A MERN Stack Application ](#)  |
+| 3    | Project 3 - [React: A MERN Stack Application ](/unit-projects/unit-three-project-requirements)  |
 <!-- /unit-projects/unit-three-project-requirements -->
 | 4    | Project 4 - [Python: Build a Full-stack Django App](#) |
 <!-- /unit-projects/unit-four-project-requirements-1 -->
