@@ -145,15 +145,16 @@ Expected response time for all communication is **24 hrs** during the week. Mond
 
 ### Attendance Policy
 
-- Have at least an **80% attendance** record ( you’ve missed **24 hours** total or less of class )
+- Students are allowed to miss **no more than 24 hours of class and outcomes** to be elligible for graduation. 
 - Attendance is taken at the start of every class meeting
 - 3 late arrivals and/or early departures will constitute one absence **( 4 hours )**
-- Unexcused absences are not permitted unless it’s an exceptional circumstance
-- Students who have been excessively absent may be withdrawn
+- "Excused" absences are not permitted unless it’s an exceptional circumstance
+- Students who have been excessively absent may be withdrawn or switched to audit status
 
 You may have up to a three-day grace period period on a project for extenuating circumstances if you get approval before the due date.
 
-Unexcused absences are not allowed. If you will have to miss a class, notify the IA/LI via Slack ahead of time so that we can mark your absence as excused. You may have a 48-hour grace period for notifying the IA/LI in case of emergency. Acceptable excuses include illness, death or critical illness to a family member of significant other, critical life emergency, and religious observances.
+Note:
+"Excused absences" are not allowed. If you will have to miss a class, notify the IA/LI via Slack ahead of time so that we can discuss options. You may have a 48-hour grace period for notifying the IA/LI in case of emergency. Exceptional circumstances include significant illness, death or critical illness to a family member of significant other, critical life emergency, and religious observances.
 
 Students who have fulfilled all of the above requirements will receive a digital certificate of completion via email 1 week after to the course’s end.
 
