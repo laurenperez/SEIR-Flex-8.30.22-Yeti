@@ -821,9 +821,9 @@ Now a few of tweaks:
 
 1. Since we'll need to define a `login` function in `signup`, let's import it ... again, this doesn't exist yet:
 	
-	```javascript
+```javascript
 	import { login } from '../../services/signupService';
-	```
+```
 
 2. Let's update the code to invoke a `login` function (which we will write next) and also tweak the error handling to something like this:
 
@@ -865,13 +865,12 @@ function LoginPage({ handleSignupAndLogin, updateMessage }) {
 	    alert('Invalid Credentials!');
     }
   }
-	```
-
----
+```
 
 <br>
 
 Awesome, the next step in implementing log in functionality is to add the `login` function to **signup.js**:
+
 
 ```javascript
 async function login(ormData) {
