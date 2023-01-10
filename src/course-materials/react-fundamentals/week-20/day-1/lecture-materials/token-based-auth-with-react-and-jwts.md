@@ -13,7 +13,7 @@ type: "lecture"
 <br>
 <br>
 
-### [DanielJS Recording](https://generalassembly.zoom.us/rec/share/4k1vEm8AOOaZn3dJRv1IQpkpXjZwzhJyDW1bjAni9y6iFawzk7fMvNbOUZqKrnC9.3MK_5mcpPqzachfC?startTime=1608395918000)
+<!-- ### [DanielJS Recording](https://generalassembly.zoom.us/rec/share/4k1vEm8AOOaZn3dJRv1IQpkpXjZwzhJyDW1bjAni9y6iFawzk7fMvNbOUZqKrnC9.3MK_5mcpPqzachfC?startTime=1608395918000) -->
 
 
 ## Learning Objectives
@@ -165,13 +165,6 @@ When making an HTTP request, a token can be sent in an HTTP header (or even the 
 <br>
 <br>
 
-<!-- ## Review the Starter Code
-
-The <a href="/downloads/react_fundamentals/token-based-auth-with-react/full-stack-react-mastermind.zip" download>**Starter Code**</a> is the full-stack Mastermind app with some minor additions to aid our authentication implementation.
-
-<br>
-<br> -->
-
 
 ## Set Up
 JWT Auth codealongs can be very lengthy, but we want the main focus to be on the authentication layer we are adding to our server and react app. Therefore, some **enhanced** starter code has been provided. 
@@ -181,7 +174,6 @@ JWT Auth codealongs can be very lengthy, but we want the main focus to be on the
 We'll be using a version of the *people app*: 
 - Frontend: [**click here for startercode**](https://git.generalassemb.ly/laurenperez-ga/people-frontend).
 - Backend: [**click here for startercode**](https://git.generalassemb.ly/laurenperez-ga/people-backend).
-- Open both apps in their own VS Code window
 - Install the `node_modules` in both: `$ npm i`
 - Inside `server.js`, an environment variable is referenced for connecting to a cloud-hosted MongoDB; we need to create the `.env` file, and then add the variable that references our own MongoDB Connection URI
 
@@ -225,9 +217,9 @@ Here are a few of the highlights of the starter code:
 - The `<Header>` component has been altered so that it currently has `<Link>`'s to the `/signup` and `/login` routes. It's only rendered in `App`.
 
 
-- `<SignupPage>` displays a `<SignupForm>` that is working, we can use this as a slightly more advanced solution/reference for creating forms!
+- `<SignupPage>` displays a sign up form that is working, we can use this as a slightly more advanced solution/reference for creating forms!
 
-	Submitting the form adds a user to the database, via the `signup` function from the `signup` **service** in the **services** folder.
+	Submitting the form adds a user to the database, via the `signup` function from the `signupService` in the **services** folder.
 	
 	Note how the `Sign Up` button is disabled using a custom `validForm()` helper function.
 	
@@ -256,7 +248,7 @@ There's lots to do, so let's get going!
 
 
 
-### Step 1: Refactor the server to hash the password when a user signs up
+### Step 1: Refactor the server to hash the password when a user signs up  ( 15 min )
 
 Currently, when a user signs up, the password is being stored in the database as cleartext (plain text) - not good!
 
@@ -334,7 +326,7 @@ The user's password should be hashed!
 <br>
 
 
-### Step 2: Refactor the server to provide a JWT when a user signs up.
+### Step 2: Refactor the server to provide a JWT when a user signs up. ( 15 min )
 
 The starter code was set up to temporarily return the new user document when a user signs up, however, we need to return a JWT instead - thus, auto-logging in when a user signs up.
 
@@ -421,7 +413,7 @@ Moving on to Step 3...
 <br>
 
 
-### Step 3: Persist the token (JWT) in the client
+### Step 3: Persist the token (JWT) in the client ( 10 min )
 
 As discussed, token-based authentication requires the client to send the token when making a request to a server's API. To pull this off, we're going to have to persist it somewhere in the browser...
 
@@ -439,29 +431,25 @@ We'll keep all token related code in it's own utility module, but first, let's d
 
 #### Refactor the `signup` function in **signup.js**
 
-Again, we only want to store the token **string** in `localStorage`, however, the token string is received by the client within an object.
+Again, we only want to store the token **string** in `localStorage`, however, the token string is received by the client within a response object.
 
-Here's a small refactor to the last line of the `signup` function:
+Here's a small refactor to the `signup` function:
 
 ```javascript
-function signup(user) {
-  return fetch(BASE_URL + 'signup', {
-    method: 'POST',
-    headers: new Headers({'Content-Type': 'application/json'}),
-    body: JSON.stringify(user)
+async function signup(formData) {
+  let { token } = await fetch(`${CONFIG.DEV.URL}/users/signup`, {
+    method: "POST",
+    headers: new Headers({ "Content-Type": "application/json" }),
+    body: JSON.stringify(formData),
   })
-  .then(res => {
-    if (res.ok) return res.json();
-    throw new Error('Email already taken!');
-  })
-  // Parameter destructuring!
-  .then(({token}) => token);
-  // the above could have been written as
-  //.then((token) => token.token);
+  if (token) {
+    return new Error("Signup Failed - This email is taken.");
+  }
+  setToken(token)
 }
 ```
 
-This funky syntax, `.then(({token}) => ...`, is object parameter destructuring! Only array destructuring was part of ES2015, however most browsers can now destructure objects as well.
+This funky syntax, `let {token}` is object parameter destructuring! Only array destructuring was part of ES2015, however most browsers can now destructure objects as well.
 
 <br>
 <br>
@@ -479,15 +467,11 @@ Let's create a file for our token service:
 
 `$ touch src/services/tokenService.js`
 
-Just a `setToken` function for now:
+Just add a `setToken` function for now:
 
 ```javascript
 function setToken(token) {
-  if (token) {
-    localStorage.setItem('token', token);
-  } else {
-    localStorage.removeItem('token');
-  } 
+    localStorage.setItem("token", token)
 }
 
 export {
@@ -511,20 +495,15 @@ First, we need to import **tokenService.js**:
 // services/signup.js
 
 import { setToken } from './tokenService';
-
-// existing code below
-const BASE_URL = 'http://localhost:3001/api/users/';
 ```
 
 Then the refactor of `signup`:
 
 ```javascript
-function signup(user) {
+async function signup(user) {
 	...
-  // update the last 'then' to this...
-  .then(({ token }) => {
-        setToken(token);
-  });
+
+  setToken(token);
 }
 
 ```
@@ -539,98 +518,83 @@ Now sign up another user and go to **`localStorage`** within the **Application**
 <br>
 
 
-### Step 4: Update the `<App>` component's state to hold the authenticated user's info
+### Step 4: Update the `<App>` component's state to hold the authenticated user's info ( 15 min )
 
 We will want to keep a `user` object in the `<App>` component's `state` so that it can be passed via props to components that need to be aware of the logged in user, such as `<Header>`.
 
-If there is no user logged in, we will set the `user` property on the `state` object to `null`.
+If there is no user logged in, we will set the `user` property on the `state` object to `null`. We need a function to get the user data from the token. 
 
 <br>
 <br>
 
 
-#### Add a `getUser` function to the `signup`
+#### Add a `getUserFromToken` function to the `tokenService`
 
 Anytime the app is loaded or refreshed, we're going to want to check to see if there's a valid token in `localStorage` and "log in" that user automatically.
 
-In addition, apps from time-to-time, will need to obtain the logged in user's info or check if there is a user logged in. A function for this purpose in `signup` would make sense.
-
-Let's add a `getUser` function to **signup.js**, but first we need to import something that doesn't exist, a `getUserFromToken` function... 
-
-... you'll probably see an error if you save your file at this point ... don't worry, we'll create it soon:
+In `App.js`:
 
 ```javascript
-// inside of src/services/signup.js
 
 // first update your named import statement
-import { setToken, getUserFromToken } from './tokenService';
+import { getUserFromToken } from './tokenService';
 ```
 
 <br>
 <br>
 
-**Now we can define our `getUserfunction` below our `signup` function**
+in `tokenService.js`:
+
+**Now we can define our `getUserFromToken` function below `setToken`
 
 ```javascript
-// inside of usersService.js
+...
 
-// signup function above
-
-function getUser() {
-  return getUserFromToken();
+function getUserFromToken() {
+  const token = getToken(); // TODO -> write this function
+  const expired = isTokenExpired(token) // TODO -> write this one too
+  // split the user out of the JWT with the atob() method 
+  const user = !expired ? JSON.parse(atob(token.split(".")[1])).user : null;
+  return user
 }
 
-// Be sure to add getUser to the export
+
 export {
   signup,
-  getUser
+  getUserFromToken,
 }
 ```
 
-As you can see, again we want to delegate dealing with tokens to a `getUserFromToken` function inside of `tokenService`.
+As you can see, again we want to delegate dealing with verifying tokens to additional separate functions inside of `tokenService`.
 
-First, let's write a `getToken` function that retrieves and verifies that the token has not expired; and if it has expired, remove it!
+First, let's write a `getToken` function that retrieves the token from local storage and a `isTokenExpired` function that verifies that the token has not expired;
+Then if it has expired, we'll just return null from out `getUserFromToken` function.
 
 In **tokenService.js**:
 
 ```javascript
 function getToken() {
-  let token = localStorage.getItem('token');
-  if (token) {
-    // Check if expired, remove if it is
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    // JWT's exp is expressed in seconds, not milliseconds, so convert
-    if (payload.exp < Date.now() / 1000) {
-      localStorage.removeItem('token');
-      token = null;
-    }
-  }
-  return token;
+  let token = localStorage.getItem("token")
+  return token || null ;
 }
-```
 
-> Note: We needed to divide Date.now() by 1000. This is because the JWT spec says the `exp` claim should be in Unix time - Unix Time is the number of seconds since the Unix epoch (Jan 1, 1970). However, JS returns the number of milliseconds (not seconds) since the Unix epoch. We therefore must divide by 1000 to convert milliseconds to seconds.
-
-Next, let's code the `getUserFromToken` function that decodes the token, then extracts and returns the `user` object:
-
-```javascript
-// inside of signup.js
-
-// other code above ... 
-
-function getUserFromToken() {
-  const token = getToken();
-  return token ? JSON.parse(atob(token.split('.')[1])).user : null;
+function isTokenExpired(token) {
+  const payload = JSON.parse(atob(token.split(".")[1]));
+  return payload.exp < ( Date.now() / 1000 )
 }
 
 export {
-  setToken,
+  signup,
+  getUserFromToken,
   getToken,
-  getUserFromToken
-};
+  isTokenExpired,
+}
 ```
 
 Be sure to update the `export` as shown above as well.
+
+> Note: We needed to divide Date.now() by 1000. This is because the JWT spec says the `exp` claim should be in Unix time - Unix Time is the number of seconds since the Unix epoch (Jan 1, 1970). However, JS returns the number of milliseconds (not seconds) since the Unix epoch. We therefore must divide by 1000 to convert milliseconds to seconds.
+
 
 <br>
 <br>
@@ -640,17 +604,17 @@ Be sure to update the `export` as shown above as well.
 
 Time to add a `user` property to `<App>`'s state.
 
-First, import the `signup` in **App.js**:
+First, import `tokenService` in **App.js**:
 
 ```javascript
-import { getUser } from './services/signup';
+import { getUserFromToken } from './services/tokenService';
 ```
 
 Since adding a `user` to state from a token in localStorage is not an asynchronous process, we'll set up another `useState` hook to store the logged-in user:
 
 ```javascript
   // Initialize user if there's a token, otherwise null
-const [userState, setUserState] = useState({user: getUser()});
+const [userState, setUserState] = useState({user: getUserFromToken()});
 ```
 
 The last user we signed up should now be in the state of `<App>`. Use the React DevTools to check it out!
@@ -659,7 +623,7 @@ The last user we signed up should now be in the state of `<App>`. Use the React 
 <br>
 
 
-### Step 5: Refactor the `<Header>`'s display based on auth status
+### Step 5: Refactor the `<Header>`'s display based on auth status ( 8 min )
 
 Just like in the other two authentication lessons, we want the navigation links to render according to whether there is a user logged in or not:
 
@@ -675,31 +639,29 @@ Now that `<Header>` has a `user` prop, let's refactor **Header.js**.
 We want to display one of two choices -
 
 ```javascript
-function Header({ user }) {
-  if (!user) {
-    return (
-      <nav className="nav">
-        <Link to="/">Home</Link>
-        <Link to="/signup">Sign Up</Link>
-        <Link to="/login">Log In</Link>
-      </nav>
-    )
-  } else {
-    return (
-      <nav className="nav">
-        <h1>Welcome {user.name},</h1>
-        <Link to="/">Home</Link>
-        <Link to="">LOG OUT</Link>
-      </nav>
-    )
-  }
+import { Link } from "react-router-dom";
+
+function Header({ user, handleLogout }) {
+  
+  return !user ? (
+    <nav className="nav">
+      <Link to="/">Home</Link>
+      <Link to="/signup">Sign Up</Link>
+      <Link to="/login">Log In</Link>
+    </nav>
+  ) : (
+    <nav className="nav">
+      <h1>Welcome {user.name}, </h1>
+      <Link to="/">Home</Link>
+      <Link to="" onClick={handleLogout}>
+        Log Out
+      </Link>
+    </nav>
+  );
 }
 
 export default Header;
 ```
-
-In case you're wondering, yes, we could also inline the entire ternary expression within the `return` statement. Give it a try. 
-
 
 Awesome!
 
@@ -707,7 +669,7 @@ Awesome!
 <br>
 
 
-### Step 6: Implement Log Out functionality
+### Step 6: Implement Log Out functionality ( 8 min ) 
 
 Lets add a `<Link to='' className='Header-link'>LOG OUT</Link>` for logging out.
 
@@ -726,7 +688,7 @@ First let's add an `onClick` prop to the link:
 
 ```javascript
 function handleLogout (){
-  logout(); // 👈 We'll define this inside of signup shortly
+  logout(); // 👈  we'll define this inside of signup next
   setUserState({ user: null });
 }
 ```
@@ -734,7 +696,7 @@ function handleLogout (){
 **Don't forget to add `logout` to your named import**
 
 ```javascript
-import { getUser, logout } from './services/signup';
+import { logout } from './services/signupService';
 ```
 
 **As usual, pass that function down to where it's needed (Header.js) - you got this.**
@@ -743,12 +705,11 @@ Now let's add the `logout` function to **signup.js**:
 
 ```javascript
 function logout() {
-  removeToken(); // 👈 we'll define this removeToken function inside tokenService.js shortly
+  removeToken(); // 👈  we'll define this removeToken function inside tokenService.js next
 }
 
 export {
   signup,
-  getUser,
   logout
 }
 ```
@@ -762,10 +723,9 @@ export {
 We're using a `removeToken` function inside `logout`. **NOTE:** we still haven't defined this function inside our token service, but let's import that at the top of `signup`:
 
 ```javascript
-// inside of src/services/signup
 
 // update your named import statement
-import { setToken, getUserFromToken, removeToken } from './tokenService';
+import { setToken, removeToken } from './tokenService';
 ```
 
 Next, we need that `removeToken` function added to **tokenService.js**:
@@ -776,11 +736,12 @@ function removeToken() {
 }
 
 export {
-  setToken,
+  signup,
+  getUserFromToken,
   getToken,
-  removeToken,
-  getUserFromToken
-};
+  isTokenExpired,
+  removeToken
+}
 ```
 
 Test it out and verify that the LOG OUT link is working - sweet!
@@ -794,20 +755,20 @@ Let's fix this problem in the next step...
 
 
 
-## Step 7: Updating the `user` in `<App>`'s State When Signing Up
+## Step 7: Updating the `user` in `<App>`'s State When Signing Up  ( 8 min )
 
 **Why didn't the display update?**
 
 Let's take care of this by first adding a `handleSignup` helper in **App.js**:
 
 ```javascript
-    function handleSignup() {
-      setUserState({user: getUser()});
+    function handleSignupAndLogin() {
+      setUserState({user: getUserFromToken()});
     }
 ```
-We need to pass it from `<App>` down to `<SignupForm>` via props - **easy peasy because all props are already being passed from the `<SignupPage>` to `<SignupForm>` using the spread operator**. Just pass it to `<Main>` and then `<SignupPage>` and it does the rest.
+We need to pass it from `<App>` down to `<SignupPage>` via props.
 
-Here's the refactor that adds the call to `<App>`'s `handleSignup` in **SignupForm.js**:
+Here's the refactor that adds the call to `<App>`'s `handleSignupAndLogin` in **SignupPage.js**:
 
 ```javascript
   async function handleSubmit (e) {
@@ -815,7 +776,7 @@ Here's the refactor that adds the call to `<App>`'s `handleSignup` in **SignupFo
     try {
       await signup(formState);
       // Let <App> know a user has signed up!
-      handleSignup();
+      handleSignupAndLogin();
 ```
 
 That should do the trick! Feel free to sign up and log out all you want!
@@ -828,14 +789,12 @@ On to the next step!
 <br>
 
 
-## Step 8: Implement Log In functionality
+## Step 8: Implement Log In functionality ( 20 min )
 
-I'm tied of signing up all these users too!
 
 To implement logging in, we need to write code on both the client and server...
 
 <br>
-
 
 
 ### Implement logging in on the client
@@ -856,28 +815,29 @@ We're using controlled `<input>`s here, however, the `handleChange` function in 
 
 The above code is awesome because this single function can handled updating the state for any number of `<input>`s! This is more elegant than writing dedicated functions for each `<input>`.
 
-Since logging in is almost the same as signing up, let's **copy** the `handleSubmit` function from `<SignupForm>` and **replace** the one that's currently in `<LoginPage>`.
+Since logging in is almost the same as signing up, let's **copy** the `handleSubmit` function from `<SignupPage>` and **replace** the one that's currently in `<LoginPage>`.
 
 Now a few of tweaks:
 
 1. Since we'll need to define a `login` function in `signup`, let's import it ... again, this doesn't exist yet:
 	
 	```javascript
-	import { login } from '../../services/signup';
+	import { login } from '../../services/signupService';
 	```
 
-2. Let's update the code to invoke a `login` function (which we will write in a bit) and also tweak the error handling to something like this:
+2. Let's update the code to invoke a `login` function (which we will write next) and also tweak the error handling to something like this:
 
 
 ```javascript
+
 async function handleSubmit (e) {
   e.preventDefault();
   try {
-    // Update to call login instead of signup
-    await login(formState);
-    
-    // ...rest of function
   
+    await login(formState); // this will make the api call to the server to verify credentials
+    // TODO: tell App.js that the user is signed in and set the user state for the application
+    // TODO: navigate to the homepage once user is logged in
+
   } catch (err) {
     // Use a modal or toast in your apps instead of alert
     alert('Invalid Credentials!');
@@ -885,18 +845,22 @@ async function handleSubmit (e) {
 }
 ```
 
-3. We originally named the function that notifies `<App>` when someone signs up `handleSignup`. However, to stay DRY, we're now going to use the same function to notify `<App>` when someone logs in. Let's change the name of the function to something more appropriate:
+3. We're now going to use the same function to notify `<App>` when someone logs in. This is how we lift state to set the logged in user in App.js:
 
-	```javascript
+
+```javascript
+
+function LoginPage({ handleSignupAndLogin, updateMessage }) {
+
+...
+
 	async function handleSubmit(e) {
     e.preventDefault();
     try {
       await login(formState);
-	    // Rename the function below
-      handleSignupOrLogin();
-      
-      // redirect back to homepage
-      // TO DO - Navigate back home
+      // lift state to app
+      handleSignupAndLogin();
+      // TODO: navigate to the homepage once user is logged in
     } catch (err) {
 	    alert('Invalid Credentials!');
     }
@@ -905,40 +869,25 @@ async function handleSubmit (e) {
 
 ---
 
-**YOU DO EXERCISE (15 mins)**
-
-Please complete the following three steps:
-
-1. In **App.js**, rename the `handleSignup` function to `handleSignupOrLogin`.
-
-2. The above renaming requires a refactor when signing up. After completing the refactor, be sure to sign up another user to test that the UI still updates afterwards. 
-
-3. Pass `handleSignupOrLogin` from `<App>` to `<LoginPage>`.
-
----
-
 <br>
 
 Awesome, the next step in implementing log in functionality is to add the `login` function to **signup.js**:
 
 ```javascript
-function login(creds) {
-  return fetch(`${BASE_URL}/users/login`, {
-    method: 'POST',
-    headers: new Headers({'Content-Type': 'application/json'}),
-    body: JSON.stringify(creds)
-  })
-  .then(res => {
-    // Valid login if we have a status of 2xx (res.ok)
-    if (res.ok) return res.json();
-    throw new Error('Bad Credentials!');
-  })
-  .then(({token}) => setToken(token));
+async function login(ormData) {
+  let { token } = await fetch(`${CONFIG.DEV.URL}/users/login`, {
+    method: "POST",
+    headers: new Headers({ "Content-Type": "application/json" }),
+    body: JSON.stringify(ormData),
+  });
+  if (!token) {
+    return new Error("Bad Credentials!");
+  }
+  setToken(token)
 }
 
 export {
   signup,
-  getUser,
   logout,
   login
 }
@@ -949,10 +898,6 @@ As you can see, the `login` function is pretty similar to that of `signup`.
 Whew, that should take care of the client, on to the server...
 
 <br>
-<br>
-<br>
-
-
 
 ### Implement logging in on the server
 
@@ -1027,7 +972,7 @@ Okay, now that we've implemented logging in on the client and server, try it out
 <br>
 
 
-## Step 9: Provide the token when making AJAX requests
+## Step 9: Provide the token when making AJAX requests ( 8 min )
 
 The server is going to want to verify that a user has a token and that it's valid before allowing access to protected routes.
 
@@ -1045,8 +990,6 @@ First we need to import the `getToken` function from **tokenService.js**, so we 
 ```javascript
 // Add this import at the top of Main.js
 import { getToken } from './tokenService';
-
-const BASE_URL = 'http://localhost:3001/people';
 
 ```
 
@@ -1087,7 +1030,7 @@ Please complete the following steps:
 <br>
 <br>
 
-## Step 10: Verify JWTs sent by the client and add the `user` to the Express `request` object
+## Step 10: Verify JWTs sent by the client and add the `user` to the Express `request` object ( 10 min )
 
 
 We're sending the JWT in an `Authorization` header when creating people. 
@@ -1180,7 +1123,7 @@ Just be sure to mount your auth middleware before mounting any routes/routers th
 <br>
 <br>
 
-## Step 11: Protect the `/people` index client-side route
+## Step 11: Protect the `/people` index client-side route ( 8 min )
 
 In the client, it's usually a good idea to "hide" functionality that users should not be able to access.
 
@@ -1257,13 +1200,8 @@ function checkAuth(req, res, next) {
 ## We did it! 🥳 🎉
 <br>
 
-## Essential Questions
-
-After what you just went through? No way!
-
-<br>
 
 
-**Tips For using Auth in Project 3 (optional)**
+**Tips For using Auth in Project 3**
 
 The time to implement auth will come very early during your project's development - in fact, you will need to implement authentication before any of the app's functionality (other than the landing page functionality).
