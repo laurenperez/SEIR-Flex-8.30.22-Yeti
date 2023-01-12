@@ -413,7 +413,7 @@ Moving on to Step 3...
 <br>
 
 
-### Step 3: Persist the token (JWT) in the client ( 10 min )
+### Step 3: Persist the token (JWT) in the client ( 15 min )
 
 As discussed, token-based authentication requires the client to send the token when making a request to a server's API. To pull this off, we're going to have to persist it somewhere in the browser...
 
@@ -436,20 +436,24 @@ Again, we only want to store the token **string** in `localStorage`, however, th
 Here's a small refactor to the `signup` function:
 
 ```javascript
-async function signup(formData) {
-  let { token } = await fetch(`${CONFIG.DEV.URL}/users/signup`, {
+function signup(newUser) {
+  return fetch(`${CONFIG.DEV.URL}/users/signup`, {
     method: "POST",
     headers: new Headers({ "Content-Type": "application/json" }),
-    body: JSON.stringify(formData),
+    body: JSON.stringify(newUser),
   })
-  if (token) {
-    return new Error("Signup Failed - This email is taken.");
-  }
-  setToken(token)
+    .then((res) => {
+      if (res.ok) return res.json();
+      // Probably a duplicate email
+      throw new Error("Email already taken!");
+    })
+    .then(({ token }) => {
+      // TODO: set the token in local storage
+    });
 }
 ```
 
-This funky syntax, `let {token}` is object parameter destructuring! Only array destructuring was part of ES2015, however most browsers can now destructure objects as well.
+This funky syntax, `{token}` is object parameter destructuring! Only array destructuring was part of ES2015, however most browsers can now destructure objects as well.
 
 <br>
 <br>
@@ -530,71 +534,94 @@ If there is no user logged in, we will set the `user` property on the `state` ob
 
 #### Add a `getUserFromToken` function to the `tokenService`
 
-Anytime the app is loaded or refreshed, we're going to want to check to see if there's a valid token in `localStorage` and "log in" that user automatically.
-
-In `App.js`:
-
-```javascript
-
-// first update your named import statement
-import { getUserFromToken } from './tokenService';
-```
+Anytime the app is loaded or refreshed, we're going to want to check to see if there's a valid token in `localStorage` and "log in" that user automatically. We need two functions. One to get to token from local storage and one to extract the user data from it. Lets write them now!
 
 <br>
 <br>
 
 in `tokenService.js`:
 
-**Now we can define our `getUserFromToken` function below `setToken`
+**Now we can define `getToken` and  `getUserFromToken` function below `setToken`
 
 ```javascript
-...
+
+function setToken(token) {
+    localStorage.setItem("token", token)
+}
+
+function getToken() {
+  let token = localStorage.getItem("token");
+  return token
+}
 
 function getUserFromToken() {
-  const token = getToken(); // TODO -> write this function
-  const expired = isTokenExpired(token) // TODO -> write this one too
-  // split the user out of the JWT with the atob() method 
-  const user = !expired ? JSON.parse(atob(token.split(".")[1])).user : null;
+  const token = getToken();
+  // if there is a token, pull the user data out of it, if not set user to null
+  const user = token ? JSON.parse(atob(token.split(".")[1])).user : null;
   return user
 }
 
 
 export {
-  signup,
+  setToken,
+  getToken,
   getUserFromToken,
 }
 ```
 
-As you can see, again we want to delegate dealing with verifying tokens to additional separate functions inside of `tokenService`.
+Pause! Before we return the token we found in local storage, we should check and make sure that it has not expired. If the token is expired then we should delete it and force the user to log in again. 
 
-First, let's write a `getToken` function that retrieves the token from local storage and a `isTokenExpired` function that verifies that the token has not expired;
-Then if it has expired, we'll just return null from out `getUserFromToken` function.
+To keep our code clean, we will delegate dealing with verifying token expiration to an additional separate function.
+
+Let's create an `isTokenExpired` function.
+
 
 In **tokenService.js**:
 
 ```javascript
-function getToken() {
-  let token = localStorage.getItem("token")
-  return token || null ;
-}
+...
 
 function isTokenExpired(token) {
+  // we get the expiration from the payload
   const payload = JSON.parse(atob(token.split(".")[1]));
-  return payload.exp < ( Date.now() / 1000 )
+  // JWT's expiration is expressed in seconds, not milliseconds, so convert
+  return payload.exp < ( Date.now() / 1000 ) // <- this will return true or false
 }
 
 export {
-  signup,
-  getUserFromToken,
+  setToken,
   getToken,
+  getUserFromToken,
   isTokenExpired,
 }
 ```
 
-Be sure to update the `export` as shown above as well.
 
 > Note: We needed to divide Date.now() by 1000. This is because the JWT spec says the `exp` claim should be in Unix time - Unix Time is the number of seconds since the Unix epoch (Jan 1, 1970). However, JS returns the number of milliseconds (not seconds) since the Unix epoch. We therefore must divide by 1000 to convert milliseconds to seconds.
 
+<br>
+
+Now lets refactor `getToken` to always check if the token has expired. 
+If the token has expired we'll remove it from local storage and return null.
+
+```js
+
+function getToken() {
+  let token = localStorage.getItem("token");
+  if (token) {
+    // Check if expired, remove if it is
+    let expired = isTokenExpired(token)
+    if (expired) {
+      localStorage.removeItem("token");
+      token = null;
+    }
+  }
+  return token;
+}
+
+```
+
+Be sure to update the `export` as shown above as well.
 
 <br>
 <br>
@@ -653,9 +680,7 @@ function Header({ user, handleLogout }) {
     <nav className="nav">
       <h1>Welcome {user.name}, </h1>
       <Link to="/">Home</Link>
-      <Link to="" onClick={handleLogout}>
-        Log Out
-      </Link>
+      {/* TODO: Add a logout link */}
     </nav>
   );
 }
@@ -681,14 +706,14 @@ When the **LOG OUT** link is clicked, we don't want to change routes, instead we
 First let's add an `onClick` prop to the link:
 
 ```javascript
-<Link to='' onClick={handleLogout}>LOG OUT</Link>
+<Link to='' className='Header-link' onClick={handleLogout}>LOG OUT</Link>
 ```
 
 **Write the below helper function in App.js**
 
 ```javascript
 function handleLogout (){
-  logout(); // 👈  we'll define this inside of signup next
+  logout(); // 👈  we'll define this inside of signupService next
   setUserState({ user: null });
 }
 ```
@@ -736,9 +761,9 @@ function removeToken() {
 }
 
 export {
-  signup,
-  getUserFromToken,
+  setToken,
   getToken,
+  getUserFromToken,
   isTokenExpired,
   removeToken
 }
@@ -873,22 +898,24 @@ Awesome, the next step in implementing log in functionality is to add the `login
 
 
 ```javascript
-async function login(ormData) {
-  let { token } = await fetch(`${CONFIG.DEV.URL}/users/login`, {
+function login(credentials) {
+  return fetch(`${CONFIG.DEV.URL}/users/login`, {
     method: "POST",
     headers: new Headers({ "Content-Type": "application/json" }),
-    body: JSON.stringify(ormData),
-  });
-  if (!token) {
-    return new Error("Bad Credentials!");
-  }
-  setToken(token)
+    body: JSON.stringify(credentials),
+  })
+    .then((res) => {
+      // Valid login if we have a status of 2xx (res.ok)
+      if (res.ok) return res.json();
+      throw new Error("Bad Credentials!");
+    })
+    .then(({ token }) => setToken(token));
 }
 
 export {
   signup,
-  logout,
-  login
+  login,
+  logout
 }
 ```
 
@@ -1203,4 +1230,5 @@ function checkAuth(req, res, next) {
 
 **Tips For using Auth in Project 3**
 
-The time to implement auth will come very early during your project's development - in fact, you will need to implement authentication before any of the app's functionality (other than the landing page functionality).
+The time to implement auth will come very early during your project's development! The earlier the better because of the number of files that much be changed, and the posibility for merge conflicts. 
+
