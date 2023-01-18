@@ -4,11 +4,11 @@ title: "Week 20 - Day 2"
 week: 21
 day: 2
 type: "homepage"
-topics: "Unit 3 Project Presentations  🎉"
+topics: "Unit 3 Group Project"
 ---
 
 
-# Unit 3 Project Presentations
+# Unit 3 Projects
 
 
-## Students Present Project 3  🎉
+[**Project 3 Group Work**: Students work on project 3](/unit-projects/unit-three-project-requirements)
