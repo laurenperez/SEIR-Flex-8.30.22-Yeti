@@ -1,8 +1,8 @@
 ---
 track: "React Fundamentals"
-title: "Week 20 - Day 2"
+title: "Week 20 - Day 3"
 week: 21
-day: 2
+day: 3
 type: "homepage"
 topics: "Unit 3 Project Presentations  🎉"
 ---
