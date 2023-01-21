@@ -4,12 +4,12 @@ title: "Week 22 - Day 1"
 week: 22
 day: 1
 type: "homepage"
-topics: "Project 4 Week"
+topics: "Python Control Flow"
 ---
-
 
 # Week 22 - Day 1
 
-#### Project 4 Week
+#### Python Control Flow
 
-- **Activity:** Work on Project 4
+- [**Lecture:** Intro to Python Control Flow](/second-language/week-22/day-1/lecture-materials/intro-to-python-control-flow/)
+- [**Lab:** Python Control Flow Lab](/second-language/week-22/day-1/labs/python-control-flow-lab/) - **Deliverable**

@@ -4,19 +4,11 @@ title: "Week 21 - Day 1"
 week: 21
 day: 1
 type: "homepage"
-topics: "Django One to Many Models"
+topics: "Unit 3 Group Project"
 ---
 
 
-# Week 21 - Day 1
+# Unit 3 Projects
 
-#### Django One to Many Models
 
-- [**Lecture:** Intro to Django One to Many Models](/second-language/week-21/day-1/lecture-materials/intro-to-django-one-to-many-models) 
-- **Lab:**
-<br>
-<br>
-_For practice, do everything we did in this lesson on your Finch Collector project!_
-<br>
-_Don't forget to make commits._
-
+[**Project 3 Group Work**: Students work on project 3](/unit-projects/unit-three-project-requirements)

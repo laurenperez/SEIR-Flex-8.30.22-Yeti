@@ -4,12 +4,11 @@ title: "Week 22 - Day 2"
 week: 22
 day: 2
 type: "homepage"
-topics: "Project 4 Week"
+topics: "Python Challenges Group Lab"
 ---
-
 
 # Week 22 - Day 2
 
-#### Project Week 4
+#### Coding in Python
 
-- **Activity:** Work on Project 4
+- [**Group Lab:** Python Challenges Lab](/second-language/week-22/day-2/labs/python-challenges-lab/) - **Non-Deliverable**

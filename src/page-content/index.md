@@ -104,13 +104,14 @@ Curriculum schedule and content is subject to change at the instructional team's
 <br>
 <br>
 
-<!-- ### [Unit Four: Second Language](/second-language) -->
+### [Unit Four: Second Language](/second-language)
 
-### 🔒 Unit Four: Second Language - **Locked**
+<!-- ### 🔒 Unit Four: Second Language - **Locked** -->
 
 | Week | Topics                                                                              |
 | ---- | ----------------------------------------------------------------------------------- |
-| 22   | Intro to Python, Control flow, Containers, & Functions                              |
+| 21   | Intro to Python                                                                     |
+| 22   | Control flow, Containers, & Functions                                               |
 | 23   | Python Classes, Intro to SQL and Relational Databases                               |
 | 24   | Django Model Relationships, Upload Photos with Amazon S3, Django Auth               |
 | 25   | Project 4 Week                                                                      |

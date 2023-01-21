@@ -8,6 +8,8 @@ title: "Course Details"
 <br>
 <br>
 
+[**GA Student Handbook**](https://drive.google.com/file/d/1P9WNNe4A3ygc8Wcv-t-OJD6plQvt54Dq/view)
+
 ## Schedule and Holidays
 
 - Start date: 08/30/2022
@@ -32,7 +34,8 @@ title: "Course Details"
     - **12/29/2022 Thu ( No Outcomes )**
     - 12/30/2022 
     - **12/31/2022 Sat ( No class )**
-    - 01/02/2023  
+    - 01/02/2023
+    - **01/14/2023 (No class)**
 
 <br>
 <br>
