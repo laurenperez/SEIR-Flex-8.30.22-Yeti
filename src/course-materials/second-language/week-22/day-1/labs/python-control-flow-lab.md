@@ -24,7 +24,7 @@ Let's get some practice working with control flow and logic in Python!
 
 ## To Get Started:
 
-Go to this [link](https://repl.it/@DanielJS/Python-Control-Flow-Lab) to solve the 6 exercises.
+Go to this [link](https://replit.com/@laurenperez/Python-Control-Flow-Lab#main.py) to solve the 6 exercises.
 
 <!-- Possible solutions are [here](https://repl.it/@DanielJS/Python-Control-Flow-Lab-Solutions), but do your best not to peek. -->
 
