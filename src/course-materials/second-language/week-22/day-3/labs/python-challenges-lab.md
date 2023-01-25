@@ -70,7 +70,7 @@ withdraw or deposit.
 Write three functions to perform these calculations and
 output the result to the user.
 
-**We haven't taught a dedicated lesson on functions yet, but here's a simple function example in `python`**
+**Review - function structure in `python`**
 
 ![python functions](https://i.imgur.com/pixhxbF.png)
 
