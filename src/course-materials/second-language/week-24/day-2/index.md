@@ -8,8 +8,8 @@ topics: "Django Auth"
 ---
 
 
-# Week 21 - Day 2
+# Week 24 - Day 2
 
 #### Django Auth
 
-- [**Lecture:** Django Authentication](/second-language/week-21/day-2/lecture-materials/django-auth)
+- [**Lecture:** Django Authentication](/second-language/week-24/day-2/lecture-materials/django-auth)

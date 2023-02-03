@@ -32,11 +32,8 @@ By the end of this, developers should be able to:
     1. Type `psql` (`psql -U postgres` on Windows) to get into interactive shell.
     2. Run `CREATE DATABASE <db-name>;`.
     3. Exit shell with `\q`.
-2. Run `pipenv shell` in the virtual environment folder, `sei/django-env`.
-3. Fork and clone this repository **into the virtual environment folder**.
- [FAQ](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
-1. Change into the repository directory.
-2. Create and checkout to a new branch, `training`, for your work.
+2. Run `pipenv shell` in the virtual environment folder, `unit-4/django-env`.
+
 
 ## SQL Database with Django
 
@@ -267,6 +264,9 @@ and see our message! Django will restart the server for us when
 it sees a file change, so we don't need to close and restart the server
 ourselves.
 
+<br>
+<br>
+
 ## Code-Along: Our First Model
 
 Let's start building our campus's library! Just like we created our `first_app`
@@ -289,9 +289,26 @@ We will also give our `Book` a couple methods called `__str__` and `as_dict`
 which will return String and Dictionary representations of our resources,
 respectively.
 
+
 Let's take a look at the documentation to see how to proceed:
 - [Django Models](https://docs.djangoproject.com/en/3.0/topics/db/models/)
 - [Django Model Field Reference](https://docs.djangoproject.com/en/3.0/ref/models/fields/)
+
+```py
+from django.db import models
+
+class Book(models.Model):
+  title = models.CharField(max_length=100)
+  author = models.CharField(max_length=100)
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now=True)
+
+  def __str__(self):
+    return self.title
+```
+
+<br><br>
+
 
 ### Migrations with Django
 
@@ -344,6 +361,7 @@ python3 manage.py shell
 ```
 
 Let's try making some books together.
+
 
 ## Code-Along: Index
 
@@ -401,18 +419,14 @@ urlpatterns = [
 Finally, test your endpoint by going to `http://localhost:8000/books` in the
 browser.
 
-## Code-Along: Show
+<br><br>
 
-Now that we have our index view going, it's time to make a view for showing
-just one book.
 
-We will add our new view inside of `library/views.py`.
-
-## Pivot: The Django Rest Framework
+## Pivot: Enter the Django Rest Framework
 
 When we are working with Django, we could go ahead and try to build an API with
 CRUD abilities without any special tools. We've already accomplished this for
-index and show.
+index.
 
 However, we have tools at our disposal! Might as well use them. Let's install
 our first special tool, the Django REST framework. DRF is going to provide us
@@ -463,6 +477,7 @@ What are serializers, you may ask:
 For us, these will be special files that we can use in our views to translate
 our Book resources into readable objects we can return to the client. The
 django rest framework has a lot of information about how their serializers work:
+
 - [Django Rest Framework Serializers API Documentation](https://www.django-rest-framework.org/api-guide/serializers/)
 - [CDRF Docs - Serializer Class](http://www.cdrf.co/3.9/rest_framework.serializers/ModelSerializer.html)
 
@@ -470,9 +485,20 @@ Create a file in the `library` app folder called `serializers.py`.
 
 Code along as we add some basic serialization for our book resource.
 
+```py
+from rest_framework import serializers
+
+from .models.book import Book
+
+class BookSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Book
+    fields = '__all__'
+```
+
 ## Class Based Views
 
-Let's change over our two views to use the Django Rest Framework. This will
+Let's change over our view to use the Django Rest Framework. This will
 involve changing our views to use classes.
 
 We will use the documentation to help us:
@@ -577,12 +603,15 @@ Let's add this post view and have it do the following:
 Time to finish up the last two RESTful views we need on our application.
 
 1. Add `patch` and `delete` functions to your `BookDetailView` class view
-2. For each, locate the desired book using the `pk`
+2. For each, locate the desired book using the `pk` (primary key)
 3. For `patch`, research how to use our serializer for updating data
 4. For `delete`, research how to delete a resource with Django
 5. Return responses with either errors or successful HTTP statuses for each
 
-## Bonus Lab: Concrete View Classes
+<br><br> 
+
+
+<!-- ## Bonus Lab: Concrete View Classes
 
 In addition to the more broad `APIView` class, the Django rest framework also
 offers more ["concrete" view classes](https://www.django-rest-framework.org/api-guide/generic-views/#concrete-view-classes) to better manage what our views do.
@@ -600,7 +629,7 @@ For the `'/books/:id'` views, we want to be able to show, update, and delete.
 For this functionality, we could use the `RetrieveUpdateDestroyAPIView` class.
 
 Read up on these classes these more specific view classes and try implementing
-them instead of using `APIView` in your application.
+them instead of using `APIView` in your application. -->
 
 ## Additional Resources
 

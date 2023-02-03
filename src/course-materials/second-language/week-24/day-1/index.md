@@ -8,7 +8,7 @@ topics: "Django Relationships"
 ---
 
 
-# Week 21 - Day 1
+# Week 24 - Day 1
 
 #### Django One to Many Models
 

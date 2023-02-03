@@ -14,7 +14,7 @@ type: "lecture"
 So far we have looked at making Django APIs that do not include any user
 ownership or even a way for a user to sign in! Time to change that.
 
-This repository contains a basic API for `mangos` and `users`, but no resource
+[This repository](https://git.generalassemb.ly/ga-wdi-boston/django-auth) contains a basic API for `mangos` and `users`, but no resource
 ownership included.
 
 ## Prerequisites
@@ -31,7 +31,7 @@ By the end of this, developers should be able to:
 
 ## Preparation
 
-1. Fork and clone this repository **into the `django-env` folder**.
+1. Fork and clone [this repository](https://git.generalassemb.ly/ga-wdi-boston/django-auth) **into the `django-env` folder**.
  [FAQ](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
 1. Create and checkout to a new branch, `training`, for your work.
 1. Run `pipenv shell` to start up your virtual environment **in the `django-env` folder**.
