@@ -13,6 +13,7 @@ type: "lecture"
 ## Prerequisites
 
 <!-- - [django-study](https://git.generalassemb.ly/ga-wdi-boston/django-study) -->
+
 - [sql](https://git.generalassemb.ly/ga-wdi-boston/sql)
 
 ## Objectives
@@ -29,11 +30,10 @@ By the end of this, developers should be able to:
 ## Preparation
 
 1. Create a psql database for the project with `createdb db-name`, or use the shell:
-    1. Type `psql` (`psql -U postgres` on Windows) to get into interactive shell.
-    2. Run `CREATE DATABASE <db-name>;`.
-    3. Exit shell with `\q`.
+   1. Type `psql` (`psql -U postgres` on Windows) to get into interactive shell.
+   2. Run `CREATE DATABASE <db-name>;`.
+   3. Exit shell with `\q`.
 2. Run `pipenv shell` in the virtual environment folder, `unit-4/django-env`.
-
 
 ## SQL Database with Django
 
@@ -80,7 +80,7 @@ Our directory should look like this:
 
 3. Register our app
 
-In  order for our `campus_crud` project to be able to use things in our `first_app`
+In order for our `campus_crud` project to be able to use things in our `first_app`
 app, we need to register `first_app` as an app on our project.
 
 Open up `campus_crud/settings.py` and locate this code:
@@ -289,8 +289,8 @@ We will also give our `Book` a couple methods called `__str__` and `as_dict`
 which will return String and Dictionary representations of our resources,
 respectively.
 
-
 Let's take a look at the documentation to see how to proceed:
+
 - [Django Models](https://docs.djangoproject.com/en/3.0/topics/db/models/)
 - [Django Model Field Reference](https://docs.djangoproject.com/en/3.0/ref/models/fields/)
 
@@ -309,7 +309,6 @@ class Book(models.Model):
 
 <br><br>
 
-
 ### Migrations with Django
 
 In order to use our model, we need to register it in our project's
@@ -322,12 +321,14 @@ database. That means for new models or changes to old ones, we will need to let
 Django know there are changes to propagate over to the database.
 
 Let's generate and run our migrations:
+
 1. `python3 manage.py makemigrations`
 2. `python3 manage.py migrate`
 
 Here are the commands with which we should be familiar:
+
 - `makemigrations`: responsible for generating the migrations based on changes
-in your models
+  in your models
 - `migrate`: actually runs those migrations to propagate changes
 - `sqlmigrate`: will show us the SQL statements for the migrations
 - `showmigrations`: will list migrations and their status
@@ -343,11 +344,11 @@ An ORM is an Object-relational Mapper and it is used to map our Django code to
 our SQL database. We can take a look at the different ORM functions that Django
 supplies us with in its [database API](https://docs.djangoproject.com/en/3.1/topics/db/queries/).
 
->**Model Managers**:
-Any time we want to perform a query operation on a Model to retrieve model
-objects from our database, it is done through a Manager object. Django adds a
-Manager to every Model by default; that's the `objects` attribute we'll be using
-later!
+> **Model Managers**:
+> Any time we want to perform a query operation on a Model to retrieve model
+> objects from our database, it is done through a Manager object. Django adds a
+> Manager to every Model by default; that's the `objects` attribute we'll be using
+> later!
 
 ## Code-Along: The Django Shell
 
@@ -362,7 +363,6 @@ python3 manage.py shell
 
 Let's try making some books together.
 
-
 ## Code-Along: Index
 
 We need to set up a few things to make an index request to our Books:
@@ -370,15 +370,15 @@ We need to set up a few things to make an index request to our Books:
 1. An index ["view"](https://docs.djangoproject.com/en/3.0/topics/http/views/) in `views.py`
 
 2. A URL endpoint that displays our view
-    1. Define URL endpoint on the `library` app
-    2. Register `library` URLs to the `campus_crud` project
+   1. Define URL endpoint on the `library` app
+   2. Register `library` URLs to the `campus_crud` project
 
 For our view, open up `library/views.py` and we will create a basic request that
 returns all of our books to the front end.
 
->Views are really just **functions that take in web requests and return web
->responses**. Often, they are used for displaying information in the form of the
->front-end's user interface.
+> Views are really just **functions that take in web requests and return web
+> responses**. Often, they are used for displaying information in the form of the
+> front-end's user interface.
 
 ```py
 def index(request):
@@ -390,10 +390,10 @@ def index(request):
 Then, we can add our URL by creating a new file at `library/urls.py` and
 registering our app's urls in `campus_crud/urls.py`.
 
->Our view doesn't do anything without being connected to a URL, however. When we
->connect these pieces, we talk about "mapping" our view to a URL endpoint.
->**Our URL will point to a certain view function that will be called when
->we reach the URL**.
+> Our view doesn't do anything without being connected to a URL, however. When we
+> connect these pieces, we talk about "mapping" our view to a URL endpoint.
+> **Our URL will point to a certain view function that will be called when
+> we reach the URL**.
 
 ```py
 #library/urls.py
@@ -420,7 +420,6 @@ Finally, test your endpoint by going to `http://localhost:8000/books` in the
 browser.
 
 <br><br>
-
 
 ## Pivot: Enter the Django Rest Framework
 
@@ -449,8 +448,10 @@ like `/books` and `/books/:id` (written a little differently in Django land) tha
 will run different view logic depending on if we hit that endpoint with a certain
 HTTP verb like GET or POST.
 
+🟢 **Code:**
+
 1. Run `pipenv install djangorestframework` to install this package into our
-application.
+   application.
 
 If you open up `Pipfile`, you should see that we have a reference to this
 package in that file under `[packages]`. When someone else clones our project
@@ -458,8 +459,8 @@ down, running `pipenv install` will run through this file and make sure all the
 necessary dependencies are installed.
 
 2. We need to add the rest framework to our project's installed apps. Open
-`campus_crud/settings.py` and add `'rest_framework'` to the
-`INSTALLED_APPS` list.
+   `campus_crud/settings.py` and add `'rest_framework'` to the
+   `INSTALLED_APPS` list.
 
 ## Code-Along: Serializers
 
@@ -481,9 +482,13 @@ django rest framework has a lot of information about how their serializers work:
 - [Django Rest Framework Serializers API Documentation](https://www.django-rest-framework.org/api-guide/serializers/)
 - [CDRF Docs - Serializer Class](http://www.cdrf.co/3.9/rest_framework.serializers/ModelSerializer.html)
 
+### 1. Create Serializer Files
+
 Create a file in the `library` app folder called `serializers.py`.
 
 Code along as we add some basic serialization for our book resource.
+
+🟢 **Code:**
 
 ```py
 from rest_framework import serializers
@@ -502,40 +507,55 @@ Let's change over our view to use the Django Rest Framework. This will
 involve changing our views to use classes.
 
 We will use the documentation to help us:
+
 - [Django Class Based Views Tutorial](https://www.django-rest-framework.org/tutorial/3-class-based-views/)
 - [Django Rest Framework Views API Documentation](https://www.django-rest-framework.org/api-guide/views/)
 - [CDRF Docs - APIView Class](http://www.cdrf.co/3.9/rest_framework.views/APIView.html)
 
-### Code-Along: Index
+<br>
+
+### 2. Rewrite Index View as Class Based Views
 
 Let's make some changes to our views imports first:
 
+🟢 **Code:**
+
 1. Remove the `django.http` import.
 2. Add:
-    1. `from rest_framework.views import APIView`
-    2. `from rest_framework.response import Response`
-    3. `from rest_framework import status`
-    4. `from .serializers import BookSerializer`
 
-We are importing three modules from the Django Rest Framework, as well as our
-serializer file for our `Book` resource that we just made.
+```py
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import BookSerializer
+```
 
-Before the rest framework, we had two separate functions we created, one for
-`index` and another for `show`. What we will be able to do now is group our
-requests together into classes so they are "REST"ful. So, we will have a group
-of requests that go to `/books` (like index and create) and others that go to
-`/books/:id` (like show, update, and delete). By telling Django what type of
-request each one should be (GET, POST, etc.), we will be able to make our
-views more powerful (and restful).
+- We are importing three modules from the Django Rest Framework, as well as our serializer file for our `Book` resource that we just made.
 
-Step 1: Setting up the new views
+- What we will be able to do now is group our requests together into classes so they are "REST"ful. So, we will have a group of requests that go to `/books` (like index and create) and others that go to `/books/:id` (like show, update, and delete).
 
-For our index request, we can start off by making a class for the views that
-will go to `/books`. Let's call this class `BooksView` and have it inherit from
-`APIView`. Inside of it, we will define a view by using `get` as our function
-name so it only works for GET requests.
+- By telling Django what type of request each one should be (GET, POST, etc.), we will be able to make our views more powerful (and restful).
 
-Step 2: Serializing our Books
+<br>
+
+**Step 1: Setting up the new views**
+
+1. For our index request, we can start off by making a class for the views that
+   will go to `/books`. Let's call this class `BooksView` and have it inherit from
+   `APIView`. Inside of it, we will define a view by using `get` as our function
+   name so it only works for GET requests.
+
+```py
+class Books(APIView):
+
+    def get(self, request):
+        """Index Request"""
+
+```
+
+<br>
+
+**Step 2: Serializing our Books**
 
 Our `get` function will look similar to our old `index` function, but with a
 couple changes. First, we want to use our serialize to make sure our book data
@@ -543,13 +563,39 @@ is nice and formatted! Let's add a line where we send our books to the
 serializer, making sure to let our serializer know that we are working with
 many books.
 
-Step 3: Return a RESTful response
+```py
+from ..serializers import BookSerializer
+
+# Create your views here.
+class Books(APIView):
+    def get(self, request):
+        """Index Request"""
+        print(request)
+        books = Book.objects.all() # <- get books from db
+        data = BookSerializer(books, many=True).data # <- serialize that data
+```
+
+<br>
+
+**Step 3: Return a RESTful response**
 
 Instead of returning a `JsonResponse` like we did previously, we can use the
 `Response` to just send our data back using the Django Rest Framework. Let's
 update our return to do this.
 
-Step 4: Update our URLs
+```py
+class Books(APIView):
+    def get(self, request):
+        """Index Request"""
+        print(request)
+        books = Book.objects.all()
+        data = BookSerializer(books, many=True).data
+        return Response(data) # <- Send back in response
+```
+
+<br>
+
+**Step 4: Update our URLs**
 
 We have one final thing to do, and that's update our urls! Open up
 `library/urls.py`, and change to importing the `BooksView` class. Then, we can
@@ -563,7 +609,9 @@ path('', BooksView.as_view(), name='books')
 > others if we had them as well! Later on we will add a `post` function to the
 > `BooksView` class, and we won't need to update our URLs at all.
 
-### Lab: Show
+<br>
+
+### Exercise: Show
 
 Now, try it on your own with `show`!
 
@@ -576,14 +624,17 @@ Now, try it on your own with `show`!
 > ##### A quick note on class-based views:
 >
 > The purpose of class-based views is to group our requests, to make them
->"restful" so we have a view class called `BooksView` that contains `get` and
->`post` functions, and will be used when make a request to `/books`. If we
->make a **GET** request, that `BooksView` class will point us to the `get` function,
->vise-versa with **POST**. Similarly, the BookDetailView class contains `get`,
->`patch`, and `delete` functions to handle **GET**, **PATCH**, and **DELETE**
->requests to `/books/:id`.
+> "restful" so we have a view class called `BooksView` that contains `get` and
+> `post` functions, and will be used when make a request to `/books`. If we
+> make a **GET** request, that `BooksView` class will point us to the `get` function,
+> vise-versa with **POST**. Similarly, the BookDetailView class contains `get`,
+> `patch`, and `delete` functions to handle **GET**, **PATCH**, and **DELETE**
+> requests to `/books/:id`.
 
-### Code-Along: Create
+### FULL CRUD TIME!
+
+
+#### CREATE
 
 So far, we have only been working on requesting data from our database. We can
 also make a POST request that will create books on the database for us.
@@ -595,21 +646,68 @@ Let's add this post view and have it do the following:
 
 1. Create a book using our `BookSerializer`
 2. Check if the book we created is valid based on our model
-    1. If it is, we will save the book and return with a successful `Response`
-    1. Otherwise, we will respond with an error
+   1. If it is, we will save the book and return with a successful `Response`
+   1. Otherwise, we will respond with an error
 
-### Lab: Update and Delete
+```py
+class Books(APIView):
+    def get(self, request):
+        """Index Request"""
+        print(request)
+        books = Book.objects.all()[:10]
+        data = BookSerializer(books, many=True).data
+        return Response(data)
+
+    serializer_class = BookSerializer
+    def post(self, request):
+        """Post request"""
+        print(request.data)
+        book = BookSerializer(data=request.data)
+        if book.is_valid():
+            b = book.save()
+            return Response(book.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(book.errors, status=status.HTTP_400_BAD_REQUEST)
+```
+
+### Exercise: UPDATE and DELETE
 
 Time to finish up the last two RESTful views we need on our application.
 
 1. Add `patch` and `delete` functions to your `BookDetailView` class view
 2. For each, locate the desired book using the `pk` (primary key)
-3. For `patch`, research how to use our serializer for updating data
+3. For `patch`, research how to use our serializer for updating data 
 4. For `delete`, research how to delete a resource with Django
 5. Return responses with either errors or successful HTTP statuses for each
 
-<br><br> 
 
+```py
+class BookDetail(APIView):
+
+    def get(self, request, pk):
+        """Show request"""
+        book = get_object_or_404(Book, pk=pk)
+        data = BookSerializer(book).data
+        return Response(data)
+
+    def patch(self, request, pk):
+        """Update Request"""
+        book = get_object_or_404(Book, pk=pk)
+        ms = BookSerializer(book, data=request.data, partial=True)
+        if ms.is_valid():
+            ms.save()
+            return Response(ms.data)
+        return Response(ms.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        """Delete Request"""
+        book = get_object_or_404(Book, pk=pk)
+        book.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+```
+
+
+<br><br>
 
 <!-- ## Bonus Lab: Concrete View Classes
 
