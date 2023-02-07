@@ -23,8 +23,7 @@ Developers should be able to:
 
 ## Preparation
 
-1. Fork and clone this repository **into the `django-env` folder**.
- [FAQ](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
+1. Fork and clone the repository **into the `django-env` folder**.
 1. Run `pipenv shell` **inside the `django-env` folder** to start up your
  virtual environment.
 1. Change into this repository's directory
@@ -198,7 +197,7 @@ Time to add a many-to-many relationship to `Book`.
 
 🟢  **View ERD**
 
-Following the [library documentation](docs/library.md), `Book` should have a field that references who has or is borrowing that books from the library.
+Following the [library documentation](/second-language/week-24/day-1/lecture-materials/library-erd), `Book` should have a field that references who has or is borrowing that books from the library.
 
 `Book` >---< `Borrower`
 
@@ -278,8 +277,7 @@ don't end up interacting with the `Book` or `Borrower`, but instead just CRUD on
 ## Hospital V3 : Many to Many
 
 Time to plug in a many-to-many relationship between `Doctor` and their
-`Patient`s. The [hospital documentation](docs/hospital.md) shows us that we
-should have a resource called `Appointment` to join `Doctor` and `Patient`.
+`Patient`s. The [hospital documentation](/second-language/week-24/day-1/lecture-materials/hospital-erd) shows us that we should have a resource called `Appointment` to join `Doctor` and `Patient`.
 
 🟢  **View ERD**
 
