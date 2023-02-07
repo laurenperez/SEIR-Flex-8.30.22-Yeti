@@ -5,6 +5,7 @@ week: 24
 day: 1
 type: "lecture"
 ---
+
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
 # Django Relationships
@@ -23,7 +24,8 @@ Developers should be able to:
 
 ## Preparation
 
-1. Fork and clone the repository **into the `django-env` folder**.
+1. Fork and clone this repository **into the `django-env` folder**.
+ [FAQ](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
 1. Run `pipenv shell` **inside the `django-env` folder** to start up your
  virtual environment.
 1. Change into this repository's directory
@@ -197,7 +199,7 @@ Time to add a many-to-many relationship to `Book`.
 
 🟢  **View ERD**
 
-Following the [library documentation](/second-language/week-24/day-1/lecture-materials/library-erd), `Book` should have a field that references who has or is borrowing that books from the library.
+Following the [library documentation](docs/library.md), `Book` should have a field that references who has or is borrowing that books from the library.
 
 `Book` >---< `Borrower`
 
@@ -231,8 +233,6 @@ class Book(models.Model):
   # Many to many borrowers relationship through loans:
   borrowers = models.ManyToManyField(
     Borrower,
-    through=Loan,
-    through_fields=('book_id', 'borrower_id'),
     related_name='loans',
     blank=True
   )
@@ -245,26 +245,72 @@ class Book(models.Model):
 
  [Django Rest Framework Serializer Docs](https://www.django-rest-framework.org/api-guide/relations/)
 
-### SQL Join
+### SQL Joins
 
 Sometimes, we want a table to keep track of the connections between resources.
 For example, a resource called `Loan` could keep track of the ID of the
-`Borrower` and the `Book` in our many-to-many relationship. In relational
-databases, this kind of resource/table that "joins" the relationship between two other resources is known as a join table. This table could also hold information about the loan, like due date and checkout date.
+`Borrower` and the `Book` in our many-to-many relationship. 
 
-We often talk about building a relationship that goes "through" this join
-table, which is why you'll often see the keyword `through` when building out join tables in different frameworks.
+ - In relational databases, this kind of resource/table that "joins" the relationship between two other resources is known as a join table. This table could also hold information about the loan, like due date and checkout date.
 
-In Django we can accomplish a join table for our `Book` >---< `Borrower`
-relationship using the current `Loan` model. We will need to modify our models
-so that `Loan` can be used to represent this relationship.
+ - We often talk about building a relationship that goes "through" this join table, which is why you'll often see the keyword `through` when building out join tables in different frameworks.
 
-1. Add two `ForeignKey`s to `Loan` (join table)
+ - In Django we can accomplish a join table for our `Book` >---< `Borrower` relationship using the current `Loan` model. 
+
+We will need to modify our models so that `Loan` can be used to represent this relationship:
+
+1. Add two `ForeignKeys` to `Loan` (join table)
     - This will keep track of the relationship to the `Book` and `Borrower`
     - Note: We can also give it any other fields we want, like a due date!
+
+
+🟢  **Code:**
+
+```py
+from django.db import models
+
+class Loan(models.Model):
+    # define ForeignKey fields for the book ID and borrower ID
+    book_id = models.ForeignKey('Book', on_delete=models.CASCADE)
+    borrower_id = models.ForeignKey('Borrower', on_delete=models.CASCADE)
+    due_date = models.DateField()
+
+    def __str__(self):
+        return f"Book #{self.book_id}, Borrower #{self.borrower_id}"
+```
+
+
 2. Update the `borrower` field on `Book` to go "through" the `Loan` table
     - Use `through` to reference the `Loan` model
     - Use `through_fields` to reference the fields on `Loan` that should refer to the `Borrower` and `Book` IDs
+
+```py
+from django.db import models
+from .loan import Loan  # <- import Loan
+from .borrower import Borrower
+
+class Book(models.Model):
+  title = models.CharField(max_length=100)
+  # author = models.CharField(max_length=100)
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now=True)
+
+  # Add a foreign key to the book as `author`:
+  author = models.ForeignKey('Author', related_name='books', on_delete=models.CASCADE)
+
+  # Many to many borrowers relationship through loans:
+  borrowers = models.ManyToManyField(
+    Borrower,
+    through=Loan, # <- add Loan
+    through_fields=('book_id', 'borrower_id'), #<- add through_fields
+    related_name='loans',
+    blank=True
+  )
+
+  def __str__(self):
+    return self.title
+```
+    
 3. Add a `LoanReadSerializer` to display the book and borrower objects
 
 `Book` -|--< `Loan` >--|- `Borrower`
@@ -272,12 +318,61 @@ so that `Loan` can be used to represent this relationship.
 We should be able to create a `Loan` and have that translate over to both
 `Book` and `Borrower`, based on the data in the `Loan` we created. We actually
 don't end up interacting with the `Book` or `Borrower`, but instead just CRUD on
-`Loan`s.
+`Loans`.
+
+```py
+
+from rest_framework import serializers
+
+from .models.book import Book
+from .models.author import Author
+from .models.borrower import Borrower
+from .models.loan import Loan
+
+class BookSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Book
+    fields = '__all__'
+
+class BookReadSerializer(BookSerializer): # <- inherit from above 
+  author = serializers.StringRelatedField() 
+
+class AuthorSerializer(serializers.ModelSerializer):
+  # add the books field and pass it through the BookSerializer
+  books = BookSerializer(many=True, read_only=True)
+  class Meta:
+    model = Author
+    fields = ('first_name', 'last_name', 'books', 'id')
+
+class BorrowerSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Borrower
+    fields = '__all__'
+
+class BorrowerLoanSerializer(BorrowerSerializer):
+  loans = BookReadSerializer(read_only=True, many=True)
+
+class LoanSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Loan
+        fields = '__all__'
+
+class LoanReadSerializer(serializers.ModelSerializer):
+  book = BookReadSerializer(source='book_id')
+  borrower = BorrowerSerializer(source='borrower_id')
+  class Meta:
+      model = Loan
+      fields = ('book', 'borrower', 'due_date', 'id')
+```
+
+<br><br>
+
 
 ## Hospital V3 : Many to Many
 
 Time to plug in a many-to-many relationship between `Doctor` and their
-`Patient`s. The [hospital documentation](/second-language/week-24/day-1/lecture-materials/hospital-erd) shows us that we should have a resource called `Appointment` to join `Doctor` and `Patient`.
+`Patient`s. The [hospital documentation](docs/hospital.md) shows us that we
+should have a resource called `Appointment` to join `Doctor` and `Patient`.
 
 🟢  **View ERD**
 

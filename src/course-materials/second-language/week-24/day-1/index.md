@@ -14,4 +14,6 @@ topics: "Django Relationships"
 
 - [**Lecture:** Django Relationships](/second-language/week-24/day-1/lecture-materials/django-relationships) 
 
+- [**Resource:** Library ERD](/second-language/week-24/day-1/lecture-materials/library-erd) 
+- [**Resource:** Hospital ERD](/second-language/week-24/day-1/lecture-materials/hospital-erd) 
 
