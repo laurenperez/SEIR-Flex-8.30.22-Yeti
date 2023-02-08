@@ -493,7 +493,7 @@ Code along as we add some basic serialization for our book resource.
 ```py
 from rest_framework import serializers
 
-from .models.book import Book
+from .models import Book
 
 class BookSerializer(serializers.ModelSerializer):
   class Meta:
@@ -575,6 +575,7 @@ class Books(APIView):
         data = BookSerializer(books, many=True).data # <- serialize that data
 ```
 
+        Note:  If a nested representation should be a list of items, you should pass the `many=True` flag to the nested serializer.
 <br>
 
 **Step 3: Return a RESTful response**
@@ -602,7 +603,7 @@ We have one final thing to do, and that's update our urls! Open up
 reference our first set of URLs like:
 
 ```py
-path('', BooksView.as_view(), name='books')
+path('', Books.as_view(), name='books')
 ```
 
 > Note: This will register our index view, but turns out it will register any
@@ -654,7 +655,7 @@ class Books(APIView):
     def get(self, request):
         """Index Request"""
         print(request)
-        books = Book.objects.all()[:10]
+        books = Book.objects.all()
         data = BookSerializer(books, many=True).data
         return Response(data)
 
@@ -674,9 +675,9 @@ class Books(APIView):
 
 Time to finish up the last two RESTful views we need on our application.
 
-1. Add `patch` and `delete` functions to your `BookDetailView` class view
+1. Add `put` and `delete` functions to your `BookDetailView` class view
 2. For each, locate the desired book using the `pk` (primary key)
-3. For `patch`, research how to use our serializer for updating data 
+3. For `put`, research how to use our serializer for updating data 
 4. For `delete`, research how to delete a resource with Django
 5. Return responses with either errors or successful HTTP statuses for each
 
@@ -690,7 +691,7 @@ class BookDetail(APIView):
         data = BookSerializer(book).data
         return Response(data)
 
-    def patch(self, request, pk):
+    def put(self, request, pk):
         """Update Request"""
         book = get_object_or_404(Book, pk=pk)
         ms = BookSerializer(book, data=request.data, partial=True)

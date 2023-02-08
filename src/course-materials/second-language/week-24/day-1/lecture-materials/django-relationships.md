@@ -106,7 +106,7 @@ The `AuthorSerializer` can be updated to reference the `BookSerializer` and then
 🟢  **Code:**
 ```py
 class AuthorSerializer(serializers.ModelSerializer):
-    books = BookSerializer(many=True) # <- Add this reference to the Books Serializer
+    books = BookSerializer(many=True, required=False) # <- Add this reference to the Books Serializer
     class Meta:
         model = Author
         fields = ('first_name', 'last_name', 'books') # <- update fields
@@ -114,6 +114,8 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 Now, when an `Author` is returned from the database it will include a reference
 to that author's `books`.
+
+- NOTE: To make adding books OPTIONAL during the creation of an Author, pass the flag  `required=False`
 
 
 ## Lab : Do it again! 
@@ -339,7 +341,7 @@ class BookReadSerializer(BookSerializer): # <- inherit from above
 
 class AuthorSerializer(serializers.ModelSerializer):
   # add the books field and pass it through the BookSerializer
-  books = BookSerializer(many=True, read_only=True)
+  books = BookSerializer(many=True, required=False, read_only=True)
   class Meta:
     model = Author
     fields = ('first_name', 'last_name', 'books', 'id')
