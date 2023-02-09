@@ -10,21 +10,19 @@ type: "lecture"
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
 
-# Django Authentication using Django Rest Framework
+# Django Authentication
 
 
 ## Preparation
 
-1. Fork and clone [this repository](https://git.generalassemb.ly/laurenperez-ga/django-authentication) **into the `django-env` folder**.
- [FAQ](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
-2. Run `pipenv shell` **inside the `django-env` folder** to start up your
- virtual environment.
+1. Fork and clone [this repository](https://git.generalassemb.ly/laurenperez-ga/django-authentication) **into the `django-env` folder**. [FAQ](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
+2. Run `pipenv shell` **inside the `django-env` folder** to start up your virtual environment.
 3. Change into this repository's directory
 4. Create a psql database with `createdb "django-authentication"`
 5. Run the server with `python manage.py runserver`
 
 
-## Authentication with Django
+## Authentication with Django Rest Framework
 
 We will be using **session based authentication** along with **django-rest-framework** in our web application by leveraging the built-in Django session framework.
 
