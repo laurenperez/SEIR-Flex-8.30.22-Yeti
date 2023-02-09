@@ -9,301 +9,378 @@ type: "lecture"
 
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# Django Auth
 
-So far we have looked at making Django APIs that do not include any user
-ownership or even a way for a user to sign in! Time to change that.
+# Django Authentication using Django Rest Framework
 
-[This repository](https://git.generalassemb.ly/ga-wdi-boston/django-auth) contains a basic API for `mangos` and `users`, but no resource
-ownership included.
-
-## Prerequisites
-
-- [django-relationships](https://git.generalassemb.ly/ga-wdi-boston/django-relationships)
-
-## Objectives
-
-By the end of this, developers should be able to:
-
-- Explain how Django handles authentication
-- Manage view permissions
-- Manage resource "ownership"
 
 ## Preparation
 
-1. Fork and clone [this repository](https://git.generalassemb.ly/ga-wdi-boston/django-auth) **into the `django-env` folder**.
+1. Fork and clone [this repository](https://git.generalassemb.ly/laurenperez-ga/django-authentication) **into the `django-env` folder**.
  [FAQ](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
-1. Create and checkout to a new branch, `training`, for your work.
-1. Run `pipenv shell` to start up your virtual environment **in the `django-env` folder**.
-1. Run `pipenv install django-rest-auth django-cors-headers python-dotenv dj-database-url` **in the `django-env` folder**.
-3. Create a psql database for the project
-    1. Type `psql` to get into interactive shell
-    2. Run `CREATE DATABASE "django_mangos_auth";`
-    3. Exit shell
-    OR:
-    1. Run `createdb "django_mangos_auth"`
-4. Do not run your migrations yet.
-1. Open the repository in Atom with `atom .`
+2. Run `pipenv shell` **inside the `django-env` folder** to start up your
+ virtual environment.
+3. Change into this repository's directory
+4. Create a psql database with `createdb "django-authentication"`
+5. Run the server with `python manage.py runserver`
 
-## The Template
 
-This project is based on the [`django-auth-template`](https://git.generalassemb.ly/ga-wdi-boston/django-auth-template), with a little code
-removed for our purposes.
+## Authentication with Django
 
-### Code Along: Creating the `.env` File
+We will be using **session based authentication** along with **django-rest-framework** in our web application by leveraging the built-in Django session framework.
 
-Create a file named `.env` in the root of this repository.
+WHY YOU SHOULD AVOID **JWT** FOR DJANGO REST FRAMEWORK AUTHENTICATION
+JWT (Json Web Token) is a very popular method to provide authentication in APIs. If you are developing a modern web application with Vue.js or React as the frontend and Django Rest Framework as the backend, there is an high probability that you are considering JWT as the best method to implement authentication.
 
-Inside, we will define environment variables the template needs. For now, copy
-the following example into the `.env` file and save.
+The reality is that JWT is just one method, and unfortunately not the simpler, nor the most reliable. JWT is not supported out-of-the-box in Django Rest Framework and requires additional libraries and additional configuration for your project. [source](https://www.guguweb.com/2022/01/23/django-rest-framework-authentication-the-easy-way/)
 
-```sh
-ENV=development
-DB_NAME_DEV="django_mangos_auth"
-SECRET=cp8pxf+@r5obja0pvaare6e@grv1bzn+xytlo+2uwy
-```
+<br><br>
 
-Once you have these environment variables set up, run the migrations with 
-`python manage.py migrate`.
+### 1) Add Authentication Classes to Settings
 
-## Defining Authentication and Permissions Classes
-
-We can set up what kind of authentication we want to use by either declaring
-global defaults for our project or by attaching individual authentication
-classes to individual views. These authentication classes are provided by
-Django and give us different abilities.
-
-The `settings.py` file of the project can be used to define defaults to our
-project, including defaults pertaining to the Django Rest Framework. Below,
-the `REST_FRAMEWORK` variable is assigned a dictionary with some defaults for
-authenticatiton and permissions. This code is telling the project to
-use `TokenAuthentication` and to require authentication (a valid token) for all
-requests by default.
+In settings.py add the following:
 
 ```py
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication'
+        'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated'
-    ]
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
+
 ```
 
-If some views have unique permissions or authentication, the
-`authentication_classes` and `permission_classes` class variables can be
-overriden on class-based views.
+TIP: *Authentication* deals with recognizing the users that are connecting to your API,
+while *Permissions* involves giving access to some resources to the users.
+
+<br><br>
+
+### 2) Create your Login Serializer
+
+In your **api app** create a `serializers.py` file and add the following:
 
 ```py
-class ExampleView(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated,]
+from django.contrib.auth import authenticate
+from rest_framework import serializers
+
+
+class LoginSerializer(serializers.Serializer):
+    """
+    This serializer defines two fields for authentication:
+      * username
+      * password.
+    It will try to authenticate the user with when validated.
+    """
+    username = serializers.CharField(
+        label="Username",
+        write_only=True
+    )
+    password = serializers.CharField(
+        label="Password",
+        style={'input_type': 'password'},
+        trim_whitespace=False,
+        write_only=True
+    )
+
+    def validate(self, attrs):
+        # Get username and password from request
+        username = attrs.get('username')
+        password = attrs.get('password')
+
+
+        if username and password:
+            # Try to authenticate the user using DRF built in method authenticate()
+            user = authenticate(request=self.context.get('request'),
+                                username=username, password=password)
+
+            if not user:
+                # If we don't have a valid user, raise a ValidationError
+                msg = 'Access denied: wrong username or password.'
+                raise serializers.ValidationError(msg, code='authorization')
+        else:
+            msg = 'Both "username" and "password" are required.'
+            raise serializers.ValidationError(msg, code='authorization')
+        # We have a valid user, put it in the serializer's validated_data.
+        # It will be used in the view.
+        attrs['user'] = user
+        return attrs
+
 ```
 
-There are a lot of these classes and can all be found in the
-[DRF authentication documentation](https://www.django-rest-framework.org/api-guide/authentication/).
+<br><br>
 
-Setting up our authentication and permissions either globally or on individual
-viewsets will set up those routes to either allow or prevent access without
-proper authentication. This will also give us some extra information on our
-`request` object inside our routes. In our case with `TokenAuthentication`, we
-will be given a `request.user` and `request.auth`. These objects will be what
-allow us to implement user ownership.
+### 3) Create your Login View
 
-### TokenAuthentication
+Add the following to your `views.py`:
 
-Remember how we used tokens in our JavaScript clients and Express APIs? Token
-authentication works by having the client request a token on something like a
-user login. The client stores the token, then sends it in requests so the API
-knows who is making that request. Then, the API can use the token to check if
-the user has the correct permissions to do what they're doing.
+```py
+from django.shortcuts import render
+from rest_framework import permissions
+from rest_framework.views import APIView
+from django.contrib.auth import login
+from rest_framework import status
+from rest_framework.response import Response
 
-By using the [`TokenAuthentication` class](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication) from the Django
-Rest Framework, we will be able to authenticate users based on the token they
-send in their requests. Then, we will be able to set permission classes on our
-views, such as `IsAuthenticated` to ensure we get a proper token in the
-request. If we do, we will have access to a `user` object and `auth` token on
-the `request` object.
+from .serializers import LoginSerializer
 
-## The Built-In User
+class LoginView(APIView):
+    # This view should be accessible also for unauthenticated users.
+    permission_classes = (permissions.AllowAny)
 
-You might remember when we used our admin CMS that Django provides for us, we
-created a "super" user and used that to log in to that view.
+    def post(self, request, format=None):
+        serializer = LoginSerializer(data=request.data,
+            context={ 'request': request })
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        login(request, user)
+        return Response(None, status=status.HTTP_202_ACCEPTED)
 
-That "super" user wasn't really that "super" - it was actually just a regular
-user given access to that admin side of our application! Django provides a
-built-in `User` model that you can use to get going with your project.
+```
 
-- [Use the Django Authentication System](https://docs.djangoproject.com/en/3.1/topics/auth/default/)
+<br><br>
 
-### Custom Users
+### 4) Add LoginView to URLS
 
-While Django's built-in user is super awesome, it is **highly recommended** by
-both the Django community and the [Django documentation itself](https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project) to build a custom user, even if the built-in
-user suits your needs.
+Then add your LoginView to your list of **url patterns** in the main `urls.py`:
 
-The `django-auth-template` will come with a provided custom user, exended to
-use an email in place of a username.
+```py
+from django.contrib import admin
+from django.urls import path
 
-## User Ownership
+from api import views
 
-In order to implement "user ownership" we will really be using a combination
-of a one-to-many relationship and some Python logic to manage that relationship.
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('login/', views.LoginView.as_view())
+]
+```
 
-### Code-Along: The Mango Model
+<br><br>
 
-To complete user ownership, we will have to set up a relationship between our
-`Mango`s and our `User`s.
+### 5) The UserModel
 
-1. Add a `ForeignKey` to the `Mango` model
-3. Run migrations
+At the core of Django's authentication, is the provided UserModel which by default has the following attributes:
 
-### Code-Along: `Create`
+- username
+- password
+- email
+- first_name
+- last_name
 
-Let's update the `post` method in the `Mangos` view.
+This means that we do not create the model OR need migration file for it.
 
-We will use the token the user sends us to know who the "owner" is, and thanks
-to the `TokenAuthentication` class we will have access to the user on the
-request object as the key `user`.
+**Let's migrate:**
 
-1. Set the `owner` on the incoming request data to the `request.user.id`
-2. Add reference to the `'owner'` field in the `MangoSerializer`
+```shell
+# python3 manage.py makemigrations -> no need for this, django handles the user model
 
-### Code-Along: `Show`
+python3 manage.py migrate
+python3 manage.py createsuperuser
 
-For the `show` method, we need to make sure the user owns the mango they want
-to see. To do this, we can compare the `owner` of the mango against the
-`request.user.id` value. If they don't have permission, we can throw a
-permissions error.
+(... follow instructions ...)
 
-### Lab: `Index`, `Update`, and `Delete`
+Username (leave blank to use 'yourdefaultusername'):
+Email address: me@email.com
+Password:
+Password (again):
+Superuser created successfully.
+```
 
-**Index**
+**Save these credentials somewhere, you don't want to get locked out of the django admin portal later.**
 
-The index method is the `get` method in the `Mangos` class. This method should
-[`filter`](https://docs.djangoproject.com/en/3.2/topics/db/queries/#retrieving-specific-objects-with-filters) out only the mangos that the signed-in user owns and return that list.
+Now lets run our server:
 
-**Update**
+```shell
+python3 manage.py runserver
+```
 
-The update method is the `partial_update` method in the `MangosDetail` class.
-This method should locate the mango and check that the user owns it. Then, override
-the `owner` of the request data so that it is set to the `request.user.id`. 
-Finally, [use the serializer to perform an update](https://www.django-rest-framework.org/api-guide/serializers/#saving-instances) on the mango object, save it, 
-and return it to the client.
+Go to **localhost:8000** to see.... nothing.
 
-**Delete**
+We don't have a view here, but it will give you some suggestions:
 
-The `delete` method lives in the `MangosDetail` class. Ensure the user owns the
-mango they are trying to delete, then [`delete()`](https://docs.djangoproject.com/en/3.2/topics/db/queries/#topics-db-queries-delete) it.
+**localhost:8000/admin/
+localhost:8000/login/**
 
-## Bonus: The Custom User
+<br><br>
 
-The `django-auth-template` will include a custom user.
+## 6) Django Admin Portal
 
-### Custom User Model
+Go to **localhost:8000/admin/** to see the most magical thing:
 
-There is a file in the `models` folder for our user model called `user.py`.
-Here, the user model inherits from the `AbstractBaseUser` and will use an
-email field in place of the username. The string version of our users will
-return their email.
+- Your very own admin portal, provided by django when you created a superuser!
+- Enter the credentials that you just made to log in.
 
-#### Custom User Model Manager
+Now you have full visibility of your models:
 
-In addition to a model, we will need to override the class of the `UserManager`
-for that model. This is recommended by Django in the case that we change any of
-the fields on our model.
+- Groups
+- Users
 
-This "manager" of our User model contains two important methods for
-creating users and superusers.
+You can actually perform full crud operations right from the portal.
 
-#### Custom User Model Registration
+Let's make a user so we can test our Login functions:
 
-Finally, to tell our project about this new `User` model the `AUTH_USER_MODEL`
-needs to be overridden in `settings.py`.
+- click **`+Add`** next to the user model
 
-### Custom `User` Admin Forms
+**Create a user.**
 
-If you look at the `admin.py` file in this repo, you'll see some extra code
-that we don't normally need for our custom resources. This code is specifically
-modifying the already baked-in forms for the admin content management system.
-These forms assume the user has certain data. When we change that data, we also
-need to change the forms.
+## 7) Login with User
 
-### User Routes
+Test your new user in postman by sending a **POST** request to
 
-Let's take a look at the user routes included with the `django-auth-template`:
-signing up, signing in, changing password, and signing out.
+- localhost:8000/login/
 
-#### Sign Up
+**Add the user credentials to the body:**
 
-For sign up we need to create a user and save it to the database. We also want
-to require a `password_confirmation` field in addition to an  `email` and
-`password`. The `SignUp` view class inherits from `generics.CreateAPIView` and
-will only support a `post` method.
+username: myusername
+password: mypassword
 
-This view class uses two serializers: `UserRegisterSerializer` and `UserSerializer`.
+If you entered them correctly you'll notice that a couple of cookies were returned with your response.
 
-The `UserSerializer` inherits from the `ModelSerializer` class, so it can be
-used for creating and updating as well as validating data. It is used to create
-the user after we use the `UserRegisterSerializer` to validate that the incoming
-`password` and `password_confirmation` exist and match.
+If we will persist that session cookie in each request, our user will be persistently authenticated.
 
-Once the incoming data has been validated (`UserRegisterSerializer`) and the
-user has been created (`UserSerializer`), the user is saved and a response
-is sent back to the client.
+<br><br>
 
-#### Sign In
+### 8) SignUp View
 
-Signing in requires us to start working with tokens. This class view also
-inherits from `generics.CreateAPIView` and supports a POST request.
+We can create a new user in the admin portal... great. 
+Now we need an endpoint to collect user info for the first time.
 
-For any routes that create data, Django requires the definition of a
-`serializer_class` on the class view. The sign in route uses the
-`UserSerializer` class for this.
+Add a new view for **SignUp**:
 
-The `django.contrib.auth` library that is included with Django gives us two
-important functions for sign in: `authenticate` and `login`. The `authenticate`
-method will take our request as well as the user's email and password
-combination. Then, as long as our user exists and is active, we will use
-`login` to log them in!
+```py
+class SignUpView(generics.CreateAPIView):
+    # This view should be accessible also for unauthenticated users.
+    authentication_classes = ()
+    permission_classes = ()
 
-- [`login()`](https://docs.djangoproject.com/en/3.1/topics/auth/default/#how-to-log-a-user-in)
-- [`authenticate()`](https://docs.djangoproject.com/en/3.1/topics/auth/default/#django.contrib.auth.authenticate)
+    def post(self, request):
+        print(request.data)
+        user = UserRegisterSerializer(data=request.data)
+        if user.is_valid():
+            created_user = UserSerializer(data=user.data)
+            if created_user.is_valid():
+                created_user.save()
+                return Response({ 'user': created_user.data }, status=status.HTTP_201_CREATED)
+            else:
+                return Response(created_user.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
+```
 
-The response should include a token, so the `User` model includes some methods
-to handle tokens. For signing in, the `get_auth_token` method clears out the
-previous token and creates a new one, saving it on the user.
 
-#### SignOut
 
-The `SignOut` class view inherits from `generics.DestroyAPIView`, and will only
-support DELETE requests.
+We will also need two new serializers to handle the incoming user credentials:
 
-This method calls the `delete_token` method on the user, which will delete the
-token on that user instance in the database.
+Create a **UserRegisterSerializer** and  **UserSerializer**:
 
-We then use the [`logout`](https://docs.djangoproject.com/en/3.1/topics/auth/default/#django.contrib.auth.logout) method to clear out any session data.
+```py
+from django.contrib.auth import authenticate, get_user_model
 
-#### Change Password
+class UserRegisterSerializer(serializers.Serializer):
+    # Required fields for signup
+    username = serializers.CharField(max_length=100, required=True)
+    email = serializers.CharField(max_length=100, required=True)
+    first_name = serializers.CharField(max_length=100, required=True)
+    last_name = serializers.CharField(max_length=100, required=True)
+    password = serializers.CharField(required=True)
+    password_confirmation = serializers.CharField(required=True, write_only=True)
 
-The `ChangePassword` class is going to inherit from `generics.UpdateAPIView`
-and use the `partial_update` method to allow for a partial user update. The
-`ChangePasswordSerializer` validates the incoming request data to require a
-`new` and `old` password.
+    def validate(self, data):
+        # Ensure password & password_confirmation exist
+        if not data['password'] or not data['password_confirmation']:
+            raise serializers.ValidationError('Please include a password and password confirmation.')
+        # Ensure password & password_confirmation match
+        if data['password'] != data['password_confirmation']:
+            raise serializers.ValidationError('Please make sure your passwords match.')
+        return data
 
-The [`check_password`](https://docs.djangoproject.com/en/3.1/ref/contrib/auth/#django.contrib.auth.models.User.check_password) method on the
-user object is used to compare the `old` password provided with the actual
-password stored on the user. Then, the [`set_password`](https://docs.djangoproject.com/en/3.1/ref/contrib/auth/#django.contrib.auth.models.User.set_password)
-method can be used to update the password itself. Finally, the updated user is saved with the new password.
 
-## Additional Resources
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'email',
+            'first_name',
+            'last_name',
+        ]
+        extra_kwargs = { 'password': { 'write_only': True, 'min_length': 5 } }
 
-- [Django Rest Framework Tutorial: Authentication](https://www.django-rest-framework.org/api-guide/authentication)
-- [What are ** and * in Python](https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters)
+    # This create method will be used for model creation
+    def create(self, validated_data):
+        return get_user_model().objects.create_user(**validated_data)
+```
+<br>
 
-## [License](LICENSE)
+Finally, add the **SignUpView** to our list of url patterns in `urls.py`:
 
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+```py
+path('signup/', views.SignUpView.as_view()),
+```
+
+Test it out! Sign up a new user is postman.  
+Can you login and get a cookie with your new user? 
+
+<br><br>
+
+
+
+### 9) Logout
+
+Add the following to `views.py` to use the build in logout method provided by Django:
+
+
+```py
+from django.contrib.auth import login, logout # <- import built in logout method
+
+
+class LogoutView(APIView):
+    # This view needs no protection, but you can require it if desired
+    authentication_classes = ()
+    permission_classes = ()
+
+    def post(self, request, format=None):
+        logout(request) # <- this handy built in method deletes the users cookie in the browser
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+```
+
+
+Add your logout url to url patterns in `urls.py`: 
+
+
+```py
+ path('logout/', views.LogoutView.as_view()),
+```
+<br><br>
+
+
+### 10) Protecting Profile Views
+
+
+  Note: We added `rest_framework.permissions.IsAuthenticated` in our `DEFAULT_PERMISSION_CLASSES` setting, so each view will require that the user is authenticated, unless otherwise specified.
+
+
+Add a **Profile view** for the user: 
+
+```py
+#add to top
+from .serializers import LoginSerializer, UserSerializer
+
+
+class ProfileView(APIView): # will be protected by default
+    
+    def get(self, request):
+        user = UserSerializer(request.user).data
+        return Response(user)
+```
+
+
+Add this new view to our url patterns:
+
+```py
+path('profile/', views.ProfileView.as_view())
+```
+
+Any future views you create and add to your URL patterns will be protected too by default. 
+
