@@ -18,7 +18,7 @@ type: "lecture"
 1. Fork and clone [this repository](https://git.generalassemb.ly/laurenperez-ga/django-authentication) **into the `django-env` folder**. [FAQ](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
 2. Run `pipenv shell` **inside the `django-env` folder** to start up your virtual environment.
 3. Change into this repository's directory
-4. Create a psql database with `createdb "django-authentication"`
+4. Create a psql database with `createdb "django-auth"`
 5. Run the server with `python manage.py runserver`
 
 
@@ -49,8 +49,8 @@ REST_FRAMEWORK = {
 
 ```
 
-TIP: *Authentication* deals with recognizing the users that are connecting to your API,
-while *Permissions* involves giving access to some resources to the users.
+    TIP: *Authentication* deals with recognizing the users that are connecting to your API,
+    while *Permissions* involves giving access to some resources to the users.
 
 <br><br>
 
@@ -156,15 +156,15 @@ urlpatterns = [
 
 <br><br>
 
-### 5) The UserModel
+### 5) The User Model
 
-At the core of Django's authentication, is the provided UserModel which by default has the following attributes:
+At the core of Django's authentication, is the provided User Model which by default has the following attributes:
 
-- username
-- password
-- email
-- first_name
-- last_name
+    - username
+    - password
+    - email
+    - first_name
+    - last_name
 
 This means that we do not create the model OR need migration file for it.
 
@@ -206,19 +206,19 @@ localhost:8000/login/**
 
 Go to **localhost:8000/admin/** to see the most magical thing:
 
-- Your very own admin portal, provided by django when you created a superuser!
-- Enter the credentials that you just made to log in.
+    - Your very own admin portal, provided by django when you created a superuser!
+    - Enter the credentials that you just made to log in.
 
 Now you have full visibility of your models:
 
-- Groups
-- Users
+    - Groups
+    - Users
 
 You can actually perform full crud operations right from the portal.
 
 Let's make a user so we can test our Login functions:
 
-- click **`+Add`** next to the user model
+    - click **`+Add`** next to the user model
 
 **Create a user.**
 
@@ -226,7 +226,7 @@ Let's make a user so we can test our Login functions:
 
 Test your new user in postman by sending a **POST** request to
 
-- localhost:8000/login/
+    - localhost:8000/login/
 
 **Add the user credentials to the body:**
 
