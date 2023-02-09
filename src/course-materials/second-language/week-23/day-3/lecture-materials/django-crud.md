@@ -29,10 +29,10 @@ By the end of this, developers should be able to:
 
 ## Preparation
 
-1. Create a psql database for the project with `createdb db-name`, or use the shell:
-   1. Type `psql` (`psql -U postgres` on Windows) to get into interactive shell.
-   2. Run `CREATE DATABASE <db-name>;`.
-   3. Exit shell with `\q`.
+1. Create a psql database for the project with `createdb campus` OR use the shell:
+   - Type `psql` (`psql -U postgres` on Windows) to get into interactive shell.
+   - Run `CREATE DATABASE campus;`.
+   - Exit shell with `\q`.
 2. Run `pipenv shell` in the virtual environment folder, `unit-4/django-env`.
 
 ## SQL Database with Django
@@ -45,26 +45,34 @@ most popular SQL databases out there!
 
 ## Code-Along: Setting Up Our App
 
-1. Create Project
+1. Create an outer folder to hold our project and apps:
 
-In terminal, we need to create our project. Run `django-admin startproject campus_crud .`.
-This will create our main project folder.
+`mkdir django_campus_crud`
 
-> Note: Don't forget the `.` in your command so we don't have redundant nested
-> folders.
+2. cd into this repo: 
 
-2. Create App
+`cd django_campus_crud`
+
+3. In the terminal, we need to create our **Project**:
+
+ `django-admin startproject campus_crud .`  <- yes there is a dot here
+
+This will create our django project folder.
+
+ - Note: The `.` in your command prevents redundant nested folders.
+
+4. Create an **App**:
 
 We can have as many apps as we might want, but for now, we will just make one.
-Let's make sure we're in our `django_crud` directory and create our first app.
 
-Run `django-admin startapp first_app` to create our `first_app` app folder next
-to the `campus_crud` folder.
+`django-admin startapp first_app`
+
+This will create a folder next to the `campus_crud` folder.
 
 Our directory should look like this:
 
 ```
-- django-crud/
+- django-campus-crud/
   - campus_crud/
     - settings.py
     - ... other files
@@ -72,9 +80,8 @@ Our directory should look like this:
     - migrations/
     - apps.py
     - ... other files
-  - README.md
-  - Pipfile
   - manage.py
+  - README.md
   - ... other files
 ```
 
@@ -123,7 +130,12 @@ INSTALLED_APPS = [
 We'll need a new package to work with our database, so we'll need to install
 that into our virtual environment.
 
-Run `pipenv install psycopg2-binary`. We should see it added to `django-env/Pipfile`.
+Run:
+
+`pipenv install psycopg2-binary` 
+
+ 
+We should see it added to `django-env/Pipfile`.
 
 Once we have this package, we'll be able to tell Django to use PostgreSQL
 instead of the default, which is a very minimalist database called SQLite3.
@@ -148,7 +160,7 @@ Update the above to look like:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django-campus',
+        'NAME': 'campus', # <- the name of our DB
     }
 }
 ```
@@ -182,6 +194,8 @@ the actual app.
 >
 > `You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.`
 
+<br>
+
 ### Code-Along: Our First View
 
 Navigate to the `first_app/views.py` file. This is where we will add our function
@@ -193,7 +207,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-  return HttpResponse('<h1>Welcome to our campus! /ᐠ｡‸｡ᐟ\ﾉ</h1>')
+  return HttpResponse('<h1>Welcome to our campus!</h1>')
 ```
 
 Currently, our view is just returning an `HttpResponse` with some HTML in it to
@@ -271,8 +285,11 @@ ourselves.
 
 Let's start building our campus's library! Just like we created our `first_app`
 app, we're now going to create a `library` app to handle all the functionality
-of our library. To do this we will make sure we're in our `django_crud`
-directory and run `django-admin startapp library`.
+of our library. 
+
+To do this we will make sure we're in our `django_crud`directory and run:
+
+`django-admin startapp library`
 
 > Note: Don't forget to register our `library` app in `campus_crud/settings.py` just like we did for our `first_app` app.
 
@@ -337,6 +354,8 @@ Here are the commands with which we should be familiar:
 >
 > \- [Django Migration Commands](https://docs.djangoproject.com/en/3.0/topics/migrations/#the-commands)
 
+<br><br>
+
 ## Django ORM
 
 What is an ORM?
@@ -349,6 +368,8 @@ supplies us with in its [database API](https://docs.djangoproject.com/en/3.1/top
 > objects from our database, it is done through a Manager object. Django adds a
 > Manager to every Model by default; that's the `objects` attribute we'll be using
 > later!
+
+<br><br>
 
 ## Code-Along: The Django Shell
 
@@ -363,7 +384,7 @@ python3 manage.py shell
 
 Let's try making some books together.
 
-## Code-Along: Index
+## Index
 
 We need to set up a few things to make an index request to our Books:
 
@@ -395,8 +416,11 @@ registering our app's urls in `campus_crud/urls.py`.
 > **Our URL will point to a certain view function that will be called when
 > we reach the URL**.
 
+
+Add to **`library/urls.py`**:
+
+
 ```py
-#library/urls.py
 from django.urls import path
 from .views import index
 
@@ -404,8 +428,11 @@ urlpatterns = [
     path('', index, name='books'),
 ]
 
+```
+Add to **`campus_crud/urls.py`**:
 
-#campus_crud/urls.py
+
+```py
 from django.contrib import admin
 from django.urls import path, include
 
@@ -416,8 +443,7 @@ urlpatterns = [
 ]
 ```
 
-Finally, test your endpoint by going to `http://localhost:8000/books` in the
-browser.
+Finally, test your endpoint by going to `http://localhost:8000/books` in the browser.
 
 <br><br>
 
@@ -448,19 +474,37 @@ like `/books` and `/books/:id` (written a little differently in Django land) tha
 will run different view logic depending on if we hit that endpoint with a certain
 HTTP verb like GET or POST.
 
-🟢 **Code:**
+**Code:**
 
-1. Run `pipenv install djangorestframework` to install this package into our
-   application.
+1.  To install this package into our application run:
+
+`pipenv install djangorestframework`
+
+<br> 
 
 If you open up `Pipfile`, you should see that we have a reference to this
 package in that file under `[packages]`. When someone else clones our project
 down, running `pipenv install` will run through this file and make sure all the
 necessary dependencies are installed.
 
-2. We need to add the rest framework to our project's installed apps. Open
-   `campus_crud/settings.py` and add `'rest_framework'` to the
-   `INSTALLED_APPS` list.
+2. We need to add the rest framework to our project's installed apps. 
+Open `campus_crud/settings.py` and add `'rest_framework'` to the `INSTALLED_APPS` list.
+
+```py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework', # <-  add it here above your apps
+    'first_app',
+    'library'
+]
+```
+
+<br><br>
 
 ## Code-Along: Serializers
 
@@ -482,13 +526,15 @@ django rest framework has a lot of information about how their serializers work:
 - [Django Rest Framework Serializers API Documentation](https://www.django-rest-framework.org/api-guide/serializers/)
 - [CDRF Docs - Serializer Class](http://www.cdrf.co/3.9/rest_framework.serializers/ModelSerializer.html)
 
+<br>
+
 ### 1. Create Serializer Files
 
 Create a file in the `library` app folder called `serializers.py`.
 
 Code along as we add some basic serialization for our book resource.
 
-🟢 **Code:**
+**Code:**
 
 ```py
 from rest_framework import serializers
@@ -500,6 +546,8 @@ class BookSerializer(serializers.ModelSerializer):
     model = Book
     fields = '__all__'
 ```
+
+<br>
 
 ## Class Based Views
 
@@ -514,11 +562,11 @@ We will use the documentation to help us:
 
 <br>
 
-### 2. Rewrite Index View as Class Based Views
+### 1. INDEX
 
 Let's make some changes to our views imports first:
 
-🟢 **Code:**
+**Code:**
 
 1. Remove the `django.http` import.
 2. Add:
@@ -538,12 +586,12 @@ from .serializers import BookSerializer
 
 <br>
 
-**Step 1: Setting up the new views**
+**Step 1: Setting up the new view**
 
-1. For our index request, we can start off by making a class for the views that
-   will go to `/books`. Let's call this class `BooksView` and have it inherit from
-   `APIView`. Inside of it, we will define a view by using `get` as our function
-   name so it only works for GET requests.
+For our index request, we can start off by making a class for the views that
+will go to `/books`. Let's call this class `Books` and have it inherit from
+`APIView`. Inside of it, we will define a view by using `get` as our function
+name so it only works for GET requests.
 
 ```py
 class Books(APIView):
@@ -599,7 +647,7 @@ class Books(APIView):
 **Step 4: Update our URLs**
 
 We have one final thing to do, and that's update our urls! Open up
-`library/urls.py`, and change to importing the `BooksView` class. Then, we can
+`library/urls.py`, and change to importing the `Books` class. Then, we can
 reference our first set of URLs like:
 
 ```py
@@ -608,15 +656,15 @@ path('', Books.as_view(), name='books')
 
 > Note: This will register our index view, but turns out it will register any
 > others if we had them as well! Later on we will add a `post` function to the
-> `BooksView` class, and we won't need to update our URLs at all.
+> `Books` class, and we won't need to update our URLs at all.
 
 <br>
 
-### Exercise: Show
+### 2) SHOW
 
 Now, try it on your own with `show`!
 
-1. Create a new class called `BookDetailView`
+1. Create a new class called `BookDetail`
 2. Add a `get` function for the show request
 3. Locate (`get_object_or_404`) and serialize your book
 4. Return a `Response` to the client
@@ -625,10 +673,10 @@ Now, try it on your own with `show`!
 > ##### A quick note on class-based views:
 >
 > The purpose of class-based views is to group our requests, to make them
-> "restful" so we have a view class called `BooksView` that contains `get` and
+> "restful" so we have a view class called `Books` that contains `get` and
 > `post` functions, and will be used when make a request to `/books`. If we
-> make a **GET** request, that `BooksView` class will point us to the `get` function,
-> vise-versa with **POST**. Similarly, the BookDetailView class contains `get`,
+> make a **GET** request, that `Books` class will point us to the `get` function,
+> vise-versa with **POST**. Similarly, the BookDetail class contains `get`,
 > `patch`, and `delete` functions to handle **GET**, **PATCH**, and **DELETE**
 > requests to `/books/:id`.
 
@@ -641,7 +689,7 @@ So far, we have only been working on requesting data from our database. We can
 also make a POST request that will create books on the database for us.
 
 The endpoint for our post request will go to `/books`, so we will nest it
-inside of our current `BooksView` class.
+inside of our current `Books` class.
 
 Let's add this post view and have it do the following:
 
@@ -671,11 +719,11 @@ class Books(APIView):
             return Response(book.errors, status=status.HTTP_400_BAD_REQUEST)
 ```
 
-### Exercise: UPDATE and DELETE
+### UPDATE and DELETE
 
 Time to finish up the last two RESTful views we need on our application.
 
-1. Add `put` and `delete` functions to your `BookDetailView` class view
+1. Add `put` and `delete` functions to your `BookDetail` class view
 2. For each, locate the desired book using the `pk` (primary key)
 3. For `put`, research how to use our serializer for updating data 
 4. For `delete`, research how to delete a resource with Django
@@ -694,11 +742,11 @@ class BookDetail(APIView):
     def put(self, request, pk):
         """Update Request"""
         book = get_object_or_404(Book, pk=pk)
-        ms = BookSerializer(book, data=request.data, partial=True)
-        if ms.is_valid():
-            ms.save()
-            return Response(ms.data)
-        return Response(ms.errors, status=status.HTTP_400_BAD_REQUEST)
+        updatedBook = BookSerializer(book, data=request.data, partial=True)
+        if updatedBook.is_valid():
+            updatedBook.save()
+            return Response(updatedBook.data)
+        return Response(updatedBook.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
         """Delete Request"""
@@ -707,8 +755,6 @@ class BookDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 ```
 
-
-<br><br>
 
 <!-- ## Bonus Lab: Concrete View Classes
 

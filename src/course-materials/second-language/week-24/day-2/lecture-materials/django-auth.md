@@ -6,23 +6,18 @@ day: 2
 type: "lecture"
 ---
 
-
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
-
-
-# Django Authentication
-
+# Django Authentication using Django Rest Framework
 
 ## Preparation
 
-1. Fork and clone [this repository](https://git.generalassemb.ly/laurenperez-ga/django-authentication) **into the `django-env` folder**. [FAQ](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
-2. Run `pipenv shell` **inside the `django-env` folder** to start up your virtual environment.
+1. Fork and clone [this repository](https://git.generalassemb.ly/laurenperez-ga/django-authentication) **into the `django-env` folder**.
+2. Run `pipenv shell` **inside the `django-env` folder** to start up your
+   virtual environment.
 3. Change into this repository's directory
 4. Create a psql database with `createdb "django-auth"`
 5. Run the server with `python manage.py runserver`
 
-
-## Authentication with Django Rest Framework
+## Authentication with Django
 
 We will be using **session based authentication** along with **django-rest-framework** in our web application by leveraging the built-in Django session framework.
 
@@ -49,8 +44,8 @@ REST_FRAMEWORK = {
 
 ```
 
-    TIP: *Authentication* deals with recognizing the users that are connecting to your API,
-    while *Permissions* involves giving access to some resources to the users.
+TIP: _Authentication_ deals with recognizing the users that are connecting to your API,
+while _Permissions_ involves giving access to some resources to the users.
 
 <br><br>
 
@@ -124,7 +119,8 @@ from .serializers import LoginSerializer
 
 class LoginView(APIView):
     # This view should be accessible also for unauthenticated users.
-    permission_classes = (permissions.AllowAny)
+    authentication_classes = ()
+    permission_classes = ()
 
     def post(self, request, format=None):
         serializer = LoginSerializer(data=request.data,
@@ -156,15 +152,15 @@ urlpatterns = [
 
 <br><br>
 
-### 5) The User Model
+### 5) The UserModel
 
-At the core of Django's authentication, is the provided User Model which by default has the following attributes:
+At the core of Django's authentication, is the provided UserModel which by default has the following attributes:
 
-    - username
-    - password
-    - email
-    - first_name
-    - last_name
+- username
+- password
+- email
+- first_name
+- last_name
 
 This means that we do not create the model OR need migration file for it.
 
@@ -197,41 +193,41 @@ Go to **localhost:8000** to see.... nothing.
 
 We don't have a view here, but it will give you some suggestions:
 
-**localhost:8000/admin/
-localhost:8000/login/**
+- **localhost:8000/admin/**
+- **localhost:8000/login/**
 
 <br><br>
 
-## 6) Django Admin Portal
+### 6) Django Admin Portal
 
 Go to **localhost:8000/admin/** to see the most magical thing:
 
-    - Your very own admin portal, provided by django when you created a superuser!
-    - Enter the credentials that you just made to log in.
+- Your very own admin portal, provided by django when you created a superuser!
+- Enter the credentials that you just made to log in.
 
 Now you have full visibility of your models:
 
-    - Groups
-    - Users
+- Groups
+- Users
 
 You can actually perform full crud operations right from the portal.
 
 Let's make a user so we can test our Login functions:
 
-    - click **`+Add`** next to the user model
+- click **`+Add`** next to the user model
 
 **Create a user.**
 
-## 7) Login with User
+### 7) Login with User
 
 Test your new user in postman by sending a **POST** request to
 
-    - localhost:8000/login/
+- localhost:8000/login/
 
 **Add the user credentials to the body:**
 
-username: myusername
-password: mypassword
+- username: myusername
+- password: mypassword
 
 If you entered them correctly you'll notice that a couple of cookies were returned with your response.
 
@@ -239,9 +235,9 @@ If we will persist that session cookie in each request, our user will be persist
 
 <br><br>
 
-### 8) SignUp View
+### 8) Create SignUp View
 
-We can create a new user in the admin portal... great. 
+We can create a new user in the admin portal... great.
 Now we need an endpoint to collect user info for the first time.
 
 Add a new view for **SignUp**:
@@ -266,14 +262,14 @@ class SignUpView(generics.CreateAPIView):
             return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
 ```
 
-
-
 We will also need two new serializers to handle the incoming user credentials:
 
-Create a **UserRegisterSerializer** and  **UserSerializer**:
+Create a **UserRegisterSerializer** and **UserSerializer**:
 
 ```py
 from django.contrib.auth import authenticate, get_user_model
+from django.contrib.auth.models import User # <- import user model
+
 
 class UserRegisterSerializer(serializers.Serializer):
     # Required fields for signup
@@ -309,6 +305,7 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         return get_user_model().objects.create_user(**validated_data)
 ```
+
 <br>
 
 Finally, add the **SignUpView** to our list of url patterns in `urls.py`:
@@ -318,16 +315,13 @@ path('signup/', views.SignUpView.as_view()),
 ```
 
 Test it out! Sign up a new user is postman.  
-Can you login and get a cookie with your new user? 
+Can you login and get a cookie with your new user?
 
 <br><br>
 
-
-
-### 9) Logout
+### 9) Create Logout View
 
 Add the following to `views.py` to use the build in logout method provided by Django:
-
 
 ```py
 from django.contrib.auth import login, logout # <- import built in logout method
@@ -343,23 +337,19 @@ class LogoutView(APIView):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 ```
 
-
-Add your logout url to url patterns in `urls.py`: 
-
+Add your logout url to url patterns in `urls.py`:
 
 ```py
  path('logout/', views.LogoutView.as_view()),
 ```
-<br><br>
 
+<br><br>
 
 ### 10) Protecting Profile Views
 
+Note: We added `rest_framework.permissions.IsAuthenticated` in our `DEFAULT_PERMISSION_CLASSES` setting, so each view will require that the user is authenticated, unless otherwise specified.
 
-  Note: We added `rest_framework.permissions.IsAuthenticated` in our `DEFAULT_PERMISSION_CLASSES` setting, so each view will require that the user is authenticated, unless otherwise specified.
-
-
-Add a **Profile view** for the user: 
+Add a **Profile view** for the user:
 
 ```py
 #add to top
@@ -367,12 +357,11 @@ from .serializers import LoginSerializer, UserSerializer
 
 
 class ProfileView(APIView): # will be protected by default
-    
+
     def get(self, request):
         user = UserSerializer(request.user).data
         return Response(user)
 ```
-
 
 Add this new view to our url patterns:
 
@@ -380,5 +369,4 @@ Add this new view to our url patterns:
 path('profile/', views.ProfileView.as_view())
 ```
 
-Any future views you create and add to your URL patterns will be protected too by default. 
-
+Any future views you create and add to your URL patterns will be protected too by default.
