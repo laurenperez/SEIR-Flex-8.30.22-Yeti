@@ -24,9 +24,9 @@ The complexity of this project is up to you, but there are some guidelines and a
 
 #### Your application must:
 
-  ☐ Utilize **at least one new technology** that was **not** taught during SEI FLEX. 
-  ☐ Have at least **one model with full crud capability OR something equally complex***
-  ☐ Be fully **deployed**
+  ☐ Utilize **at least one new technology** that was **not** taught during SEI FLEX.<br>
+  ☐ Have at least **one model with full crud capability OR something equally complex***<br>
+  ☐ Be fully **deployed**<br>
 
 
   * You will need approval from an instructor if your proposed application does not include full crud
@@ -45,7 +45,8 @@ The complexity of this project is up to you, but there are some guidelines and a
 ☐ Frequent **commits** and clean, dry, code
 
 #### Presentations Requirements:
-  ☐ **5 - 7 min presentation** starting with readme, ending in a full site demo
+
+  ☐ **5 - 7 min presentation** starting with readme, ending in a full site demo<br>
   ☐ Be prepared to give and receive written feedback from your peers
 
 <br>

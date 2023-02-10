@@ -30,10 +30,13 @@ All of the following should be included in your project `README.md`
 
    A **[Trello](https://trello.com/) board** with the following:
     
-  ☐ **User Stories**
-  ☐ **Backlog**
-  ☐ **In Progress**
-  ☐ **Completed**
+  ☐ **User Stories**<br>
+
+  ☐ **Backlog**<br>
+
+  ☐ **In Progress**<br>
+
+  ☐ **Completed**<br>
 
     
   **User Stories** should follow this structure:
@@ -69,7 +72,7 @@ All of the following should be included in your project `README.md`
   ☐ An **ERD** showing the attributes of each Model entity and the relationships between them. 
     
     
-  Refer to the Django Relationships lecture for assistance.
+  Refer to the [Django Relationships lecture](https://git.generalassemb.ly/laurenperez-ga/django-relationships) for assistance.
 
 
 <br>
