@@ -1,14 +1,14 @@
 ---
 track: "Second Language"
-title: "Week 23 - Day 2"
-week: 23
+title: "Week 26 - Day 2"
+week: 26
 day: 2
 type: "homepage"
 topics: "Project Presentations"
 ---
 
-# Week 23 - Day 2
+# Week 26 - Day 2
 
 #### Project Presentations!
 
-- **Activity:** Present Project 4
+- **Activity:** Present Project 4!
